@@ -8,7 +8,7 @@ export default function NotFound() {
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#071326] text-slate-100 p-6 text-center">
       <div className="relative mb-6">
         <Image
-          src="/images/thet-and-thu-logo.png"
+          src="/images/thet-and-thu-logo.webp"
           alt="THET & THU CO., LTD."
           width={220}
           height={70}
@@ -26,19 +26,22 @@ export default function NotFound() {
         404
       </h1>
       <h2 className="mt-3 text-xl sm:text-2xl font-bold text-white">
-        Page Not Found
+        Page Not Found / စာမျက်နှာ ရှာမတွေ့ပါ
       </h2>
       <p className="mt-2 text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
         The requested corporate document or sub-division page does not exist or has been relocated.
+      </p>
+      <p className="mt-1 text-xs text-slate-400 max-w-md mx-auto leading-relaxed">
+        သင်ရှာဖွေနေသော စာမျက်နှာသည် တည်ရှိခြင်း မရှိပါ သို့မဟုတ် ရွှေ့ပြောင်းသွားခြင်း ဖြစ်နိုင်ပါသည်။
       </p>
 
       <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-[#D4AF37] text-[#071326] hover:bg-[#F3C65F] transition-colors"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-[#D4AF37] text-[#071326] hover:bg-[#F3C65F] transition-colors shadow-lg shadow-amber-500/20"
         >
           <Home className="w-4 h-4" />
-          <span>Return to Corporate Homepage</span>
+          <span>Return to Homepage / ပင်မစာမျက်နှာသို့ ပြန်သွားရန်</span>
         </Link>
       </div>
 

@@ -16,6 +16,7 @@ import {
   Landmark,
   Scale,
   Lock,
+  Phone,
 } from 'lucide-react';
 
 export default function TrustOneSection() {
@@ -35,7 +36,7 @@ export default function TrustOneSection() {
           <div className="flex items-center gap-5 sm:gap-6">
             <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden bg-[#071326] border-2 border-amber-500/40 p-2 shadow-xl shadow-amber-950/60 flex-shrink-0 group">
               <Image
-                src="/images/trust-one-logo.png"
+                src="/images/trust-one-logo.webp"
                 alt="Trust One Properties"
                 width={120}
                 height={120}
@@ -72,7 +73,7 @@ export default function TrustOneSection() {
               <Lock className="w-6 h-6 text-amber-400" />
             </div>
             <div>
-              <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-amber-500/20 text-amber-300 border border-amber-500/30 mb-1">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xl text-[11px] font-bold uppercase tracking-wider bg-amber-500/20 text-amber-300 border border-amber-500/30 mb-1">
                 <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
                 <span>{t.trustOne.complianceBadge}</span>
               </div>
@@ -353,18 +354,34 @@ export default function TrustOneSection() {
                 {t.trustOne.showcaseTitle}
               </h4>
               <p className="text-xs sm:text-sm text-slate-300 mt-2 max-w-2xl leading-relaxed">
-                {isMM
-                  ? 'ဂရင်းကန်ရိပ်သာကွန်ဒို (မင်္ဂလာတောင်ညွန့်) နှင့် Star City (သန်လျင်မြို့နယ်) တို့တွင် ရုံးခန်းဖွင့်လှစ်ထားပြီး စီးပွားရေးလုပ်ငန်းရှင်များ၊ ရင်းနှီးမြှုပ်နှံသူများနှင့် အိမ်ပိုင်ရှင်များအတွက် တရားဝင်အိမ်ခြံမြေ ဝန်ဆောင်မှု ပေးအပ်လျက်ရှိပါသည်။'
-                  : 'Active domestic representation at Grand Kan Yeik Thar Condo (Mingalar Taung Nyunt) and Star City (Thanlyin Township), serving commercial developers, private investors, and homeowners.'}
+                {t.trustOne.showcaseSubtitle}
               </p>
             </div>
 
-            <Link
-              href="/#contact"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-xl text-xs sm:text-sm font-bold bg-[#D4AF37] text-[#050B16] hover:bg-[#F3C65F] transition-colors shadow-lg shadow-amber-500/20 flex-shrink-0 whitespace-nowrap"
-            >
-              <span>{t.trustOne.ctaButton}</span>
-            </Link>
+            <div className="flex flex-wrap items-center gap-3 flex-shrink-0">
+              <a
+                href="tel:+9595056524"
+                className="inline-flex items-center gap-2 px-4 py-3 rounded-xl text-xs sm:text-sm font-bold bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border border-amber-500/30 transition-colors shadow-lg shadow-amber-500/10 whitespace-nowrap"
+                title="Call Trust One Desk"
+              >
+                <Phone className="w-4 h-4 text-amber-400" />
+                <span>09 505 6524</span>
+              </a>
+              <a
+                href="tel:+959795056524"
+                className="inline-flex items-center gap-2 px-4 py-3 rounded-xl text-xs sm:text-sm font-bold bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border border-amber-500/30 transition-colors shadow-lg shadow-amber-500/10 whitespace-nowrap"
+                title="Call Trust One Mobile Desk"
+              >
+                <Phone className="w-4 h-4 text-amber-400" />
+                <span>09 795 056 524</span>
+              </a>
+              <Link
+                href="/#contact"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-xl text-xs sm:text-sm font-bold bg-[#D4AF37] text-[#050B16] hover:bg-[#F3C65F] transition-colors shadow-lg shadow-amber-500/20 whitespace-nowrap"
+              >
+                <span>{t.trustOne.ctaButton}</span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

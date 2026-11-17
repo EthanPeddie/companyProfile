@@ -31,7 +31,7 @@ export default function Footer() {
           <div className="lg:col-span-4 space-y-4">
             <div className="inline-block rounded-xl overflow-hidden bg-[#071326] border border-amber-500/30 p-2">
               <Image
-                src="/images/thet-and-thu-logo.png"
+                src="/images/thet-and-thu-logo.webp"
                 alt="THET & THU CO., LTD."
                 width={200}
                 height={60}
@@ -49,7 +49,9 @@ export default function Footer() {
             </p>
 
             <div className="pt-2 flex items-center gap-2">
-              <span className="text-xs text-slate-500">Language / ဘာသာစကား:</span>
+              <span className="text-xs text-slate-400">
+                {language === 'MM' ? 'ဘာသာစကား ရွေးချယ်ရန်:' : 'Select Language:'}
+              </span>
               <div className="inline-flex rounded-lg bg-[#071326] p-0.5 border border-white/10">
                 <button
                   type="button"
@@ -60,7 +62,7 @@ export default function Footer() {
                       : 'text-slate-400 hover:text-white'
                   }`}
                 >
-                  English
+                  EN
                 </button>
                 <button
                   type="button"
@@ -89,10 +91,10 @@ export default function Footer() {
               >
                 <div className="flex items-center gap-2 text-xs font-bold text-cyan-300 group-hover:text-cyan-200">
                   <Code2 className="w-3.5 h-3.5 text-cyan-400" />
-                  <span>Polaris Tech Solution</span>
+                  <span>{t.nav.polarisDropdownTitle}</span>
                 </div>
-                <div className="text-[11px] text-slate-400 mt-1">
-                  Bespoke ERP, Multi-Branch POS &amp; Mobile
+                <div className="text-[11px] text-slate-400 mt-1 line-clamp-2">
+                  {t.nav.polarisDropdownDesc}
                 </div>
               </Link>
 
@@ -102,10 +104,10 @@ export default function Footer() {
               >
                 <div className="flex items-center gap-2 text-xs font-bold text-amber-300 group-hover:text-amber-200">
                   <Building2 className="w-3.5 h-3.5 text-amber-400" />
-                  <span>Trust One Properties</span>
+                  <span>{t.nav.trustOneDropdownTitle}</span>
                 </div>
-                <div className="text-[11px] text-slate-400 mt-1">
-                  Domestic Myanmar Land, Condos &amp; Advisory
+                <div className="text-[11px] text-slate-400 mt-1 line-clamp-2">
+                  {t.nav.trustOneDropdownDesc}
                 </div>
               </Link>
             </div>
@@ -118,23 +120,37 @@ export default function Footer() {
             </h4>
 
             <div className="space-y-3 text-xs pt-1">
-              <div className="p-3 rounded-xl bg-[#071326] border border-white/5 space-y-1">
-                <div className="font-bold text-amber-300 flex items-center gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-amber-400" />
-                  <span>Head Office (Yangon City)</span>
+              <div className="p-3 rounded-xl bg-[#071326] border border-white/5 space-y-1.5">
+                <div className="font-bold text-amber-300 flex flex-wrap items-center justify-between gap-1.5">
+                  <span className="flex items-center gap-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-amber-400" />
+                    <span>{t.offices.headOfficeTitle}</span>
+                  </span>
+                  <span className="font-mono text-[11px] text-amber-400 font-semibold space-x-1">
+                    <a href="tel:+9595056524" className="hover:underline">09 505 6524</a>
+                    <span className="text-white/20">/</span>
+                    <a href="tel:+959443212306" className="hover:underline">09 443 212 306</a>
+                  </span>
                 </div>
                 <div className="text-slate-300 leading-relaxed text-[11px]">
-                  No.(3), Room No.(9D), Grand Kan Yeik Thar Condo, Kan Yeik Thar Road, Mingalar Taung Nyunt Township, Yangon, Myanmar.
+                  {t.offices.headOfficeAddress}
                 </div>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#071326] border border-white/5 space-y-1">
-                <div className="font-bold text-cyan-300 flex items-center gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-cyan-400" />
-                  <span>Branch Office (Thanlyin)</span>
+              <div className="p-3 rounded-xl bg-[#071326] border border-white/5 space-y-1.5">
+                <div className="font-bold text-cyan-300 flex flex-wrap items-center justify-between gap-1.5">
+                  <span className="flex items-center gap-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-cyan-400" />
+                    <span>{t.offices.branchOfficeTitle}</span>
+                  </span>
+                  <span className="font-mono text-[11px] space-x-1.5 text-slate-300 font-medium">
+                    <a href="tel:+959780654277" className="text-cyan-400 hover:underline">Polaris: 09 780 654 277</a>
+                    <span className="text-white/20">|</span>
+                    <a href="tel:+959795056524" className="text-amber-400 hover:underline">Trust One: 09 795 056 524</a>
+                  </span>
                 </div>
                 <div className="text-slate-300 leading-relaxed text-[11px]">
-                  ARA Building Y20, 105/B, Star City, ThanLyin Township, Yangon, Myanmar.
+                  {t.offices.branchOfficeAddress}
                 </div>
               </div>
 
@@ -146,13 +162,16 @@ export default function Footer() {
                   <Mail className="w-3.5 h-3.5 text-amber-400" />
                   <span>info@thetandthu.com</span>
                 </a>
-                <a
-                  href="tel:+959450000000"
-                  className="hover:text-amber-400 flex items-center gap-1.5"
-                >
+                <div className="flex items-center gap-2">
                   <Phone className="w-3.5 h-3.5 text-amber-400" />
-                  <span>+95 9 450 000 000</span>
-                </a>
+                  <a href="tel:+9595056524" className="hover:text-amber-300 transition-colors">
+                    09 505 6524
+                  </a>
+                  <span className="text-white/20">/</span>
+                  <a href="tel:+959443212306" className="hover:text-amber-300 transition-colors">
+                    09 443 212 306
+                  </a>
+                </div>
               </div>
             </div>
           </div>

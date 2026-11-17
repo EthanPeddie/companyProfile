@@ -27,6 +27,15 @@ export default function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [cooldown, setCooldown] = useState(0);
+
+  React.useEffect(() => {
+    if (cooldown <= 0) return;
+    const timer = setInterval(() => {
+      setCooldown((prev) => (prev > 0 ? prev - 1 : 0));
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [cooldown]);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -42,6 +51,15 @@ export default function ContactSection() {
 
     // Honeypot spam check
     if (formData.honeypot) return;
+
+    if (cooldown > 0) {
+      setErrorMessage(
+        isMM
+          ? `ကျေးဇူးပြု၍ နောက်ထပ် မက်ဆေ့ခ်ျမပို့မီ ${cooldown} စက္ကန့် စောင့်ဆိုင်းပေးပါ။`
+          : `Please wait ${cooldown} seconds before sending another inquiry.`
+      );
+      return;
+    }
 
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       setErrorMessage(t.contact.validationError);
@@ -78,6 +96,7 @@ export default function ContactSection() {
         const data = await res.json();
         if (data.success) {
           setSubmitted(true);
+          setCooldown(60);
         } else {
           setErrorMessage(
             data.message ||
@@ -91,6 +110,7 @@ export default function ContactSection() {
         // Fallback demo acknowledgment for development without live access key
         await new Promise((resolve) => setTimeout(resolve, 800));
         setSubmitted(true);
+        setCooldown(60);
       }
     } catch {
       setErrorMessage(
@@ -163,28 +183,42 @@ export default function ContactSection() {
                   </div>
                 </a>
 
-                <a
-                  href="tel:+959450000000"
-                  className="flex items-center gap-3.5 p-3.5 rounded-xl bg-[#040812] border border-white/10 hover:border-amber-400 transition-colors group"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
-                    <Phone className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-slate-400">{t.contact.hotlineLabel}</div>
-                    <div className="text-sm font-semibold text-white group-hover:text-amber-300">
-                      +95 9 450 000 000 / +95 9 790 000 000
+                <div className="p-3.5 rounded-xl bg-[#040812] border border-white/10 hover:border-amber-400 transition-colors group">
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                      <Phone className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="text-xs text-slate-400">{t.contact.hotlineLabel} (THET &amp; THU)</div>
+                      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm font-semibold text-white mt-0.5">
+                        <a href="tel:+9595056524" className="hover:text-amber-300 transition-colors">
+                          09 505 6524
+                        </a>
+                        <span className="text-white/20">/</span>
+                        <a href="tel:+959443212306" className="hover:text-amber-300 transition-colors">
+                          09 443 212 306
+                        </a>
+                      </div>
                     </div>
                   </div>
-                </a>
+                </div>
               </div>
 
               {/* Divisional Routing Notice */}
               <div className="mt-6 pt-5 border-t border-white/10 space-y-3">
                 <div className="flex items-start gap-3 text-xs text-slate-300">
                   <span className="w-2 h-2 rounded-full bg-cyan-400 mt-1.5 flex-shrink-0" />
-                  <div>
-                    <strong className="text-cyan-300">Polaris Tech Solution:</strong>
+                  <div className="flex-1">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <strong className="text-cyan-300">Polaris Tech Solution:</strong>
+                      <a
+                        href="tel:+959780654277"
+                        className="font-mono text-cyan-400 hover:text-cyan-200 transition-colors font-semibold"
+                        title="Call Polaris Tech Solution"
+                      >
+                        09 780 654 277
+                      </a>
+                    </div>
                     <div className="text-slate-400 mt-0.5 leading-relaxed">
                       {t.contact.polarisRouting}
                     </div>
@@ -193,8 +227,27 @@ export default function ContactSection() {
 
                 <div className="flex items-start gap-3 text-xs text-slate-300">
                   <span className="w-2 h-2 rounded-full bg-amber-400 mt-1.5 flex-shrink-0" />
-                  <div>
-                    <strong className="text-amber-300">Trust One Properties:</strong>
+                  <div className="flex-1">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <strong className="text-amber-300">Trust One Properties:</strong>
+                      <span className="font-mono text-amber-400 font-semibold space-x-1.5">
+                        <a
+                          href="tel:+9595056524"
+                          className="hover:text-amber-200 transition-colors"
+                          title="Call Trust One Desk"
+                        >
+                          09 505 6524
+                        </a>
+                        <span className="text-white/20">/</span>
+                        <a
+                          href="tel:+959795056524"
+                          className="hover:text-amber-200 transition-colors"
+                          title="Call Trust One Desk"
+                        >
+                          09 795 056 524
+                        </a>
+                      </span>
+                    </div>
                     <div className="text-slate-400 mt-0.5 leading-relaxed">
                       {t.contact.trustOneRouting}
                     </div>
@@ -233,7 +286,9 @@ export default function ContactSection() {
                   </p>
                   <button
                     type="button"
+                    disabled={cooldown > 0}
                     onClick={() => {
+                      if (cooldown > 0) return;
                       setSubmitted(false);
                       setFormData({
                         name: '',
@@ -244,9 +299,13 @@ export default function ContactSection() {
                         honeypot: '',
                       });
                     }}
-                    className="mt-6 inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white/10 hover:bg-white/20 text-white transition-colors"
+                    className="mt-6 inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white/10 hover:bg-white/20 text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <span>{t.contact.sendAnother}</span>
+                    <span>
+                      {cooldown > 0
+                        ? (isMM ? `နောက်ထပ်မေးမြန်းရန် (${cooldown} စက္ကန့်)` : `Cooldown Active (${cooldown}s)`)
+                        : t.contact.sendAnother}
+                    </span>
                   </button>
                 </div>
               ) : (
@@ -266,9 +325,15 @@ export default function ContactSection() {
                     <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
                       {t.contact.divisionLabel}
                     </label>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                    <div
+                      role="radiogroup"
+                      aria-label={t.contact.divisionLabel}
+                      className="grid grid-cols-1 sm:grid-cols-3 gap-2.5"
+                    >
                       <button
                         type="button"
+                        role="radio"
+                        aria-checked={formData.division === 'general'}
                         onClick={() =>
                           setFormData((p) => ({ ...p, division: 'general' }))
                         }
@@ -284,6 +349,8 @@ export default function ContactSection() {
 
                       <button
                         type="button"
+                        role="radio"
+                        aria-checked={formData.division === 'polaris'}
                         onClick={() =>
                           setFormData((p) => ({ ...p, division: 'polaris' }))
                         }
@@ -299,6 +366,8 @@ export default function ContactSection() {
 
                       <button
                         type="button"
+                        role="radio"
+                        aria-checked={formData.division === 'trust-one'}
                         onClick={() =>
                           setFormData((p) => ({ ...p, division: 'trust-one' }))
                         }

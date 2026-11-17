@@ -11,6 +11,12 @@ export interface TranslationDictionary {
     contact: string;
     inquireNow: string;
     holdingBadge: string;
+    polarisDropdownTitle: string;
+    polarisDropdownBadge: string;
+    polarisDropdownDesc: string;
+    trustOneDropdownTitle: string;
+    trustOneDropdownBadge: string;
+    trustOneDropdownDesc: string;
   };
   hero: {
     estBadge: string;
@@ -253,6 +259,12 @@ export const translations: Record<Language, TranslationDictionary> = {
       contact: "Inquiries",
       inquireNow: "Consult With Us",
       holdingBadge: "Holding Company",
+      polarisDropdownTitle: "Polaris Tech Solution",
+      polarisDropdownBadge: "Software",
+      polarisDropdownDesc: "Custom ERP systems, retail POS platforms, and enterprise mobile apps.",
+      trustOneDropdownTitle: "Trust One Properties",
+      trustOneDropdownBadge: "Real Estate",
+      trustOneDropdownDesc: "Verified Myanmar domestic land, luxury condominiums, and private estates.",
     },
     hero: {
       estBadge: "ESTABLISHED 2014 • OVER A DECADE OF CORPORATE INTEGRITY",
@@ -490,7 +502,7 @@ export const translations: Record<Language, TranslationDictionary> = {
       emailLabel: "Official Email Address",
       emailPlaceholder: "e.g. thantzin@organization.com",
       phoneLabel: "Phone Number (Myanmar / International)",
-      phonePlaceholder: "e.g. +95 9 123 456 789",
+      phonePlaceholder: "e.g. 09 505 6524 or +95 9 505 6524",
       divisionLabel: "Business Division of Interest",
       divGeneral: "THET & THU CO., LTD. (Corporate Holding / General)",
       divPolaris: "Polaris Tech Solution (Custom Software & Systems)",
@@ -545,6 +557,12 @@ export const translations: Record<Language, TranslationDictionary> = {
       contact: "ဆက်သွယ်ရန်",
       inquireNow: "မေးမြန်းဆွေးနွေးရန်",
       holdingBadge: "ဟိုးဒင်းကုမ္ပဏီကြီး",
+      polarisDropdownTitle: "Polaris Tech Solution",
+      polarisDropdownBadge: "ဆော့ဖ်ဝဲလ်",
+      polarisDropdownDesc: "လုပ်ငန်းသုံး စိတ်ကြိုက် ERP၊ POS အရောင်းစနစ်နှင့် မိုဘိုင်းဆော့ဖ်ဝဲလ်များ",
+      trustOneDropdownTitle: "Trust One Properties",
+      trustOneDropdownBadge: "အိမ်ခြံမြေ",
+      trustOneDropdownDesc: "စာရွက်စာတမ်းခိုင်မာသော ပြည်တွင်း မြေကွက်၊ ကွန်ဒိုနှင့် အိမ်ရာများ",
     },
     hero: {
       estBadge: "၂၀၁၄ ခုနှစ်မှစတင်တည်ထောင်ခဲ့သည် • ဆယ်စုနှစ်ကျော် တည်တံ့ခိုင်မြဲသော စံချိန်စံညွှန်း",
@@ -574,13 +592,13 @@ export const translations: Record<Language, TranslationDictionary> = {
       exploreTrustBtn: "ပြည်တွင်း အိမ်ခြံမြေ ဝန်ဆောင်မှုများကို ကြည့်ရှုရန်",
       domesticBadge: "၁၀၀% မြန်မာပြည်တွင်း အိမ်ခြံမြေသာ",
       bespokeBadge: "လုပ်ငန်းသီးသန့် စိတ်ကြိုက်စနစ် • ပုံစံတူဆော့ဖ်ဝဲလ်များ မဟုတ်ပါ",
-      heroPolarisFeat1Title: "Custom ERP & CRM",
+      heroPolarisFeat1Title: "စိတ်ကြိုက် ERP နှင့် CRM",
       heroPolarisFeat1Desc: "လုပ်ငန်းသုံး သီးသန့်ဒက်ရှ်ဘုတ်များ",
-      heroPolarisFeat2Title: "Multi-Store POS",
+      heroPolarisFeat2Title: "ဆိုင်ခွဲသုံး POS စနစ်",
       heroPolarisFeat2Desc: "ဆိုင်ခွဲများ စတော့ခ်အချိန်နှင့်တပြေးညီ ချိတ်ဆက်မှု",
-      heroPolarisFeat3Title: "Enterprise Mobile",
+      heroPolarisFeat3Title: "လုပ်ငန်းသုံး မိုဘိုင်းအက်ပ်",
       heroPolarisFeat3Desc: "GPS ရုံးတက်/ဆင်းနှင့် ကွင်းဆင်းအက်ပ်များ",
-      heroPolarisFeat4Title: "Cloud Infrastructure",
+      heroPolarisFeat4Title: "Cloud အခြေခံအဆောက်အအုံ",
       heroPolarisFeat4Desc: "လုံခြုံစိတ်ချရသော VPS နှင့် ၉၉.၉% Uptime",
       heroTrustFeat1Title: "မြေကွက်နှင့် လုပ်ငန်းသုံးမြေ",
       heroTrustFeat1Desc: "ရန်ကုန်နှင့် သန်လျင် စီးပွားရေးမြေကွက်များ",
@@ -634,7 +652,7 @@ export const translations: Record<Language, TranslationDictionary> = {
         "ကျွန်ုပ်တို့သည် အဆင်သင့်ရောင်းချသော သမားရိုးကျ SaaS ဆော့ဖ်ဝဲလ်များကို မရောင်းချပါ။ သင့်လုပ်ငန်း၏ နေ့စဉ် SOP များ၊ ဌာနတွင်း လုပ်ထုံးလုပ်နည်းများနှင့် ကိုက်ညီသော စနစ်သီးသန့်များကိုသာ အထူးပြု ရေးဆွဲပေးပါသည်။",
       servicesTitle: "အဓိက ဆောင်ရွက်ပေးသော နည်းပညာဝန်ဆောင်မှုများ",
       servicesSubtitle: "လုပ်ငန်းခွင် အချိန်ကြန့်ကြာမှုများကို လျှော့ချပြီး လုပ်ငန်းတိုးချဲ့မှုကို အထောက်အကူပြုသော နည်းပညာများ။",
-      service1Title: "Custom Web & Enterprise Applications",
+      service1Title: "စိတ်ကြိုက် ဝဘ်နှင့် လုပ်ငန်းသုံး အက်ပလီကေးရှင်းများ",
       service1Desc: "ကုမ္ပဏီတွင်း ဒေတာများကို တစ်နေရာတည်းတွင် စီမံခန့်ခွဲနိုင်သော စိတ်ကြိုက် ERP၊ CRM နှင့် လုပ်ငန်းခွင် စီမံခန့်ခွဲမှု စနစ်များ။",
       service1Features: [
         "လုပ်ငန်းသီးသန့် ERP နှင့် CRM စနစ်များ",
@@ -782,7 +800,7 @@ export const translations: Record<Language, TranslationDictionary> = {
       emailLabel: "တရားဝင် အီးမေးလ်လိပ်စာ",
       emailPlaceholder: "ဥပမာ - thantzin@organization.com",
       phoneLabel: "ဖုန်းနံပါတ်",
-      phonePlaceholder: "ဥပမာ - ၀၉ ၁၂၃ ၄၅၆ ၇၈၉",
+      phonePlaceholder: "ဥပမာ - ၀၉ ၅၀၅ ၆၅၂၄ (သို့မဟုတ် ၀၉ ၄၄၃ ၂၁၂ ၃၀၆)",
       divisionLabel: "စိတ်ဝင်စားသော လုပ်ငန်းခွဲ ရွေးချယ်ရန်",
       divGeneral: "သက်နှင့်သူ ကုမ္ပဏီလီမိတက် (ဟိုးဒင်း/အထွေထွေ ဆွေးနွေးရန်)",
       divPolaris: "Polaris Tech Solution (နည်းပညာနှင့် စိတ်ကြိုက်ဆော့ဖ်ဝဲလ်)",
@@ -813,7 +831,7 @@ export const translations: Record<Language, TranslationDictionary> = {
       divTrustOneSub: "ပြည်တွင်း အိမ်ခြံမြေ",
     },
     footer: {
-      parentTagline: "Building A Better Tomorrow Together",
+      parentTagline: "ပိုမိုကောင်းမွန်သော အနာဂတ်ကို အတူတကွ တည်ဆောက်ကြပါစို့",
       holdingDesc:
         "သက်နှင့်သူ ကုမ္ပဏီလီမိတက်သည် ဆယ်စုနှစ်ကျော် လုပ်ငန်းအတွေ့အကြုံရှိသော မြန်မာဟိုးဒင်းကုမ္ပဏီဖြစ်ပြီး စိတ်ကြိုက်ဆော့ဖ်ဝဲလ်စနစ်များနှင့် ပြည်တွင်းအိမ်ခြံမြေ ဝန်ဆောင်မှုများကို အောင်မြင်စွာ ပေါင်းစပ်ဆောင်ရွက်ပေးလျက်ရှိပါသည်။",
       divisionsHeading: "စီးပွားရေးလုပ်ငန်းခွဲများ",

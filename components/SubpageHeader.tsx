@@ -15,7 +15,7 @@ export default function SubpageHeader({ division }: SubpageHeaderProps) {
   if (division === 'polaris') {
     return (
       <div className="bg-[#071326] border-b border-cyan-500/20 py-3">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors"
@@ -43,7 +43,7 @@ export default function SubpageHeader({ division }: SubpageHeaderProps) {
 
   return (
     <div className="bg-[#0B192C] border-b border-amber-500/20 py-3">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-xs font-semibold text-amber-400 hover:text-amber-300 transition-colors"

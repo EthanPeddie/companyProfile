@@ -19,6 +19,7 @@ import {
   Layers,
   ShieldCheck,
   Globe,
+  Phone,
 } from 'lucide-react';
 
 export default function PolarisSection() {
@@ -37,7 +38,7 @@ export default function PolarisSection() {
           <div className="flex items-center gap-5 sm:gap-6">
             <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden bg-[#050B16] border-2 border-cyan-500/40 p-2 shadow-xl shadow-cyan-950/60 flex-shrink-0 group">
               <Image
-                src="/images/polaris-logo.png"
+                src="/images/polaris-logo.webp"
                 alt="Polaris Tech Solution"
                 width={120}
                 height={120}
@@ -222,7 +223,20 @@ export default function PolarisSection() {
         </div>
 
         {/* 3 Core Value Propositions */}
-        <div className="mt-16 lg:mt-20 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="mt-16 lg:mt-20">
+          <div className="max-w-2xl mb-8">
+            <h3
+              className={`text-white ${
+                isMM
+                  ? 'text-xl sm:text-2xl font-semibold leading-relaxed tracking-normal font-sans'
+                  : 'text-xl sm:text-3xl font-extrabold font-heading'
+              }`}
+            >
+              {t.polaris.valuesTitle}
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="p-6 rounded-xl glass-panel-cyan">
             <div className="w-8 h-8 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-3">
               <Layers className="w-4 h-4" />
@@ -259,6 +273,7 @@ export default function PolarisSection() {
             </p>
           </div>
         </div>
+      </div>
 
         {/* Industries Served */}
         <div className="mt-16 lg:mt-24">
@@ -346,44 +361,102 @@ export default function PolarisSection() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            <div className="p-5 rounded-xl bg-[#040812] border border-cyan-500/20">
-              <div className="text-[11px] font-bold text-cyan-400 uppercase tracking-wider mb-2">Phase 1</div>
-              <h5 className="text-sm font-bold text-white mb-2 leading-relaxed">
-                {t.polaris.step1Title}
-              </h5>
-              <p className="text-xs text-slate-400 leading-loose">
-                {t.polaris.step1Desc}
+            <div className="p-5 rounded-xl bg-[#040812] border border-cyan-500/20 h-full flex flex-col justify-between">
+              <div>
+                <div className="text-[11px] font-bold text-cyan-400 uppercase tracking-wider mb-2">
+                  {isMM ? 'အဆင့် ၁' : 'Phase 1'}
+                </div>
+                <h4 className="text-sm font-bold text-white mb-2 leading-relaxed">
+                  {t.polaris.step1Title}
+                </h4>
+                <p className="text-xs text-slate-400 leading-loose">
+                  {t.polaris.step1Desc}
+                </p>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-xl bg-[#040812] border border-cyan-500/20 h-full flex flex-col justify-between">
+              <div>
+                <div className="text-[11px] font-bold text-cyan-400 uppercase tracking-wider mb-2">
+                  {isMM ? 'အဆင့် ၂' : 'Phase 2'}
+                </div>
+                <h4 className="text-sm font-bold text-white mb-2 leading-relaxed">
+                  {t.polaris.step2Title}
+                </h4>
+                <p className="text-xs text-slate-400 leading-loose">
+                  {t.polaris.step2Desc}
+                </p>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-xl bg-[#040812] border border-cyan-500/20 h-full flex flex-col justify-between">
+              <div>
+                <div className="text-[11px] font-bold text-cyan-400 uppercase tracking-wider mb-2">
+                  {isMM ? 'အဆင့် ၃' : 'Phase 3'}
+                </div>
+                <h4 className="text-sm font-bold text-white mb-2 leading-relaxed">
+                  {t.polaris.step3Title}
+                </h4>
+                <p className="text-xs text-slate-400 leading-loose">
+                  {t.polaris.step3Desc}
+                </p>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-xl bg-[#040812] border border-cyan-500/20 h-full flex flex-col justify-between">
+              <div>
+                <div className="text-[11px] font-bold text-cyan-400 uppercase tracking-wider mb-2">
+                  {isMM ? 'အဆင့် ၄' : 'Phase 4'}
+                </div>
+                <h4 className="text-sm font-bold text-white mb-2 leading-relaxed">
+                  {t.polaris.step4Title}
+                </h4>
+                <p className="text-xs text-slate-400 leading-loose">
+                  {t.polaris.step4Desc}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Direct Engineering Consultation Banner */}
+          <div className="mt-12 rounded-2xl glass-panel-cyan p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border border-cyan-500/30">
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-cyan-950/80 text-cyan-300 border border-cyan-500/30">
+                <Terminal className="w-3.5 h-3.5 text-cyan-400" />
+                <span>{isMM ? 'ဆော့ဖ်ဝဲလ် အင်ဂျင်နီယာနှင့် တိုက်ရိုက်ဆွေးနွေးရန်' : 'Direct Tech Architecture Discovery'}</span>
+              </div>
+              <h4
+                className={`text-white mt-2 ${
+                  isMM
+                    ? 'text-lg sm:text-xl font-semibold leading-relaxed tracking-normal font-sans'
+                    : 'text-xl sm:text-2xl font-bold font-heading'
+                }`}
+              >
+                {isMM
+                  ? 'လုပ်ငန်းသုံး ဆော့ဖ်ဝဲလ်နှင့် စနစ်များအတွက် အခမဲ့ ကနဦး ဆွေးနွေးနိုင်ပါသည်'
+                  : 'Ready to Architect Your Custom Software Platform?'}
+              </h4>
+              <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-xl leading-relaxed">
+                {isMM
+                  ? 'သင်၏ လုပ်ငန်းလည်ပတ်ပုံနှင့် အတိအကျ ကိုက်ညီသော စနစ်တည်ဆောက်ရန် Polaris Tech အင်ဂျင်နီယာအဖွဲ့ထံ တိုက်ရိုက်ဖုန်းခေါ်ဆို၍ ဆွေးနွေးနိုင်ပါသည်။'
+                  : 'Speak directly with our senior systems architects to scope your tailored ERP, CRM, or POS workflows.'}
               </p>
             </div>
 
-            <div className="p-5 rounded-xl bg-[#040812] border border-cyan-500/20">
-              <div className="text-[11px] font-bold text-cyan-400 uppercase tracking-wider mb-2">Phase 2</div>
-              <h5 className="text-sm font-bold text-white mb-2 leading-relaxed">
-                {t.polaris.step2Title}
-              </h5>
-              <p className="text-xs text-slate-400 leading-loose">
-                {t.polaris.step2Desc}
-              </p>
-            </div>
-
-            <div className="p-5 rounded-xl bg-[#040812] border border-cyan-500/20">
-              <div className="text-[11px] font-bold text-cyan-400 uppercase tracking-wider mb-2">Phase 3</div>
-              <h5 className="text-sm font-bold text-white mb-2 leading-relaxed">
-                {t.polaris.step3Title}
-              </h5>
-              <p className="text-xs text-slate-400 leading-loose">
-                {t.polaris.step3Desc}
-              </p>
-            </div>
-
-            <div className="p-5 rounded-xl bg-[#040812] border border-cyan-500/20">
-              <div className="text-[11px] font-bold text-cyan-400 uppercase tracking-wider mb-2">Phase 4</div>
-              <h5 className="text-sm font-bold text-white mb-2 leading-relaxed">
-                {t.polaris.step4Title}
-              </h5>
-              <p className="text-xs text-slate-400 leading-loose">
-                {t.polaris.step4Desc}
-              </p>
+            <div className="flex flex-wrap items-center gap-3 flex-shrink-0">
+              <a
+                href="tel:+959780654277"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold bg-cyan-500/15 hover:bg-cyan-500/25 text-cyan-300 border border-cyan-500/30 transition-colors shadow-lg shadow-cyan-500/10 whitespace-nowrap"
+              >
+                <Phone className="w-4 h-4 text-cyan-400" />
+                <span>09 780 654 277</span>
+              </a>
+              <Link
+                href="/#contact"
+                className="inline-flex items-center justify-center px-5 py-3 rounded-xl text-xs sm:text-sm font-bold bg-cyan-400 text-[#050B16] hover:bg-cyan-300 transition-colors shadow-lg shadow-cyan-500/20 whitespace-nowrap"
+              >
+                <span>{isMM ? 'ပရောဂျက် အဆိုပြုလွှာ တောင်းခံရန်' : 'Request Architecture Scoping'}</span>
+              </Link>
             </div>
           </div>
         </div>

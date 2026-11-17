@@ -56,7 +56,7 @@ export default function Hero() {
           <p
             className={`mt-4 text-slate-300 max-w-3xl mx-auto ${
               isMM
-                ? 'text-xs sm:text-sm leading-loose tracking-normal'
+                ? 'text-xs sm:text-sm leading-relaxed tracking-normal'
                 : 'text-sm sm:text-base leading-relaxed tracking-normal'
             }`}
           >
@@ -107,7 +107,7 @@ export default function Hero() {
               <div className="flex items-center gap-4 mb-5">
                 <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-[#040C18] border border-cyan-500/40 p-1.5 flex-shrink-0">
                   <Image
-                    src="/images/polaris-logo.png"
+                    src="/images/polaris-logo.webp"
                     alt="Polaris Tech Solution"
                     width={80}
                     height={80}
@@ -129,7 +129,7 @@ export default function Hero() {
                 {t.hero.quickCardPolarisDesc}
               </p>
 
-              <div className="grid grid-cols-2 gap-2 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6">
                 <div className="p-2.5 rounded-lg bg-[#040C18]/80 border border-cyan-500/20 text-xs text-slate-300">
                   <div className="font-semibold text-cyan-300">{t.hero.heroPolarisFeat1Title}</div>
                   <div className="text-[11px] text-slate-400 mt-0.5">{t.hero.heroPolarisFeat1Desc}</div>
@@ -175,7 +175,7 @@ export default function Hero() {
               <div className="flex items-center gap-4 mb-5">
                 <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-[#071326] border border-amber-500/40 p-1.5 flex-shrink-0">
                   <Image
-                    src="/images/trust-one-logo.png"
+                    src="/images/trust-one-logo.webp"
                     alt="Trust One Properties"
                     width={80}
                     height={80}
@@ -197,7 +197,7 @@ export default function Hero() {
                 {t.hero.quickCardTrustDesc}
               </p>
 
-              <div className="grid grid-cols-2 gap-2 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6">
                 <div className="p-2.5 rounded-lg bg-[#071326]/80 border border-amber-500/20 text-xs text-slate-300">
                   <div className="font-semibold text-amber-300">{t.hero.heroTrustFeat1Title}</div>
                   <div className="text-[11px] text-slate-400 mt-0.5">{t.hero.heroTrustFeat1Desc}</div>
@@ -230,8 +230,12 @@ export default function Hero() {
         {/* Institutional Metrics Matrix */}
         <div className="mt-12 lg:mt-16 rounded-2xl glass-panel p-6 sm:p-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div className="border-r last:border-r-0 border-white/10 pr-2">
-              <div className="text-2xl sm:text-4xl font-extrabold text-gold-gradient font-heading">
+            <div className="border-r border-b md:border-b-0 border-white/10 pb-4 md:pb-0 pr-2">
+              <div
+                className={`text-2xl sm:text-4xl font-extrabold text-gold-gradient ${
+                  isMM ? 'font-sans' : 'font-heading'
+                }`}
+              >
                 {t.hero.statYears}
               </div>
               <div className="mt-1.5 text-xs text-slate-300 font-medium">
@@ -239,8 +243,12 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="border-r last:border-r-0 border-white/10 pr-2">
-              <div className="text-2xl sm:text-4xl font-extrabold text-cyan-400 font-heading">
+            <div className="border-b md:border-b-0 md:border-r border-white/10 pb-4 md:pb-0 pl-2 md:pl-0 md:pr-2">
+              <div
+                className={`text-2xl sm:text-4xl font-extrabold text-cyan-400 ${
+                  isMM ? 'font-sans' : 'font-heading'
+                }`}
+              >
                 {t.hero.statDivisions}
               </div>
               <div className="mt-1.5 text-xs text-slate-300 font-medium">
@@ -248,8 +256,12 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="border-r last:border-r-0 border-white/10 pr-2">
-              <div className="text-2xl sm:text-4xl font-extrabold text-gold-gradient font-heading">
+            <div className="border-r border-white/10 pt-4 md:pt-0 pr-2">
+              <div
+                className={`text-2xl sm:text-4xl font-extrabold text-gold-gradient ${
+                  isMM ? 'font-sans' : 'font-heading'
+                }`}
+              >
                 {t.hero.statReliability}
               </div>
               <div className="mt-1.5 text-xs text-slate-300 font-medium">
@@ -257,8 +269,12 @@ export default function Hero() {
               </div>
             </div>
 
-            <div>
-              <div className="text-2xl sm:text-4xl font-extrabold text-amber-400 font-heading">
+            <div className="pt-4 md:pt-0 pl-2 md:pl-0">
+              <div
+                className={`text-2xl sm:text-4xl font-extrabold text-amber-400 ${
+                  isMM ? 'font-sans' : 'font-heading'
+                }`}
+              >
                 {t.hero.statCompliance}
               </div>
               <div className="mt-1.5 text-xs text-slate-300 font-medium">

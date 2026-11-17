@@ -10,6 +10,7 @@ import {
   Check,
   Clock,
   ExternalLink,
+  Phone,
 } from 'lucide-react';
 
 export default function OfficesSection() {
@@ -93,6 +94,23 @@ export default function OfficesSection() {
                 </div>
               </div>
 
+              {/* Telephone Hotline Row */}
+              <div className="mt-3 p-3.5 rounded-xl bg-[#050B16] border border-white/10 flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm">
+                <span className="text-slate-400 flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-amber-400 flex-shrink-0" />
+                  <span>{isMM ? 'ရုံးချုပ် တိုက်ရိုက်ဖုန်း' : 'Executive Hotline'}</span>
+                </span>
+                <span className="font-mono font-semibold space-x-2">
+                  <a href="tel:+9595056524" className="text-amber-300 hover:text-white transition-colors">
+                    09 505 6524
+                  </a>
+                  <span className="text-white/20">/</span>
+                  <a href="tel:+959443212306" className="text-amber-300 hover:text-white transition-colors">
+                    09 443 212 306
+                  </a>
+                </span>
+              </div>
+
               {/* Operating Hours Table */}
               <div className="mt-6 space-y-2.5 text-xs sm:text-sm text-slate-300">
                 <div className="flex items-center justify-between py-1.5 border-b border-white/[0.06]">
@@ -110,7 +128,7 @@ export default function OfficesSection() {
                     {t.offices.satHoursVal}
                   </span>
                 </div>
-                <div className="flex items-center justify-between py-1.5">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-1.5 gap-1">
                   <span className="text-slate-400">{t.offices.sundayHours}</span>
                   <span className="text-amber-400 font-medium">
                     {t.offices.sundayHoursVal}
@@ -120,11 +138,11 @@ export default function OfficesSection() {
             </div>
 
             {/* Actions: Copy & Maps */}
-            <div className="mt-8 pt-5 border-t border-white/10 flex flex-wrap items-center gap-3">
+            <div className="mt-8 pt-5 border-t border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               <button
                 type="button"
                 onClick={handleCopyHead}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 border border-white/10 transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-xs font-semibold bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 border border-white/10 transition-colors"
               >
                 {copiedHead ? (
                   <>
@@ -143,7 +161,7 @@ export default function OfficesSection() {
                 href="https://maps.google.com/?q=Grand+Kan+Yeik+Thar+Condo+Mingalar+Taung+Nyunt+Yangon"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold bg-amber-500/10 text-amber-300 hover:bg-amber-500/20 border border-amber-500/30 transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg text-xs font-semibold bg-amber-500/10 text-amber-300 hover:bg-amber-500/20 border border-amber-500/30 transition-colors"
               >
                 <Navigation className="w-3.5 h-3.5" />
                 <span>{t.offices.getDirections}</span>
@@ -188,6 +206,34 @@ export default function OfficesSection() {
                 </div>
               </div>
 
+              {/* Telephone Desk Row */}
+              <div className="mt-3 p-3.5 rounded-xl bg-[#040812] border border-white/10 space-y-2 text-xs">
+                <div className="flex items-center justify-between">
+                  <span className="text-slate-400 flex items-center gap-2">
+                    <Phone className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
+                    <span>Polaris Tech:</span>
+                  </span>
+                  <a href="tel:+959780654277" className="font-mono font-semibold text-cyan-300 hover:text-white transition-colors">
+                    09 780 654 277
+                  </a>
+                </div>
+                <div className="flex items-center justify-between border-t border-white/5 pt-2">
+                  <span className="text-slate-400 flex items-center gap-2">
+                    <Phone className="w-3.5 h-3.5 text-amber-400 flex-shrink-0" />
+                    <span>Trust One:</span>
+                  </span>
+                  <span className="font-mono font-semibold space-x-2">
+                    <a href="tel:+9595056524" className="text-amber-300 hover:text-white transition-colors">
+                      09 505 6524
+                    </a>
+                    <span className="text-white/20">/</span>
+                    <a href="tel:+959795056524" className="text-amber-300 hover:text-white transition-colors">
+                      09 795 056 524
+                    </a>
+                  </span>
+                </div>
+              </div>
+
               {/* Operating Hours Table */}
               <div className="mt-6 space-y-2.5 text-xs sm:text-sm text-slate-300">
                 <div className="flex items-center justify-between py-1.5 border-b border-white/[0.06]">
@@ -205,7 +251,7 @@ export default function OfficesSection() {
                     {t.offices.satHoursVal}
                   </span>
                 </div>
-                <div className="flex items-center justify-between py-1.5">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-1.5 gap-1">
                   <span className="text-slate-400">{t.offices.sundayHours}</span>
                   <span className="text-cyan-400 font-medium">
                     {t.offices.sundayHoursVal}
@@ -215,11 +261,11 @@ export default function OfficesSection() {
             </div>
 
             {/* Actions: Copy & Maps */}
-            <div className="mt-8 pt-5 border-t border-white/10 flex flex-wrap items-center gap-3">
+            <div className="mt-8 pt-5 border-t border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               <button
                 type="button"
                 onClick={handleCopyBranch}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 border border-white/10 transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-xs font-semibold bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 border border-white/10 transition-colors"
               >
                 {copiedBranch ? (
                   <>
@@ -238,7 +284,7 @@ export default function OfficesSection() {
                 href="https://maps.google.com/?q=Star+City+Thanlyin+Yangon"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold bg-cyan-500/10 text-cyan-300 hover:bg-cyan-500/20 border border-cyan-500/30 transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg text-xs font-semibold bg-cyan-500/10 text-cyan-300 hover:bg-cyan-500/20 border border-cyan-500/30 transition-colors"
               >
                 <Navigation className="w-3.5 h-3.5" />
                 <span>{t.offices.getDirections}</span>

@@ -73,40 +73,44 @@ export default function AboutParent() {
 
             {/* Mission & Vision Distinct Panels */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              <div className="rounded-xl glass-panel p-6 border-l-4 border-l-amber-500">
-                <div className="w-9 h-9 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4">
-                  <Target className="w-5 h-5" />
+              <div className="rounded-xl glass-panel p-6 border-l-4 border-l-amber-500 h-full flex flex-col justify-between">
+                <div>
+                  <div className="w-9 h-9 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4">
+                    <Target className="w-5 h-5" />
+                  </div>
+                  <h4
+                    className={`text-white mb-2 ${
+                      isMM
+                        ? 'text-sm sm:text-base font-semibold leading-relaxed tracking-normal font-sans'
+                        : 'text-base font-bold font-heading'
+                    }`}
+                  >
+                    {t.about.missionTitle}
+                  </h4>
+                  <p className="text-xs text-slate-300 leading-loose">
+                    {t.about.missionDesc}
+                  </p>
                 </div>
-                <h4
-                  className={`text-white mb-2 ${
-                    isMM
-                      ? 'text-sm sm:text-base font-semibold leading-relaxed tracking-normal font-sans'
-                      : 'text-base font-bold font-heading'
-                  }`}
-                >
-                  {t.about.missionTitle}
-                </h4>
-                <p className="text-xs text-slate-300 leading-loose">
-                  {t.about.missionDesc}
-                </p>
               </div>
 
-              <div className="rounded-xl glass-panel p-6 border-l-4 border-l-cyan-500">
-                <div className="w-9 h-9 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4">
-                  <Compass className="w-5 h-5" />
+              <div className="rounded-xl glass-panel p-6 border-l-4 border-l-cyan-500 h-full flex flex-col justify-between">
+                <div>
+                  <div className="w-9 h-9 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4">
+                    <Compass className="w-5 h-5" />
+                  </div>
+                  <h4
+                    className={`text-white mb-2 ${
+                      isMM
+                        ? 'text-sm sm:text-base font-semibold leading-relaxed tracking-normal font-sans'
+                        : 'text-base font-bold font-heading'
+                    }`}
+                  >
+                    {t.about.visionTitle}
+                  </h4>
+                  <p className="text-xs text-slate-300 leading-loose">
+                    {t.about.visionDesc}
+                  </p>
                 </div>
-                <h4
-                  className={`text-white mb-2 ${
-                    isMM
-                      ? 'text-sm sm:text-base font-semibold leading-relaxed tracking-normal font-sans'
-                      : 'text-base font-bold font-heading'
-                  }`}
-                >
-                  {t.about.visionTitle}
-                </h4>
-                <p className="text-xs text-slate-300 leading-loose">
-                  {t.about.visionDesc}
-                </p>
               </div>
             </div>
           </div>
@@ -117,7 +121,7 @@ export default function AboutParent() {
               <div className="text-center pb-6 border-b border-white/10">
                 <div className="relative inline-block mx-auto mb-3">
                   <Image
-                    src="/images/thet-and-thu-logo.png"
+                    src="/images/thet-and-thu-logo.webp"
                     alt="Thet & Thu Co., Ltd."
                     width={220}
                     height={70}
@@ -133,8 +137,9 @@ export default function AboutParent() {
                 </div>
               </div>
 
-              <div className="py-4 flex justify-center">
-                <div className="w-0.5 h-6 bg-amber-500/40" />
+              <div className="py-3 flex flex-col items-center">
+                <div className="w-px h-5 bg-gradient-to-b from-amber-400 to-amber-500/50" />
+                <div className="w-2 h-2 rounded-full bg-amber-400 -mt-1 shadow-xs shadow-amber-400/50" />
               </div>
 
               {/* Subsidiaries Branch Display */}
@@ -148,7 +153,7 @@ export default function AboutParent() {
                   </div>
                   <div>
                     <div className="text-xs font-bold uppercase tracking-wider text-cyan-400">
-                      Division A
+                      {isMM ? 'လုပ်ငန်းခွဲ (က)' : 'Division A'}
                     </div>
                     <div className="text-sm font-bold text-white mt-0.5 group-hover:text-cyan-300">
                       Polaris Tech Solution
@@ -168,7 +173,7 @@ export default function AboutParent() {
                   </div>
                   <div>
                     <div className="text-xs font-bold uppercase tracking-wider text-amber-400">
-                      Division B
+                      {isMM ? 'လုပ်ငန်းခွဲ (ခ)' : 'Division B'}
                     </div>
                     <div className="text-sm font-bold text-white mt-0.5 group-hover:text-amber-300">
                       Trust One Properties
