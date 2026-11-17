@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 120" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8DF95" />
+      <stop offset="50%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#AA8820" />
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1B355A" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#071326" stop-opacity="0.9" />
+    </linearGradient>
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Emblem Icon -->
+  <g transform="translate(10, 10)">
+    <!-- Outer Shield / Diamond -->
+    <polygon points="50,2 95,26 95,74 50,98 5,74 5,26" fill="url(#shieldGrad)" stroke="url(#goldGrad)" stroke-width="2.5" />
+    <polygon points="50,10 87,30 87,70 50,90 13,70 13,30" fill="none" stroke="url(#goldGrad)" stroke-width="1" stroke-opacity="0.5" stroke-dasharray="3,3" />
+    
+    <!-- Central Monogram "T & T" -->
+    <!-- First T -->
+    <path d="M30,34 L46,34 M38,34 L38,68" stroke="url(#goldGrad)" stroke-width="4" stroke-linecap="round" />
+    <!-- Ampersand & in center -->
+    <path d="M50,42 C48,38 45,39 45,43 C45,49 55,52 55,59 C55,64 51,66 47,65 C43,64 42,60 44,57 L57,68" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round" fill="none" />
+    <!-- Second T -->
+    <path d="M54,34 L70,34 M62,34 L62,68" stroke="url(#goldGrad)" stroke-width="4" stroke-linecap="round" />
+    
+    <!-- Small star at top -->
+    <polygon points="50,16 52,21 57,21 53,24 55,29 50,26 45,29 47,24 43,21 48,21" fill="url(#goldGrad)" />
+  </g>
+
+  <!-- Typography -->
+  <g transform="translate(125, 25)">
+    <!-- Company Name -->
+    <text x="0" y="32" font-family="'Cinzel', Georgia, serif" font-size="28" font-weight="800" fill="url(#goldGrad)" letter-spacing="3">THET &amp; THU</text>
+    <text x="0" y="52" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#E2E8F0" letter-spacing="4">CO., LTD.</text>
+    <!-- Tagline -->
+    <text x="0" y="72" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="500" fill="#94A3B8" letter-spacing="1.5">HOLDING GROUP • ESTABLISHED 2014</text>
+  </g>
+</svg>

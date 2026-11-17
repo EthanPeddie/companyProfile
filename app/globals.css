@@ -1,26 +1,222 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Noto+Sans+Myanmar:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap");
 @import "tailwindcss";
 
+@theme {
+  --color-obsidian: #040812;
+  --color-navy-950: #050b16;
+  --color-navy-900: #071326;
+  --color-navy-850: #0b192c;
+  --color-navy-800: #0f223d;
+  --color-navy-750: #142a4a;
+  --color-navy-700: #19355b;
+
+  --color-gold-200: #faebba;
+  --color-gold-300: #f8df95;
+  --color-gold-400: #f3c65f;
+  --color-gold-500: #d4af37;
+  --color-gold-600: #b38e24;
+  --color-gold-700: #8c6e18;
+
+  --color-cyan-300: #7dd3fc;
+  --color-cyan-400: #38bdf8;
+  --color-cyan-500: #00d2ff;
+  --color-cyan-600: #0284c7;
+  --color-cyan-700: #0369a1;
+
+  --font-heading: "Cinzel", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-myanmar: "Noto Sans Myanmar", "Pyidaungsu", "Padauk", "Myanmar3", system-ui, sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #050b16;
+  --foreground: #f1f5f9;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  background-color: #050b16;
+  color: #f1f5f9;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* English luxury headings */
+.font-heading {
+  font-family: var(--font-heading);
+  letter-spacing: 0.03em;
+}
+
+/* Atmospheric Grids */
+.bg-corporate-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(212, 175, 55, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(212, 175, 55, 0.04) 1px, transparent 1px);
+}
+
+.bg-cyan-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 210, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 210, 255, 0.05) 1px, transparent 1px);
+}
+
+/* Glass Panels */
+.glass-panel {
+  background: rgba(11, 25, 44, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-gold {
+  background: linear-gradient(180deg, rgba(15, 30, 52, 0.8) 0%, rgba(7, 19, 38, 0.9) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.08);
+}
+
+.glass-panel-cyan {
+  background: linear-gradient(180deg, rgba(11, 30, 56, 0.8) 0%, rgba(4, 12, 24, 0.95) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 210, 255, 0.08);
+}
+
+/* Gradients */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #faebba 0%, #d4af37 50%, #947024 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-cyan-gradient {
+  background: linear-gradient(135deg, #7dd3fc 0%, #00d2ff 50%, #0284c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ============================================================= */
+/*  BURMESE UNICODE TYPOGRAPHY ENGINE (ZERO OVERLAP & CLEAN LOOPS) */
+/* ============================================================= */
+
+/* 1. Global Reset for Burmese Mode */
+html[lang="my"],
+html.lang-my,
+.font-myanmar {
+  font-family: var(--font-myanmar) !important;
+  letter-spacing: 0 !important;
+  word-spacing: normal !important;
+}
+
+/* 2. Absolute Letter-Spacing Annihilation on all elements in Burmese mode */
+/* Letter-spacing breaks combining diacritics and ligatures in Burmese */
+html[lang="my"] *,
+html.lang-my *,
+.font-myanmar * {
+  letter-spacing: 0 !important;
+  font-feature-settings: "liga" 1, "dlig" 1 !important;
+}
+
+/* 3. Burmese Headings: Override Cinzel/Serif, enforce Semibold 600, generous line-height */
+html[lang="my"] h1,
+html[lang="my"] h2,
+html[lang="my"] h3,
+html[lang="my"] h4,
+html[lang="my"] h5,
+html[lang="my"] h6,
+html.lang-my h1,
+html.lang-my h2,
+html.lang-my h3,
+html.lang-my h4,
+html.lang-my h5,
+html.lang-my h6,
+.font-myanmar h1,
+.font-myanmar h2,
+.font-myanmar h3,
+.font-myanmar h4,
+.font-myanmar h5,
+.font-myanmar h6,
+.font-myanmar .font-heading,
+html[lang="my"] .font-heading,
+html.lang-my .font-heading {
+  font-family: var(--font-myanmar) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  line-height: 1.75 !important;
+  text-wrap: balance;
+}
+
+/* 4. Proportional Balanced Font Sizes for Burmese Headings */
+html[lang="my"] h1,
+html.lang-my h1,
+.font-myanmar h1 {
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem) !important;
+  line-height: 1.65 !important;
+}
+
+html[lang="my"] h2,
+html.lang-my h2,
+.font-myanmar h2 {
+  font-size: clamp(1.35rem, 2.6vw, 2.15rem) !important;
+  line-height: 1.7 !important;
+}
+
+html[lang="my"] h3,
+html.lang-my h3,
+.font-myanmar h3 {
+  font-size: clamp(1.1rem, 2vw, 1.45rem) !important;
+  line-height: 1.75 !important;
+}
+
+/* 5. Burmese Paragraphs, Lists & Prose */
+html[lang="my"] p,
+html.lang-my p,
+.font-myanmar p,
+html[lang="my"] li,
+html.lang-my li,
+.font-myanmar li {
+  font-family: var(--font-myanmar) !important;
+  font-size: 0.95rem;
+  line-height: 1.95 !important;
+  letter-spacing: 0 !important;
+}
+
+/* 6. Navigation, Buttons, Badges, Pills */
+html[lang="my"] nav a,
+html.lang-my nav a,
+.font-myanmar nav a {
+  white-space: nowrap !important;
+  line-height: 1.6 !important;
+  font-size: 0.85rem !important;
+}
+
+html[lang="my"] button,
+html.lang-my button,
+.font-myanmar button {
+  line-height: 1.6 !important;
+}
+
+/* Luxury Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #040812;
+}
+::-webkit-scrollbar-thumb {
+  background: #142a4a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
+
+*:focus-visible {
+  outline: 2px solid #d4af37;
+  outline-offset: 2px;
 }

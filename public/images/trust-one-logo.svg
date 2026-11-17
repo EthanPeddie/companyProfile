@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 120" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="realGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8DF95" />
+      <stop offset="50%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#B89222" />
+    </linearGradient>
+  </defs>
+
+  <!-- Roof and 1P Monogram -->
+  <g transform="translate(15, 10)">
+    <!-- Roof line -->
+    <path d="M5,42 L45,12 L85,42 L72,42 L45,22 L18,42 Z" fill="url(#realGoldGrad)" />
+    <!-- Stylized "1" column -->
+    <path d="M22,50 L35,40 L43,40 L43,90 L31,90 L31,52 L22,58 Z" fill="url(#realGoldGrad)" />
+    <!-- Stylized "P" with windows -->
+    <path d="M48,40 L72,40 C80,40 85,46 85,55 C85,64 80,70 72,70 L60,70 L60,90 L48,90 Z" fill="url(#realGoldGrad)" />
+    <!-- Window cutouts in P -->
+    <rect x="58" y="47" width="8" height="8" fill="#071326" />
+    <rect x="68" y="47" width="8" height="8" fill="#071326" />
+    <rect x="58" y="57" width="8" height="8" fill="#071326" />
+    <rect x="68" y="57" width="8" height="8" fill="#071326" />
+  </g>
+
+  <!-- Typography -->
+  <g transform="translate(115, 25)">
+    <text x="0" y="32" font-family="'Cinzel', Georgia, serif" font-size="26" font-weight="800" fill="url(#realGoldGrad)" letter-spacing="2.5">TRUST ONE</text>
+    <text x="0" y="52" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" fill="#E2E8F0" letter-spacing="3.5">PROPERTIES</text>
+    <text x="0" y="70" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="500" fill="#D4AF37" letter-spacing="1.5">PROFESSIONAL REAL ESTATE SERVICE</text>
+  </g>
+</svg>
