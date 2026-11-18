@@ -119,13 +119,13 @@ export default function AboutParent() {
           <div className="lg:col-span-5">
             <div className="rounded-2xl glass-panel-gold p-6 sm:p-8">
               <div className="text-center pb-6 border-b border-white/10">
-                <div className="relative inline-block mx-auto mb-3">
+                <div className="relative inline-flex rounded-xl overflow-hidden border border-amber-500/35 p-0 shadow-[0_0_20px_rgba(212,175,55,0.2)] mx-auto mb-3">
                   <Image
                     src="/images/thet-and-thu-logo.webp"
                     alt="Thet & Thu Co., Ltd."
-                    width={220}
-                    height={70}
-                    className="h-16 w-auto object-contain mx-auto"
+                    width={210}
+                    height={140}
+                    className="h-16 w-auto block object-cover mx-auto"
                     unoptimized
                   />
                 </div>

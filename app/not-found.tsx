@@ -6,13 +6,13 @@ import { ShieldCheck, Home } from 'lucide-react';
 export default function NotFound() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#071326] text-slate-100 p-6 text-center">
-      <div className="relative mb-6">
+      <div className="relative inline-flex rounded-xl overflow-hidden border border-amber-500/35 p-0 shadow-[0_0_20px_rgba(212,175,55,0.2)] mb-6">
         <Image
           src="/images/thet-and-thu-logo.webp"
           alt="THET & THU CO., LTD."
-          width={220}
-          height={70}
-          className="h-16 w-auto object-contain mx-auto"
+          width={210}
+          height={140}
+          className="h-16 w-auto block object-cover mx-auto"
           unoptimized
         />
       </div>

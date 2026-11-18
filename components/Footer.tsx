@@ -29,13 +29,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 pb-12 border-b border-white/[0.08]">
           {/* Column 1: Corporate Dossier (5 cols) */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="inline-block rounded-xl overflow-hidden bg-[#071326] border border-amber-500/30 p-2">
+            <div className="inline-flex rounded-xl overflow-hidden border border-amber-500/35 p-0 shadow-[0_0_15px_rgba(212,175,55,0.15)]">
               <Image
                 src="/images/thet-and-thu-logo.webp"
                 alt="THET & THU CO., LTD."
-                width={200}
-                height={60}
-                className="h-12 w-auto object-contain"
+                width={180}
+                height={120}
+                className="h-12 w-auto block object-cover"
                 unoptimized
               />
             </div>

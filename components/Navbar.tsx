@@ -131,13 +131,13 @@ export default function Navbar() {
             href="/"
             className="flex items-center gap-3 group focus:outline-hidden flex-shrink-0"
           >
-            <div className="relative rounded-xl overflow-hidden border border-amber-500/25 bg-[#0A1526]/80 p-1.5 transition-transform duration-300 group-hover:border-amber-400/50">
+            <div className="relative inline-flex rounded-xl overflow-hidden border border-amber-500/35 p-0 shadow-[0_0_15px_rgba(212,175,55,0.15)] transition-all duration-300 group-hover:border-amber-400/60 group-hover:shadow-[0_0_20px_rgba(212,175,55,0.25)]">
               <Image
                 src="/images/thet-and-thu-logo.webp"
                 alt="THET & THU CO., LTD."
-                width={200}
-                height={60}
-                className="h-9 sm:h-11 w-auto object-contain transition-opacity duration-200 group-hover:brightness-105"
+                width={150}
+                height={100}
+                className="h-9 sm:h-11 w-auto block object-cover transition-transform duration-300 group-hover:scale-105"
                 unoptimized
                 priority
               />
