@@ -115,7 +115,7 @@ export default function AboutParent() {
             </div>
           </div>
 
-          {/* Right Column: Holding Governance Structure Diagram */}
+          {/* Right Column: Corporate Governance Structure Diagram */}
           <div className="lg:col-span-5">
             <div className="rounded-2xl glass-panel-gold p-6 sm:p-8">
               <div className="text-center pb-6 border-b border-white/10">

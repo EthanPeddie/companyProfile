@@ -27,7 +27,7 @@ export default function Footer() {
     <footer className="bg-[#03060E] border-t border-white/[0.08] text-slate-300 pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 pb-12 border-b border-white/[0.08]">
-          {/* Column 1: Parent Holding Dossier (5 cols) */}
+          {/* Column 1: Corporate Dossier (5 cols) */}
           <div className="lg:col-span-4 space-y-4">
             <div className="inline-block rounded-xl overflow-hidden bg-[#071326] border border-amber-500/30 p-2">
               <Image

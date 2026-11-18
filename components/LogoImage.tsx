@@ -22,7 +22,7 @@ export default function LogoImage({
   const config = {
     holding: {
       name: 'THET & THU CO., LTD.',
-      sub: 'Holding Company',
+      sub: 'Company Limited',
       src: '/images/thet-and-thu-logo.webp',
       svg: '/images/thet-and-thu-logo.svg',
       glow: 'shadow-[0_0_20px_rgba(212,175,55,0.2)]',

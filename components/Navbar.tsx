@@ -49,7 +49,7 @@ export default function Navbar() {
           <div className="flex items-center space-x-6">
             <span className="inline-flex items-center gap-1.5 text-amber-300/90 text-[11px] uppercase font-semibold whitespace-nowrap">
               <Shield className="w-3.5 h-3.5 text-amber-400" />
-              <span>THET &amp; THU CO., LTD. • Est. 2014 • Holding Group</span>
+              <span>THET &amp; THU CO., LTD. • Est. 2014</span>
             </span>
             <span className="text-white/20 hidden xl:inline">/</span>
             <span className="hidden xl:inline-flex items-center gap-1.5 text-slate-400 text-xs whitespace-nowrap">
@@ -72,7 +72,7 @@ export default function Navbar() {
               <a
                 href="tel:+9595056524"
                 className="hover:text-amber-300 transition-colors"
-                title="Call Thet & Thu Holding Desk"
+                title="Call Thet & Thu Corporate Desk"
               >
                 09 505 6524
               </a>
@@ -80,7 +80,7 @@ export default function Navbar() {
               <a
                 href="tel:+959443212306"
                 className="hover:text-amber-300 transition-colors"
-                title="Call Thet & Thu Holding Desk"
+                title="Call Thet & Thu Corporate Desk"
               >
                 09 443 212 306
               </a>
@@ -126,7 +126,7 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Holding Logo & Mark */}
+          {/* Corporate Logo & Mark */}
           <Link
             href="/"
             className="flex items-center gap-3 group focus:outline-hidden flex-shrink-0"

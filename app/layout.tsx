@@ -15,13 +15,13 @@ export const metadata: Metadata = {
     template: '%s | THET & THU CO., LTD.',
   },
   description:
-    'Established Myanmar corporate holding company uniting Polaris Tech Solution (bespoke enterprise software, ERP, POS, mobile apps) and Trust One Properties (domestic real estate advisory, land, luxury condominiums). Headquartered in Yangon.',
+    'Established Myanmar company uniting Polaris Tech Solution (bespoke enterprise software, ERP, POS, mobile apps) and Trust One Properties (domestic real estate advisory, land, luxury condominiums). Headquartered in Yangon.',
   keywords: [
     'THET & THU CO., LTD.',
     'Thet & Thu',
     'Polaris Tech Solution',
     'Trust One Properties',
-    'Myanmar holding company',
+    'Myanmar limited company',
     'Yangon custom software',
     'enterprise ERP Myanmar',
     'multi-store POS Myanmar',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'THET & THU CO., LTD. | Building A Better Tomorrow Together',
     description:
-      'Established Myanmar corporate holding company with over a decade of excellence. Uniting bespoke enterprise software architecture and verified domestic real estate advisory.',
+      'Established Myanmar company with over a decade of excellence. Uniting bespoke enterprise software architecture and verified domestic real estate advisory.',
     url: 'https://thetandthu.com',
     siteName: 'THET & THU CO., LTD.',
     images: [
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
         url: '/images/thet-and-thu-logo.png',
         width: 1200,
         height: 630,
-        alt: 'THET & THU CO., LTD. - Corporate Holding Group',
+        alt: 'THET & THU CO., LTD.',
       },
     ],
     locale: 'en_US',
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'THET & THU CO., LTD. | Building A Better Tomorrow Together',
     description:
-      'Established holding company in Myanmar: Polaris Tech Solution (bespoke software) and Trust One Properties (domestic real estate).',
+      'Established company in Myanmar: Polaris Tech Solution (bespoke software) and Trust One Properties (domestic real estate).',
     images: ['/images/thet-and-thu-logo.png'],
   },
   icons: {
@@ -82,7 +82,7 @@ const corporateJsonLd = {
   logo: 'https://thetandthu.com/images/thet-and-thu-logo.png',
   image: 'https://thetandthu.com/images/thet-and-thu-logo.png',
   description:
-    'Established Myanmar corporate holding company uniting Polaris Tech Solution (bespoke enterprise software, ERP, POS, mobile apps) and Trust One Properties (domestic real estate advisory, land, luxury condominiums). Headquartered in Yangon.',
+    'Established Myanmar company uniting Polaris Tech Solution (bespoke enterprise software, ERP, POS, mobile apps) and Trust One Properties (domestic real estate advisory, land, luxury condominiums). Headquartered in Yangon.',
   foundingDate: '2014',
   address: {
     '@type': 'PostalAddress',

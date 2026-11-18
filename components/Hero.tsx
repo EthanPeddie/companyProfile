@@ -30,7 +30,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Grand Holding Monument Headline */}
+        {/* Grand Corporate Headline */}
         <div className="text-center max-w-4xl mx-auto">
           <h1
             className={`text-white transition-all ${
@@ -91,7 +91,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* The Holding Keystone Exhibition */}
+        {/* Business Divisions Exhibition */}
         <div className="mt-14 lg:mt-20 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           {/* Left Wing: Polaris Tech Solution */}
           <div className="lg:col-span-6 rounded-2xl glass-panel-cyan p-6 sm:p-8 flex flex-col justify-between group hover:border-cyan-400/60 transition-all duration-300">

@@ -158,7 +158,7 @@ export default function OfficesSection() {
               </button>
 
               <a
-                href="https://maps.google.com/?q=Grand+Kan+Yeik+Thar+Condo+Mingalar+Taung+Nyunt+Yangon"
+                href="https://maps.app.goo.gl/KFqzrtMZiGCdD9haA?g_st=iv"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg text-xs font-semibold bg-amber-500/10 text-amber-300 hover:bg-amber-500/20 border border-amber-500/30 transition-colors"

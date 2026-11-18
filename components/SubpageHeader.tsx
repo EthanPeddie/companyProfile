@@ -23,8 +23,8 @@ export default function SubpageHeader({ division }: SubpageHeaderProps) {
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>
               {isMM
-                ? 'သက်နှင့်သူ ဟိုးဒင်းပင်မစာမျက်နှာသို့ ပြန်သွားရန်'
-                : 'Back to THET & THU Holding Overview'}
+                ? 'သက်နှင့်သူ ပင်မစာမျက်နှာသို့ ပြန်သွားရန်'
+                : 'Back to THET & THU Homepage'}
             </span>
           </Link>
 
@@ -51,8 +51,8 @@ export default function SubpageHeader({ division }: SubpageHeaderProps) {
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>
             {isMM
-              ? 'သက်နှင့်သူ ဟိုးဒင်းပင်မစာမျက်နှာသို့ ပြန်သွားရန်'
-              : 'Back to THET & THU Holding Overview'}
+              ? 'သက်နှင့်သူ ပင်မစာမျက်နှာသို့ ပြန်သွားရန်'
+              : 'Back to THET & THU Homepage'}
           </span>
         </Link>
 

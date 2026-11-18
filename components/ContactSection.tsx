@@ -88,7 +88,7 @@ export default function ContactSection() {
           body: JSON.stringify({
             access_key: web3Key,
             subject: `New Corporate Inquiry: ${formData.division.toUpperCase()} - ${formData.name}`,
-            from_name: 'THET & THU Holding Portal',
+            from_name: 'THET & THU Corporate Portal',
             ...formData,
           }),
         });
