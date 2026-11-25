@@ -171,27 +171,6 @@ export default function TrustOneSection({
             ))}
           </div>
         </div>
-
-        {/* Private Consultation Strip */}
-        <div className="mt-16 rounded-2xl bg-[#FFF9EC] border border-[#D4AF37]/45 text-[#001749] p-8 sm:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div className="max-w-2xl">
-            <h4 className="text-xl sm:text-2xl font-bold text-[#001749]">{t.trustOne.showcaseTitle}</h4>
-            <p className="mt-2 text-xs sm:text-sm text-[#42526E] leading-relaxed">
-              {t.trustOne.showcaseSubtitle}
-            </p>
-          </div>
-          <a
-            href="#contact"
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-            }}
-            className="btn-interactive inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#D4AF37] text-[#001749] text-xs sm:text-sm font-semibold hover:bg-[#E0BC4B] whitespace-nowrap"
-          >
-            <span>{t.trustOne.ctaButton}</span>
-            <ArrowRight className="w-4 h-4" />
-          </a>
-        </div>
       </div>
     </section>
   );

@@ -472,7 +472,6 @@ export const translations: Record<Language, TranslationDictionary> = {
       cat2Desc: "Prestigious riverfront and city-center condominium developments featuring premium security, clubhouse facilities, and high rental yields.",
       cat2Highlights: [
         "Prestigious city-center & riverfront condominiums",
-        "High-floor river & Shwedagon view units",
         "Modern condo living with backup power",
         "Turnkey furnished executive suites"
       ],
@@ -787,7 +786,6 @@ export const translations: Record<Language, TranslationDictionary> = {
       cat2Desc: "လုံခြုံရေးကောင်းမွန်ပြီး အဆင့်မြင့် ကလပ်ဟောက်စ်၊ ရေကူးကန်နှင့် မီးစက်အပြည့်ပါရှိသော ရန်ကုန်မြို့လယ်နှင့် မြစ်ရှုခင်း ကွန်ဒိုများ။",
       cat2Highlights: [
         "မြို့တွင်းအချက်အချာကျသော အဆင့်မြင့် ကွန်ဒိုအခန်းများ",
-        "ရွှေတိဂုံဘုရားနှင့် ရန်ကုန်မြစ်ရှုခင်း အထပ်မြင့်အခန်းများ",
         "၂၄ နာရီ မီးစက်နှင့် ဓာတ်လှေကား အပြည့်အစုံပါရှိသော ကွန်ဒိုများ",
         "ပရိဘောဂအပြည့်အစုံပါ ချက်ချင်းတက်ရောက်နေထိုင်နိုင်သော အခန်းများ"
       ],
@@ -1102,7 +1100,6 @@ export const translations: Record<Language, TranslationDictionary> = {
       cat2Desc: "位于城市核心与江景地段的高品质公寓，配备完善安保、会所设施及稳健租金回报。",
       cat2Highlights: [
         "城市核心及热门地段高端公寓",
-        "高层江景及瑞光大金塔景观房源",
         "配备 24 小时备用电源与现代设施",
         "精装修拎包入住行政套房"
       ],
