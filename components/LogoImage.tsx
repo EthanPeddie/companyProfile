@@ -21,23 +21,23 @@ export default function LogoImage({
     holding: {
       name: 'THET & THU CO., LTD.',
       sub: 'Company Limited',
-      src: '/images/thet-and-thu-logo.svg',
-      svg: '/images/thet-and-thu-logo.svg',
-      accentColor: '#FFA62B',
+      src: '/images/logo-thet-thu.svg',
+      svg: '/images/logo-thet-thu.svg',
+      accentColor: '#D4AF37',
     },
     polaris: {
       name: 'POLARIS TECH SOLUTION',
       sub: 'IT & Software Division',
-      src: '/images/polaris-logo.svg',
-      svg: '/images/polaris-logo.svg',
-      accentColor: '#4A2B88',
+      src: '/images/logo-polaris.svg',
+      svg: '/images/logo-polaris.svg',
+      accentColor: '#0A2463',
     },
     'trust-one': {
       name: 'TRUST ONE PROPERTIES',
       sub: 'Real Estate Division',
-      src: '/images/trust-one-logo.svg',
-      svg: '/images/trust-one-logo.svg',
-      accentColor: '#FFA62B',
+      src: '/images/logo-trust-one.svg',
+      svg: '/images/logo-trust-one.svg',
+      accentColor: '#D4AF37',
     },
   }[type];
 

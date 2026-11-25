@@ -24,14 +24,14 @@ export default function OfficesSection() {
   return (
     <section
       id="offices"
-      className="relative py-20 lg:py-28 bg-white border-b border-[#140B29]/10 scroll-mt-16"
+      className="relative py-20 lg:py-28 bg-[#F4F7FC] border-b border-[#0A2463]/10 scroll-mt-14"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl">
-          <p className="text-xs font-semibold text-[#4A2B88] mb-2">{t.offices.badge}</p>
+          <p className="text-xs font-semibold text-[#0A2463] mb-2">{t.offices.badge}</p>
           <h2
-            className={`text-[#140B29] [text-wrap:balance] ${
+            className={`text-[#001749] [text-wrap:balance] ${
               isMM
                 ? 'text-2xl sm:text-3xl font-bold leading-relaxed'
                 : 'text-3xl sm:text-4xl font-extrabold font-heading tracking-tight'
@@ -39,7 +39,7 @@ export default function OfficesSection() {
           >
             {t.offices.title}
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-[#433B54] leading-relaxed">
+          <p className="mt-3 text-sm sm:text-base text-[#42526E] leading-relaxed">
             {t.offices.subtitle}
           </p>
         </div>
@@ -47,7 +47,7 @@ export default function OfficesSection() {
         {/* Dual Corporate Offices */}
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
           {/* Card 1: Head Office (Yangon City) */}
-          <div className="rounded-2xl bg-[#F7FAF8] border border-[#140B29]/10 p-6 sm:p-8 flex flex-col justify-between">
+          <div className="rounded-2xl bg-white border border-[#0A2463]/10 p-6 sm:p-8 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between gap-3 mb-4">
                 <span className="text-xs font-semibold text-[#4A2B88]">
@@ -130,7 +130,7 @@ export default function OfficesSection() {
                 href="https://maps.app.goo.gl/KFqzrtMZiGCdD9haA?g_st=iv"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-interactive sm:flex-1 inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-lg bg-[#4A2B88] text-white text-xs font-semibold hover:bg-[#381F6A] whitespace-nowrap"
+                className="btn-interactive sm:flex-1 inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-lg bg-[#0A2463] text-white text-xs font-semibold hover:bg-[#001749] whitespace-nowrap"
               >
                 <span>{t.offices.getDirections}</span>
                 <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" />
@@ -139,7 +139,7 @@ export default function OfficesSection() {
           </div>
 
           {/* Card 2: Branch Office (Star City, Thanlyin) */}
-          <div className="rounded-2xl bg-[#F7FAF8] border border-[#140B29]/10 p-6 sm:p-8 flex flex-col justify-between">
+          <div className="rounded-2xl bg-white border border-[#0A2463]/10 p-6 sm:p-8 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between gap-3 mb-4">
                 <span className="text-xs font-semibold text-[#9A540E]">
@@ -230,7 +230,7 @@ export default function OfficesSection() {
                 href="https://maps.google.com/?q=Star+City+Thanlyin+Yangon"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-interactive sm:flex-1 inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-lg bg-[#4A2B88] text-white text-xs font-semibold hover:bg-[#381F6A] whitespace-nowrap"
+                className="btn-interactive sm:flex-1 inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-lg bg-[#0A2463] text-white text-xs font-semibold hover:bg-[#001749] whitespace-nowrap"
               >
                 <span>{t.offices.getDirections}</span>
                 <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" />

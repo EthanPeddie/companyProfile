@@ -19,7 +19,7 @@ function subscribe(callback: () => void) {
   listeners.add(callback);
   const handleStorage = (e: StorageEvent) => {
     if (e.key === 'tt_preferred_language') {
-      if (e.newValue === 'EN' || e.newValue === 'MM') {
+      if (e.newValue === 'EN' || e.newValue === 'MM' || e.newValue === 'ZH') {
         memoryLanguage = e.newValue;
         callback();
       }
@@ -36,7 +36,7 @@ function getSnapshot(): Language {
   if (typeof window !== 'undefined') {
     try {
       const saved = localStorage.getItem('tt_preferred_language') as Language | null;
-      if (saved === 'EN' || saved === 'MM') {
+      if (saved === 'EN' || saved === 'MM' || saved === 'ZH') {
         memoryLanguage = saved;
         return memoryLanguage;
       }
@@ -70,7 +70,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (typeof document !== 'undefined') {
-      document.documentElement.lang = language === 'MM' ? 'my' : 'en';
+      document.documentElement.lang =
+        language === 'MM' ? 'my' : language === 'ZH' ? 'zh' : 'en';
       if (language === 'MM') {
         document.documentElement.classList.add('lang-my');
       } else {

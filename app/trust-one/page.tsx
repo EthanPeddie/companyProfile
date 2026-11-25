@@ -22,7 +22,7 @@ export default function TrustOnePage() {
 
         <main className="flex-1">
           <TrustOneSection isStandalonePage />
-          <ContactSection />
+          <ContactSection defaultDivision="trust-one" />
         </main>
 
         <Footer />

@@ -6,20 +6,25 @@ import {
   Mail,
   Phone,
   Send,
+  Loader2,
   CheckCircle,
   AlertCircle,
   ShieldCheck,
   Info,
 } from 'lucide-react';
 
-export default function ContactSection() {
+export default function ContactSection({
+  defaultDivision = 'general',
+}: {
+  defaultDivision?: 'general' | 'polaris' | 'trust-one';
+}) {
   const { isMM, t } = useLanguage();
 
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    division: 'general',
+    division: defaultDivision as string,
     message: '',
     honeypot: '',
   });
@@ -128,14 +133,14 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative py-20 lg:py-28 bg-[#EDF4F0] scroll-mt-16"
+      className="relative py-20 lg:py-28 bg-white scroll-mt-14"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl">
-          <p className="text-xs font-semibold text-[#4A2B88] mb-2">{t.contact.badge}</p>
+          <p className="text-xs font-semibold text-[#0A2463] mb-2">{t.contact.badge}</p>
           <h2
-            className={`text-[#140B29] [text-wrap:balance] ${
+            className={`text-[#001749] [text-wrap:balance] ${
               isMM
                 ? 'text-2xl sm:text-3xl font-bold leading-relaxed'
                 : 'text-3xl sm:text-4xl font-extrabold font-heading tracking-tight'
@@ -143,7 +148,7 @@ export default function ContactSection() {
           >
             {t.contact.title}
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-[#433B54] leading-relaxed">
+          <p className="mt-3 text-sm sm:text-base text-[#42526E] leading-relaxed">
             {t.contact.subtitle}
           </p>
         </div>
@@ -390,9 +395,13 @@ export default function ContactSection() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="btn-interactive w-full py-3 px-5 rounded-lg bg-[#4A2B88] hover:bg-[#381F6A] text-white text-sm font-semibold flex items-center justify-center gap-2 disabled:opacity-60"
+                  className="btn-interactive w-full py-3 px-5 rounded-lg bg-[#0A2463] hover:bg-[#001749] text-white text-sm font-semibold flex items-center justify-center gap-2 disabled:opacity-60"
                 >
-                  <Send className="w-4 h-4" />
+                  {isSubmitting ? (
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                  ) : (
+                    <Send className="w-4 h-4" />
+                  )}
                   <span>{isSubmitting ? t.contact.submitting : t.contact.submitButton}</span>
                 </button>
 

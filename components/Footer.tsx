@@ -16,49 +16,49 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#E8F2EE] text-[#291550] pt-16 pb-10 border-t border-[#4A2B88]/12">
+    <footer className="bg-[#EBF0F7] text-[#001749] pt-16 pb-10 border-t border-[#0A2463]/12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#4A2B88]/12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#0A2463]/12">
           {/* Column 1: Corporate Identity (5 cols) */}
           <div className="lg:col-span-5 space-y-4">
             <div className="inline-flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-[#4A2B88] flex items-center justify-center flex-shrink-0">
+              <div className="w-11 h-11 rounded-lg bg-[#001749] border border-[#D4AF37]/40 flex items-center justify-center flex-shrink-0 p-1.5">
                 <Image
-                  src="/images/thet-and-thu-emblem.webp"
-                  alt="THET & THU Emblem"
-                  width={28}
-                  height={28}
-                  className="w-6 h-6 object-contain"
+                  src="/images/logo-thet-thu.svg"
+                  alt="THET & THU Logo"
+                  width={36}
+                  height={36}
+                  className="w-9 h-9 object-contain"
                   unoptimized
                 />
               </div>
               <div className="flex flex-col leading-none">
-                <span className="font-bold text-sm tracking-wide text-[#291550] font-heading">
+                <span className="font-bold text-sm tracking-wide text-[#001749] font-heading">
                   THET &amp; THU CO., LTD.
                 </span>
-                <span className="text-[11px] font-semibold text-[#4A2B88] mt-1">
+                <span className="text-[11px] font-semibold text-[#0A2463] mt-1">
                   EST. 2014 • YANGON, MYANMAR
                 </span>
               </div>
             </div>
 
-            <p className="text-xs font-semibold text-[#9A540E]">
+            <p className="text-xs font-semibold text-[#9A6B12]">
               &ldquo;{t.footer.parentTagline}&rdquo;
             </p>
 
-            <p className="text-xs sm:text-sm text-[#433B54] leading-relaxed max-w-md">
+            <p className="text-xs sm:text-sm text-[#42526E] leading-relaxed max-w-md">
               {t.footer.holdingDesc}
             </p>
 
             <div className="pt-2 flex items-center gap-2">
-              <div className="inline-flex rounded-lg bg-white p-0.5 border border-[#4A2B88]/15">
+              <div className="inline-flex rounded-lg bg-white p-0.5 border border-[#0A2463]/15">
                 <button
                   type="button"
                   onClick={() => setLanguage('MM')}
                   className={`px-2.5 py-1 rounded-md text-xs font-semibold transition-all ${
                     language === 'MM'
-                      ? 'bg-[#4A2B88] text-white'
-                      : 'text-[#433B54] hover:text-[#291550]'
+                      ? 'bg-[#0A2463] text-white'
+                      : 'text-[#42526E] hover:text-[#001749]'
                   }`}
                 >
                   မြန်မာ
@@ -68,11 +68,22 @@ export default function Footer() {
                   onClick={() => setLanguage('EN')}
                   className={`px-2.5 py-1 rounded-md text-xs font-semibold transition-all ${
                     language === 'EN'
-                      ? 'bg-[#4A2B88] text-white'
-                      : 'text-[#433B54] hover:text-[#291550]'
+                      ? 'bg-[#0A2463] text-white'
+                      : 'text-[#42526E] hover:text-[#001749]'
                   }`}
                 >
                   EN
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setLanguage('ZH')}
+                  className={`px-2.5 py-1 rounded-md text-xs font-semibold transition-all ${
+                    language === 'ZH'
+                      ? 'bg-[#0A2463] text-white'
+                      : 'text-[#42526E] hover:text-[#001749]'
+                  }`}
+                >
+                  中文
                 </button>
               </div>
             </div>
@@ -80,27 +91,27 @@ export default function Footer() {
 
           {/* Column 2: Divisions (3 cols) */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-[#291550]">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-[#001749]">
               {t.footer.divisionsHeading}
             </h4>
-            <ul className="space-y-2.5 text-xs sm:text-sm text-[#433B54]">
+            <ul className="space-y-2.5 text-xs sm:text-sm text-[#42526E]">
               <li>
-                <Link href="/polaris" className="hover:text-[#4A2B88] transition-colors">
+                <Link href="/polaris" className="hover:text-[#0A2463] transition-colors">
                   Polaris Tech Solution
                 </Link>
               </li>
               <li>
-                <Link href="/trust-one" className="hover:text-[#4A2B88] transition-colors">
+                <Link href="/trust-one" className="hover:text-[#0A2463] transition-colors">
                   Trust One Properties
                 </Link>
               </li>
               <li>
-                <Link href="/#about" className="hover:text-[#4A2B88] transition-colors">
+                <Link href="/#about" className="hover:text-[#0A2463] transition-colors">
                   {t.nav.about}
                 </Link>
               </li>
               <li>
-                <Link href="/#offices" className="hover:text-[#4A2B88] transition-colors">
+                <Link href="/#offices" className="hover:text-[#0A2463] transition-colors">
                   {t.nav.offices}
                 </Link>
               </li>
@@ -109,25 +120,25 @@ export default function Footer() {
 
           {/* Column 3: Direct Contact (4 cols) */}
           <div className="lg:col-span-4 space-y-3">
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-[#291550]">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-[#001749]">
               {t.footer.contactHeading}
             </h4>
-            <div className="space-y-2 text-xs sm:text-sm text-[#433B54]">
+            <div className="space-y-2 text-xs sm:text-sm text-[#42526E]">
               <div>
-                <a href="mailto:info@thetandthu.com" className="hover:text-[#4A2B88] transition-colors">
+                <a href="mailto:info@thetandthu.com" className="hover:text-[#0A2463] transition-colors">
                   info@thetandthu.com
                 </a>
               </div>
-              <div className="font-mono font-semibold text-[#291550]">
-                <a href="tel:+9595056524" className="hover:text-[#4A2B88] transition-colors">
+              <div className="font-mono font-semibold text-[#001749]">
+                <a href="tel:+9595056524" className="hover:text-[#0A2463] transition-colors">
                   09 505 6524
                 </a>
-                <span className="mx-2 text-[#4A2B88]/30">/</span>
-                <a href="tel:+959443212306" className="hover:text-[#4A2B88] transition-colors">
+                <span className="mx-2 text-[#0A2463]/30">/</span>
+                <a href="tel:+959443212306" className="hover:text-[#0A2463] transition-colors">
                   09 443 212 306
                 </a>
               </div>
-              <p className="text-xs text-[#6B637A] leading-relaxed pt-1">
+              <p className="text-xs text-[#52607A] leading-relaxed pt-1">
                 No.(3), Room (9D), Grand Kan Yeik Thar Condo, Mingalar Taung Nyunt, Yangon.
               </p>
             </div>
@@ -135,7 +146,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Compliance & Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-[#6B637A]">
+        <div className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-[#52607A]">
           <div className="space-y-1 max-w-2xl">
             <p>{t.footer.complianceStatement}</p>
             <p>{t.footer.copyright}</p>
@@ -144,7 +155,7 @@ export default function Footer() {
           <button
             type="button"
             onClick={scrollToTop}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-[#4A2B88] hover:text-white border border-[#4A2B88]/15 text-xs font-semibold text-[#291550] transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-[#0A2463] hover:text-white border border-[#0A2463]/15 text-xs font-semibold text-[#001749] transition-colors"
           >
             <span>{t.footer.backToTop}</span>
             <ArrowUp className="w-3.5 h-3.5" />

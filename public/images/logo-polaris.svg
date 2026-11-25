@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Polaris Technologies logo">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#0d2f66"/>
+      <stop offset="1" stop-color="#030a1c"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.35" stop-color="#6fd3ff"/>
+      <stop offset="1" stop-color="#1e90ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="120" cy="120" r="112" fill="url(#bg)"/>
+  <g stroke="#3ab4ff" stroke-width="1.4" fill="none" opacity="0.9">
+    <path d="M120 14 L132 108 L226 120 L132 132 L120 226 L108 132 L14 120 L108 108 Z"/>
+    <path d="M120 14 L120 226 M14 120 L226 120"/>
+    <path d="M52 52 L98 98 M188 52 L142 98 M52 188 L98 142 M188 188 L142 142"/>
+    <rect x="62" y="62" width="116" height="116"/>
+  </g>
+  <g fill="#9fe3ff">
+    <circle cx="120" cy="14" r="4"/><circle cx="120" cy="226" r="4"/>
+    <circle cx="14" cy="120" r="4"/><circle cx="226" cy="120" r="4"/>
+    <circle cx="62" cy="62" r="3"/><circle cx="178" cy="62" r="3"/>
+    <circle cx="62" cy="178" r="3"/><circle cx="178" cy="178" r="3"/>
+  </g>
+  <circle cx="120" cy="120" r="46" fill="url(#glow)"/>
+  <path d="M120 84 L130 110 L156 120 L130 130 L120 156 L110 130 L84 120 L110 110 Z" fill="#fff" stroke="#6fd3ff" stroke-width="2"/>
+</svg>

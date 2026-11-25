@@ -22,7 +22,7 @@ export default function PolarisPage() {
 
         <main className="flex-1">
           <PolarisSection isStandalonePage />
-          <ContactSection />
+          <ContactSection defaultDivision="polaris" />
         </main>
 
         <Footer />

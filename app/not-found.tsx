@@ -8,7 +8,7 @@ export default function NotFound() {
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#F4FAF7] text-[#1B0D36] p-6 text-center">
       <div className="mb-6">
         <Image
-          src="/images/thet-and-thu-official-logo.webp"
+          src="/images/logo-thet-thu.svg"
           alt="THET & THU CO., LTD."
           width={240}
           height={52}

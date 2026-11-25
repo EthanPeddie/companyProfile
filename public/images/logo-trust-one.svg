@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" role="img" aria-label="Trust One Properties logo">
+  <rect width="300" height="200" rx="18" fill="#0B2D6B"/>
+  <g fill="#D4AF37">
+    <!-- roof -->
+    <path d="M50 78 L148 22 L246 78 L236 80 L148 36 L60 80 Z"/>
+    <!-- 1 -->
+    <path d="M100 92 H132 V158 H110 V114 H96 Z"/>
+    <!-- P -->
+    <path d="M150 92 H190 Q204 92 204 106 V130 Q204 144 190 144 H172 V158 H150 Z"/>
+  </g>
+  <!-- window -->
+  <g fill="#0B2D6B">
+    <rect x="172" y="100" width="22" height="22"/>
+  </g>
+  <g stroke="#D4AF37" stroke-width="2">
+    <line x1="183" y1="100" x2="183" y2="122"/>
+    <line x1="172" y1="111" x2="194" y2="111"/>
+  </g>
+</svg>

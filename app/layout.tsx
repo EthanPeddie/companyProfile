@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
+import RouteProgressBar from '@/components/RouteProgressBar';
 
 export const viewport: Viewport = {
   themeColor: '#DAEFE6',
@@ -114,7 +115,7 @@ const corporateJsonLd = {
       name: 'Polaris Tech Solution',
       alternateName: 'ပိုလာရစ် တက်ခ် ဆော့ဖ်ဝဲလ်',
       url: 'https://thetandthu.com/polaris',
-      logo: 'https://thetandthu.com/images/polaris-logo.png',
+      logo: 'https://thetandthu.com/images/logo-polaris.svg',
       description:
         'Bespoke enterprise software, ERP, multi-store POS, and mobile system engineering.',
     },
@@ -123,7 +124,7 @@ const corporateJsonLd = {
       name: 'Trust One Properties',
       alternateName: 'ထရပ်စ်ဝမ်း အိမ်ခြံမြေ',
       url: 'https://thetandthu.com/trust-one',
-      logo: 'https://thetandthu.com/images/trust-one-logo.png',
+      logo: 'https://thetandthu.com/images/logo-trust-one.svg',
       description:
         'Verified domestic Myanmar land, luxury condominiums, and commercial property advisory.',
     },
@@ -155,6 +156,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-[#F3F8F5] text-[#1B0D36] antialiased selection:bg-[#FFA62B]/30 selection:text-[#1B0D36]">
+        <RouteProgressBar />
         {children}
       </body>
     </html>

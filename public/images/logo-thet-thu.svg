@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-label="Thet &amp; Thu logo">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F6E27A"/>
+      <stop offset="0.5" stop-color="#D4AF37"/>
+      <stop offset="1" stop-color="#9C7A18"/>
+    </linearGradient>
+  </defs>
+  <!-- swoosh -->
+  <ellipse cx="120" cy="95" rx="105" ry="48" transform="rotate(-22 120 95)" fill="none" stroke="url(#g)" stroke-width="7"/>
+  <!-- centered T -->
+  <path d="M68 48 H172 V70 H132 V142 H108 V70 H68 Z" fill="url(#g)"/>
+</svg>
