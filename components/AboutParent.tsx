@@ -4,260 +4,261 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
-import {
-  Award,
-  Shield,
-  Scale,
-  Sparkles,
-  Target,
-  Compass,
-  Building2,
-  Code2,
-  Check,
-} from 'lucide-react';
+import { ArrowUpRight, Check } from 'lucide-react';
 
 export default function AboutParent() {
   const { isMM, t } = useLanguage();
 
   return (
-    <section id="about" className="relative py-20 lg:py-28 bg-[#050B16] border-b border-white/[0.08] scroll-mt-20">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="about" className="relative py-20 lg:py-28 bg-white border-b border-[#140B29]/10 scroll-mt-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500/10 text-amber-300 border border-amber-500/30">
-            <Award className="w-3.5 h-3.5 text-amber-400" />
-            <span>{t.about.badge}</span>
-          </div>
+          <p className="text-xs font-semibold tracking-wide text-[#4A2B88] mb-3">
+            {t.about.badge}
+          </p>
           <h2
-            className={`mt-4 text-white transition-all ${
+            className={`text-[#140B29] [text-wrap:balance] ${
               isMM
-                ? 'text-xl sm:text-2xl lg:text-3xl font-semibold leading-relaxed tracking-normal font-sans'
-                : 'text-2xl sm:text-4xl lg:text-5xl font-extrabold font-heading tracking-wide leading-tight'
+                ? 'text-2xl sm:text-3xl lg:text-4xl font-bold leading-relaxed'
+                : 'text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold font-heading tracking-tight leading-tight'
             }`}
           >
             {t.about.title}
           </h2>
           <p
-            className={`mt-4 text-slate-300 ${
-              isMM
-                ? 'text-xs sm:text-sm leading-loose tracking-normal'
-                : 'text-base sm:text-lg leading-relaxed'
+            className={`mt-4 text-[#433B54] ${
+              isMM ? 'text-sm sm:text-base leading-relaxed' : 'text-base sm:text-lg leading-relaxed'
             }`}
           >
             {t.about.subtitle}
           </p>
         </div>
 
-        {/* Narrative & Institutional Ledger */}
-        <div className="mt-14 lg:mt-18 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          {/* Left Column: Narrative Dossier */}
-          <div className="lg:col-span-7 space-y-8">
-            <div className="rounded-2xl glass-panel p-6 sm:p-8">
+        {/* Corporate Banner */}
+        <div className="mt-10 rounded-xl overflow-hidden border border-[#140B29]/10 bg-[#001749]">
+          <Image
+            src="/images/corporate-banner.webp"
+            alt="THET & THU CO., LTD. - Building A Better Tomorrow Together"
+            width={1200}
+            height={200}
+            style={{ width: '100%', height: 'auto' }}
+            className="w-full h-auto object-cover"
+            unoptimized
+          />
+        </div>
+
+        {/* Narrative & Holding Structure */}
+        <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+          {/* Left 7 cols: Genesis + Mission & Vision */}
+          <div className="lg:col-span-7 space-y-10">
+            <div>
               <h3
-                className={`text-white mb-4 flex items-center gap-2 ${
-                  isMM
-                    ? 'text-base sm:text-lg font-semibold leading-relaxed tracking-normal font-sans'
-                    : 'text-xl font-bold font-heading'
+                className={`text-[#140B29] mb-4 ${
+                  isMM ? 'text-lg sm:text-xl font-bold' : 'text-xl sm:text-2xl font-bold font-heading'
                 }`}
               >
-                <Sparkles className="w-4 h-4 text-amber-400 flex-shrink-0" />
-                <span>{t.about.genesisTitle}</span>
+                {t.about.genesisTitle}
               </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-loose">
-                {t.about.overviewP1}
-              </p>
-              <p className="mt-4 text-xs sm:text-sm text-slate-300 leading-loose">
-                {t.about.overviewP2}
-              </p>
+              <p className="text-sm text-[#433B54] leading-loose">{t.about.overviewP1}</p>
+              <p className="mt-4 text-sm text-[#433B54] leading-loose">{t.about.overviewP2}</p>
             </div>
 
-            {/* Mission & Vision Distinct Panels */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              <div className="rounded-xl glass-panel p-6 border-l-4 border-l-amber-500 h-full flex flex-col justify-between">
-                <div>
-                  <div className="w-9 h-9 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4">
-                    <Target className="w-5 h-5" />
-                  </div>
-                  <h4
-                    className={`text-white mb-2 ${
-                      isMM
-                        ? 'text-sm sm:text-base font-semibold leading-relaxed tracking-normal font-sans'
-                        : 'text-base font-bold font-heading'
-                    }`}
-                  >
-                    {t.about.missionTitle}
-                  </h4>
-                  <p className="text-xs text-slate-300 leading-loose">
-                    {t.about.missionDesc}
-                  </p>
-                </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-8 border-t border-[#140B29]/10">
+              <div className="border-l-2 border-[#FFA62B] pl-5">
+                <h4 className="text-base font-bold text-[#140B29] mb-2">{t.about.missionTitle}</h4>
+                <p className="text-xs sm:text-sm text-[#433B54] leading-relaxed">{t.about.missionDesc}</p>
               </div>
-
-              <div className="rounded-xl glass-panel p-6 border-l-4 border-l-cyan-500 h-full flex flex-col justify-between">
-                <div>
-                  <div className="w-9 h-9 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4">
-                    <Compass className="w-5 h-5" />
-                  </div>
-                  <h4
-                    className={`text-white mb-2 ${
-                      isMM
-                        ? 'text-sm sm:text-base font-semibold leading-relaxed tracking-normal font-sans'
-                        : 'text-base font-bold font-heading'
-                    }`}
-                  >
-                    {t.about.visionTitle}
-                  </h4>
-                  <p className="text-xs text-slate-300 leading-loose">
-                    {t.about.visionDesc}
-                  </p>
-                </div>
+              <div className="border-l-2 border-[#4A2B88] pl-5">
+                <h4 className="text-base font-bold text-[#140B29] mb-2">{t.about.visionTitle}</h4>
+                <p className="text-xs sm:text-sm text-[#433B54] leading-relaxed">{t.about.visionDesc}</p>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Corporate Governance Structure Diagram */}
-          <div className="lg:col-span-5">
-            <div className="rounded-2xl glass-panel-gold p-6 sm:p-8">
-              <div className="text-center pb-6 border-b border-white/10">
-                <div className="relative inline-flex rounded-xl overflow-hidden border border-amber-500/35 p-0 shadow-[0_0_20px_rgba(212,175,55,0.2)] mx-auto mb-3">
-                  <Image
-                    src="/images/thet-and-thu-logo.webp"
-                    alt="Thet & Thu Co., Ltd."
-                    width={210}
-                    height={140}
-                    className="h-16 w-auto block object-cover mx-auto"
-                    unoptimized
-                  />
-                </div>
-                <div className="text-xs font-bold uppercase tracking-wider text-amber-300">
-                  {t.about.parentHolding}
-                </div>
-                <div className="text-xs text-slate-400 mt-1 leading-relaxed">
-                  {t.about.parentSub}
-                </div>
-              </div>
+          {/* Right 5 cols: Holding Architecture Ledger */}
+          <div className="lg:col-span-5 rounded-2xl bg-[#F7FAF8] border border-[#140B29]/10 p-6 sm:p-8">
+            <div className="pb-5 border-b border-[#140B29]/10">
+              <div className="text-xs font-semibold text-[#4A2B88]">{t.about.integrityBadge}</div>
+              <h3 className="mt-1 text-lg font-bold text-[#140B29]">{t.about.parentHolding}</h3>
+              <p className="text-xs text-[#6B637A] mt-0.5">{t.about.parentSub}</p>
+            </div>
 
-              <div className="py-3 flex flex-col items-center">
-                <div className="w-px h-5 bg-gradient-to-b from-amber-400 to-amber-500/50" />
-                <div className="w-2 h-2 rounded-full bg-amber-400 -mt-1 shadow-xs shadow-amber-400/50" />
-              </div>
-
-              {/* Subsidiaries Branch Display */}
-              <div className="space-y-3">
-                <Link
-                  href="/polaris"
-                  className="p-4 rounded-xl bg-[#050B16] border border-cyan-500/30 flex items-start gap-3.5 hover:border-cyan-400 transition-colors group block"
-                >
-                  <div className="p-2 rounded-lg bg-cyan-950/60 text-cyan-400 flex-shrink-0 group-hover:scale-105 transition-transform">
-                    <Code2 className="w-5 h-5" />
+            <div className="divide-y divide-[#140B29]/10">
+              <Link
+                href="/polaris"
+                className="py-5 flex items-center justify-between gap-4 group"
+              >
+                <div className="flex items-center gap-3.5">
+                  <div className="w-10 h-10 rounded-lg bg-[#4A2B88] flex items-center justify-center flex-shrink-0">
+                    <Image
+                      src="/images/polaris-emblem.webp"
+                      alt="Polaris Tech Solution"
+                      width={24}
+                      height={24}
+                      className="w-6 h-6 rounded-full object-contain"
+                      unoptimized
+                    />
                   </div>
                   <div>
-                    <div className="text-xs font-bold uppercase tracking-wider text-cyan-400">
-                      {isMM ? 'လုပ်ငန်းခွဲ (က)' : 'Division A'}
-                    </div>
-                    <div className="text-sm font-bold text-white mt-0.5 group-hover:text-cyan-300">
+                    <div className="text-sm font-bold text-[#140B29] group-hover:text-[#4A2B88] transition-colors">
                       Polaris Tech Solution
                     </div>
-                    <div className="text-xs text-slate-400 mt-1 leading-relaxed">
-                      {t.about.divASub}
-                    </div>
+                    <div className="text-xs text-[#6B637A] mt-0.5">{t.about.divASub}</div>
                   </div>
-                </Link>
+                </div>
+                <ArrowUpRight className="w-4 h-4 text-[#6B637A] group-hover:text-[#4A2B88] flex-shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
 
-                <Link
-                  href="/trust-one"
-                  className="p-4 rounded-xl bg-[#050B16] border border-amber-500/30 flex items-start gap-3.5 hover:border-amber-400 transition-colors group block"
-                >
-                  <div className="p-2 rounded-lg bg-amber-950/60 text-amber-400 flex-shrink-0 group-hover:scale-105 transition-transform">
-                    <Building2 className="w-5 h-5" />
+              <Link
+                href="/trust-one"
+                className="py-5 flex items-center justify-between gap-4 group"
+              >
+                <div className="flex items-center gap-3.5">
+                  <div className="w-10 h-10 rounded-lg bg-[#4A2B88] flex items-center justify-center flex-shrink-0">
+                    <Image
+                      src="/images/trust-one-emblem.webp"
+                      alt="Trust One Properties"
+                      width={24}
+                      height={24}
+                      className="w-6 h-6 object-contain"
+                      unoptimized
+                    />
                   </div>
                   <div>
-                    <div className="text-xs font-bold uppercase tracking-wider text-amber-400">
-                      {isMM ? 'လုပ်ငန်းခွဲ (ခ)' : 'Division B'}
-                    </div>
-                    <div className="text-sm font-bold text-white mt-0.5 group-hover:text-amber-300">
+                    <div className="text-sm font-bold text-[#140B29] group-hover:text-[#9A540E] transition-colors">
                       Trust One Properties
                     </div>
-                    <div className="text-xs text-slate-400 mt-1 leading-relaxed">
-                      {t.about.divBSub}
-                    </div>
+                    <div className="text-xs text-[#6B637A] mt-0.5">{t.about.divBSub}</div>
                   </div>
-                </Link>
-              </div>
+                </div>
+                <ArrowUpRight className="w-4 h-4 text-[#6B637A] group-hover:text-[#9A540E] flex-shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
+            </div>
 
-              <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
-                <span className="text-amber-300 font-semibold">{t.about.integrityBadge}</span>
-                <span>{t.about.locationBadge}</span>
+            <div className="pt-4 border-t border-[#140B29]/10 text-xs text-[#6B637A]">
+              {t.about.locationBadge}
+            </div>
+          </div>
+        </div>
+
+        {/* Executive Leadership */}
+        <div className="mt-20 pt-16 border-t border-[#140B29]/10">
+          <div className="max-w-2xl mb-10">
+            <p className="text-xs font-semibold text-[#4A2B88] mb-2">{t.about.leadershipBadge}</p>
+            <h3
+              className={`text-[#140B29] ${
+                isMM ? 'text-xl sm:text-2xl font-bold' : 'text-2xl sm:text-3xl font-bold font-heading'
+              }`}
+            >
+              {t.about.leadershipTitle}
+            </h3>
+            <p className="mt-2 text-sm text-[#433B54]">{t.about.leadershipSubtitle}</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* CEO */}
+            <div className="flex flex-col sm:flex-row gap-6 p-6 rounded-2xl bg-[#F7FAF8] border border-[#140B29]/10">
+              <div className="relative w-28 h-28 sm:w-32 sm:h-36 rounded-xl overflow-hidden bg-[#F4F0FA] flex-shrink-0">
+                <Image
+                  src="/images/leadership-ceo.webp"
+                  alt={t.about.ceoTitle}
+                  fill
+                  sizes="128px"
+                  className="object-cover object-top"
+                  unoptimized
+                />
+              </div>
+              <div className="flex-1">
+                <div className="text-xs font-semibold text-[#4A2B88]">{t.about.ceoRole}</div>
+                <h4 className="text-lg font-bold text-[#140B29] mt-1">{t.about.ceoTitle}</h4>
+                <div className="text-xs font-medium text-[#6B637A] mt-0.5">{t.about.ceoCompany}</div>
+                <p className="mt-3 text-xs sm:text-sm text-[#433B54] leading-relaxed">{t.about.ceoDesc}</p>
+              </div>
+            </div>
+
+            {/* Managing Director */}
+            <div className="flex flex-col sm:flex-row gap-6 p-6 rounded-2xl bg-[#F7FAF8] border border-[#140B29]/10">
+              <div className="relative w-28 h-28 sm:w-32 sm:h-36 rounded-xl overflow-hidden bg-[#F4F0FA] flex-shrink-0">
+                <Image
+                  src="/images/leadership-director.webp"
+                  alt={t.about.directorTitle}
+                  fill
+                  sizes="128px"
+                  className="object-cover object-top"
+                  unoptimized
+                />
+              </div>
+              <div className="flex-1">
+                <div className="text-xs font-semibold text-[#9A540E]">{t.about.directorRole}</div>
+                <h4 className="text-lg font-bold text-[#140B29] mt-1">{t.about.directorTitle}</h4>
+                <div className="text-xs font-medium text-[#6B637A] mt-0.5">{t.about.directorCompany}</div>
+                <p className="mt-3 text-xs sm:text-sm text-[#433B54] leading-relaxed">{t.about.directorDesc}</p>
               </div>
             </div>
           </div>
         </div>
 
+        {/* Corporate Activity & 4 Core Pillars */}
+        <div className="mt-20 pt-16 border-t border-[#140B29]/10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div className="lg:col-span-6 relative h-64 sm:h-80 rounded-2xl overflow-hidden border border-[#140B29]/10">
+            <Image
+              src="/images/corporate-activity.webp"
+              alt={t.about.activityTitle}
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+              unoptimized
+            />
+          </div>
+
+          <div className="lg:col-span-6">
+            <p className="text-xs font-semibold text-[#4A2B88] mb-2">{t.about.activityBadge}</p>
+            <h3
+              className={`text-[#140B29] ${
+                isMM ? 'text-xl sm:text-2xl font-bold' : 'text-2xl sm:text-3xl font-bold font-heading'
+              }`}
+            >
+              {t.about.activityTitle}
+            </h3>
+            <p className="mt-3 text-sm text-[#433B54] leading-relaxed">{t.about.activitySubtitle}</p>
+
+            <ul className="mt-6 space-y-3">
+              {[t.about.activityPoint1, t.about.activityPoint2, t.about.activityPoint3].map((point, idx) => (
+                <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-[#140B29]">
+                  <Check className="w-4 h-4 text-[#4A2B88] flex-shrink-0 mt-0.5" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
         {/* 4 Core Pillars */}
-        <div id="values" className="mt-20 lg:mt-24 scroll-mt-24">
+        <div className="mt-20 pt-16 border-t border-[#140B29]/10">
           <div className="max-w-2xl mb-10">
             <h3
-              className={`text-white ${
-                isMM
-                  ? 'text-xl sm:text-2xl font-semibold leading-relaxed tracking-normal font-sans'
-                  : 'text-xl sm:text-3xl font-extrabold font-heading'
+              className={`text-[#140B29] ${
+                isMM ? 'text-xl sm:text-2xl font-bold' : 'text-2xl sm:text-3xl font-bold font-heading'
               }`}
             >
               {t.about.pillarsTitle}
             </h3>
-            <p className="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">
-              {t.about.pillarsSubtitle}
-            </p>
+            <p className="mt-2 text-sm text-[#433B54]">{t.about.pillarsSubtitle}</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="rounded-xl glass-panel p-6 border-t-2 border-t-amber-500 hover:border-amber-400/60 transition-colors">
-              <div className="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4">
-                <Shield className="w-4 h-4" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { title: t.about.pillar1Title, desc: t.about.pillar1Desc },
+              { title: t.about.pillar2Title, desc: t.about.pillar2Desc },
+              { title: t.about.pillar3Title, desc: t.about.pillar3Desc },
+              { title: t.about.pillar4Title, desc: t.about.pillar4Desc },
+            ].map((pillar, idx) => (
+              <div key={idx} className="border-t-2 border-[#140B29]/15 pt-5">
+                <h4 className="text-base font-bold text-[#140B29]">{pillar.title}</h4>
+                <p className="mt-2 text-xs sm:text-sm text-[#433B54] leading-relaxed">{pillar.desc}</p>
               </div>
-              <h4 className="text-sm sm:text-base font-bold text-white mb-2 leading-relaxed">
-                {t.about.pillar1Title}
-              </h4>
-              <p className="text-xs text-slate-300 leading-loose">
-                {t.about.pillar1Desc}
-              </p>
-            </div>
-
-            <div className="rounded-xl glass-panel p-6 border-t-2 border-t-cyan-500 hover:border-cyan-400/60 transition-colors">
-              <div className="w-8 h-8 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4">
-                <Code2 className="w-4 h-4" />
-              </div>
-              <h4 className="text-sm sm:text-base font-bold text-white mb-2 leading-relaxed">
-                {t.about.pillar2Title}
-              </h4>
-              <p className="text-xs text-slate-300 leading-loose">
-                {t.about.pillar2Desc}
-              </p>
-            </div>
-
-            <div className="rounded-xl glass-panel p-6 border-t-2 border-t-amber-500 hover:border-amber-400/60 transition-colors">
-              <div className="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4">
-                <Check className="w-4 h-4" />
-              </div>
-              <h4 className="text-sm sm:text-base font-bold text-white mb-2 leading-relaxed">
-                {t.about.pillar3Title}
-              </h4>
-              <p className="text-xs text-slate-300 leading-loose">
-                {t.about.pillar3Desc}
-              </p>
-            </div>
-
-            <div className="rounded-xl glass-panel p-6 border-t-2 border-t-amber-500 hover:border-amber-400/60 transition-colors">
-              <div className="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4">
-                <Scale className="w-4 h-4" />
-              </div>
-              <h4 className="text-sm sm:text-base font-bold text-white mb-2 leading-relaxed">
-                {t.about.pillar4Title}
-              </h4>
-              <p className="text-xs text-slate-300 leading-loose">
-                {t.about.pillar4Desc}
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </div>

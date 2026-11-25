@@ -49,7 +49,6 @@ export default function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Honeypot spam check
     if (formData.honeypot) return;
 
     if (cooldown > 0) {
@@ -76,9 +75,12 @@ export default function ContactSection() {
     setErrorMessage('');
 
     const web3Key = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+    const isValidUuid =
+      !!web3Key &&
+      /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(web3Key);
 
     try {
-      if (web3Key && web3Key !== 'YOUR_WEB3FORMS_ACCESS_KEY_HERE') {
+      if (isValidUuid) {
         const res = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: {
@@ -107,7 +109,6 @@ export default function ContactSection() {
           setSubmitted(false);
         }
       } else {
-        // Fallback demo acknowledgment for development without live access key
         await new Promise((resolve) => setTimeout(resolve, 800));
         setSubmitted(true);
         setCooldown(60);
@@ -127,359 +128,280 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative py-20 lg:py-28 bg-[#050B16] scroll-mt-20 overflow-hidden"
+      className="relative py-20 lg:py-28 bg-[#EDF4F0] scroll-mt-16"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500/10 text-amber-300 border border-amber-500/30">
-            <Mail className="w-3.5 h-3.5 text-amber-400" />
-            <span>{t.contact.badge}</span>
-          </div>
+          <p className="text-xs font-semibold text-[#4A2B88] mb-2">{t.contact.badge}</p>
           <h2
-            className={`mt-4 text-white transition-all ${
+            className={`text-[#140B29] [text-wrap:balance] ${
               isMM
-                ? 'text-xl sm:text-2xl lg:text-3xl font-semibold leading-relaxed tracking-normal font-sans'
-                : 'text-2xl sm:text-4xl font-extrabold font-heading tracking-wide'
+                ? 'text-2xl sm:text-3xl font-bold leading-relaxed'
+                : 'text-3xl sm:text-4xl font-extrabold font-heading tracking-tight'
             }`}
           >
             {t.contact.title}
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p className="mt-3 text-sm sm:text-base text-[#433B54] leading-relaxed">
             {t.contact.subtitle}
           </p>
         </div>
 
-        <div className="mt-12 lg:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-          {/* Left Column: Direct Corporate Channels */}
+        <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          {/* Left 5 cols: Direct Corporate Channels */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="rounded-2xl glass-panel p-6 sm:p-8">
-              <h3
-                className={`text-white mb-2 ${
-                  isMM
-                    ? 'text-base sm:text-lg font-semibold leading-relaxed tracking-normal font-sans'
-                    : 'text-lg font-bold font-heading'
-                }`}
-              >
-                {t.contact.channelsTitle}
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
+            <div>
+              <h3 className="text-lg font-bold text-[#140B29]">{t.contact.channelsTitle}</h3>
+              <p className="mt-1.5 text-xs sm:text-sm text-[#433B54] leading-relaxed">
                 {t.contact.channelsDesc}
               </p>
+            </div>
 
-              <div className="space-y-3.5">
-                <a
-                  href="mailto:info@thetandthu.com"
-                  className="flex items-center gap-3.5 p-3.5 rounded-xl bg-[#040812] border border-white/10 hover:border-amber-400 transition-colors group"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
-                    <Mail className="w-5 h-5" />
+            <div className="divide-y divide-[#140B29]/10 border-t border-b border-[#140B29]/10">
+              <a
+                href="mailto:info@thetandthu.com"
+                className="py-4 flex items-center gap-3.5 group"
+              >
+                <Mail className="w-4 h-4 text-[#4A2B88] flex-shrink-0" />
+                <div>
+                  <div className="text-xs text-[#6B637A]">{t.contact.holdingEmailLabel}</div>
+                  <div className="text-sm font-semibold text-[#140B29] group-hover:text-[#4A2B88]">
+                    info@thetandthu.com
                   </div>
-                  <div>
-                    <div className="text-xs text-slate-400">{t.contact.holdingEmailLabel}</div>
-                    <div className="text-sm font-semibold text-white group-hover:text-amber-300">
-                      info@thetandthu.com
-                    </div>
-                  </div>
-                </a>
+                </div>
+              </a>
 
-                <div className="p-3.5 rounded-xl bg-[#040812] border border-white/10 hover:border-amber-400 transition-colors group">
-                  <div className="flex items-center gap-3.5">
-                    <div className="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
-                      <Phone className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <div className="text-xs text-slate-400">{t.contact.hotlineLabel} (THET &amp; THU)</div>
-                      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm font-semibold text-white mt-0.5">
-                        <a href="tel:+9595056524" className="hover:text-amber-300 transition-colors">
-                          09 505 6524
-                        </a>
-                        <span className="text-white/20">/</span>
-                        <a href="tel:+959443212306" className="hover:text-amber-300 transition-colors">
-                          09 443 212 306
-                        </a>
-                      </div>
-                    </div>
+              <div className="py-4 flex items-start gap-3.5">
+                <Phone className="w-4 h-4 text-[#4A2B88] flex-shrink-0 mt-1" />
+                <div>
+                  <div className="text-xs text-[#6B637A]">
+                    {t.contact.hotlineLabel} (THET &amp; THU)
+                  </div>
+                  <div className="mt-0.5 flex flex-wrap items-center gap-2 font-mono text-sm font-semibold text-[#140B29]">
+                    <a href="tel:+9595056524" className="hover:text-[#4A2B88]">
+                      09 505 6524
+                    </a>
+                    <span className="text-[#140B29]/20">/</span>
+                    <a href="tel:+959443212306" className="hover:text-[#4A2B88]">
+                      09 443 212 306
+                    </a>
                   </div>
                 </div>
               </div>
 
-              {/* Divisional Routing Notice */}
-              <div className="mt-6 pt-5 border-t border-white/10 space-y-3">
-                <div className="flex items-start gap-3 text-xs text-slate-300">
-                  <span className="w-2 h-2 rounded-full bg-cyan-400 mt-1.5 flex-shrink-0" />
-                  <div className="flex-1">
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <strong className="text-cyan-300">Polaris Tech Solution:</strong>
-                      <a
-                        href="tel:+959780654277"
-                        className="font-mono text-cyan-400 hover:text-cyan-200 transition-colors font-semibold"
-                        title="Call Polaris Tech Solution"
-                      >
-                        09 780 654 277
-                      </a>
-                    </div>
-                    <div className="text-slate-400 mt-0.5 leading-relaxed">
-                      {t.contact.polarisRouting}
-                    </div>
-                  </div>
+              <div className="py-4">
+                <div className="text-xs font-semibold text-[#4A2B88]">Polaris Tech Solution</div>
+                <div className="text-xs text-[#6B637A] mt-0.5">{t.contact.polarisRouting}</div>
+                <div className="mt-1.5 flex flex-wrap gap-x-4 gap-y-1 text-xs font-mono font-semibold text-[#140B29]">
+                  <a href="mailto:polaris@thetandthu.com" className="hover:text-[#4A2B88]">
+                    polaris@thetandthu.com
+                  </a>
+                  <a href="tel:+959780654277" className="hover:text-[#4A2B88]">
+                    09 780 654 277
+                  </a>
                 </div>
+              </div>
 
-                <div className="flex items-start gap-3 text-xs text-slate-300">
-                  <span className="w-2 h-2 rounded-full bg-amber-400 mt-1.5 flex-shrink-0" />
-                  <div className="flex-1">
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <strong className="text-amber-300">Trust One Properties:</strong>
-                      <span className="font-mono text-amber-400 font-semibold space-x-1.5">
-                        <a
-                          href="tel:+9595056524"
-                          className="hover:text-amber-200 transition-colors"
-                          title="Call Trust One Desk"
-                        >
-                          09 505 6524
-                        </a>
-                        <span className="text-white/20">/</span>
-                        <a
-                          href="tel:+959795056524"
-                          className="hover:text-amber-200 transition-colors"
-                          title="Call Trust One Desk"
-                        >
-                          09 795 056 524
-                        </a>
-                      </span>
-                    </div>
-                    <div className="text-slate-400 mt-0.5 leading-relaxed">
-                      {t.contact.trustOneRouting}
-                    </div>
-                  </div>
+              <div className="py-4">
+                <div className="text-xs font-semibold text-[#9A540E]">Trust One Properties</div>
+                <div className="text-xs text-[#6B637A] mt-0.5">{t.contact.trustOneRouting}</div>
+                <div className="mt-1.5 flex flex-wrap gap-x-4 gap-y-1 text-xs font-mono font-semibold text-[#140B29]">
+                  <a href="mailto:trustone@thetandthu.com" className="hover:text-[#9A540E]">
+                    trustone@thetandthu.com
+                  </a>
+                  <a href="tel:+959795056524" className="hover:text-[#9A540E]">
+                    09 79 505 6524
+                  </a>
                 </div>
               </div>
             </div>
 
-            <div className="rounded-xl bg-[#040812] border border-white/10 p-4.5 flex items-start gap-3 text-xs text-slate-400">
-              <ShieldCheck className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-              <span className="leading-relaxed">
-                {t.contact.confidentialBadge}
-              </span>
+            <div className="flex items-center gap-2 text-xs text-[#433B54]">
+              <ShieldCheck className="w-4 h-4 text-[#4A2B88] flex-shrink-0" />
+              <span>{t.contact.confidentialBadge}</span>
             </div>
           </div>
 
-          {/* Right Column: Validated Executive Form */}
-          <div className="lg:col-span-7">
-            <div className="rounded-2xl glass-panel-gold p-6 sm:p-10">
-              {submitted ? (
-                <div className="text-center py-10 space-y-4">
-                  <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center mx-auto">
-                    <CheckCircle className="w-8 h-8" />
-                  </div>
-                  <h3
-                    className={`text-white ${
-                      isMM
-                        ? 'text-xl sm:text-2xl font-semibold leading-relaxed tracking-normal font-sans'
-                        : 'text-2xl font-bold font-heading'
-                    }`}
-                  >
-                    {t.contact.successTitle}
-                  </h3>
-                  <p className="text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
-                    {t.contact.successMessage}
-                  </p>
-                  <button
-                    type="button"
-                    disabled={cooldown > 0}
-                    onClick={() => {
-                      if (cooldown > 0) return;
-                      setSubmitted(false);
-                      setFormData({
-                        name: '',
-                        email: '',
-                        phone: '',
-                        division: 'general',
-                        message: '',
-                        honeypot: '',
-                      });
-                    }}
-                    className="mt-6 inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white/10 hover:bg-white/20 text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    <span>
-                      {cooldown > 0
-                        ? (isMM ? `နောက်ထပ်မေးမြန်းရန် (${cooldown} စက္ကန့်)` : `Cooldown Active (${cooldown}s)`)
-                        : t.contact.sendAnother}
-                    </span>
-                  </button>
+          {/* Right 7 cols: Inquiry Form */}
+          <div className="lg:col-span-7 rounded-2xl bg-white border border-[#140B29]/10 p-6 sm:p-8 shadow-xs">
+            {submitted ? (
+              <div className="py-12 text-center">
+                <div className="w-12 h-12 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle className="w-6 h-6" />
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <input
-                    type="text"
-                    name="honeypot"
-                    value={formData.honeypot}
-                    onChange={handleChange}
-                    className="hidden"
-                    tabIndex={-1}
-                    autoComplete="off"
-                  />
+                <h3 className="text-xl font-bold text-[#140B29]">{t.contact.successTitle}</h3>
+                <p className="mt-2 text-sm text-[#433B54] max-w-md mx-auto leading-relaxed">
+                  {t.contact.successMessage}
+                </p>
+                <button
+                  type="button"
+                  disabled={cooldown > 0}
+                  onClick={() => {
+                    setSubmitted(false);
+                    setFormData((prev) => ({ ...prev, message: '' }));
+                  }}
+                  className="mt-6 px-5 py-2.5 rounded-lg bg-[#4A2B88] text-white text-xs font-semibold hover:bg-[#381F6A] disabled:opacity-50"
+                >
+                  {cooldown > 0
+                    ? isMM
+                      ? `ထပ်မံပေးပို့ရန် (${cooldown} စက္ကန့်)`
+                      : `Send Another (${cooldown}s)`
+                    : t.contact.sendAnother}
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+                {/* Honeypot */}
+                <input
+                  type="text"
+                  name="honeypot"
+                  value={formData.honeypot}
+                  onChange={handleChange}
+                  className="hidden"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
 
-                  {/* Division Selection */}
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
-                      {t.contact.divisionLabel}
-                    </label>
-                    <div
-                      role="radiogroup"
-                      aria-label={t.contact.divisionLabel}
-                      className="grid grid-cols-1 sm:grid-cols-3 gap-2.5"
-                    >
-                      <button
-                        type="button"
-                        role="radio"
-                        aria-checked={formData.division === 'general'}
-                        onClick={() =>
-                          setFormData((p) => ({ ...p, division: 'general' }))
-                        }
-                        className={`p-3 rounded-xl text-left border text-xs font-semibold transition-all ${
-                          formData.division === 'general'
-                            ? 'bg-amber-500/20 border-amber-400 text-amber-200'
-                            : 'bg-[#040812] border-white/10 text-slate-300 hover:border-white/25'
-                        }`}
-                      >
-                        <div className="font-bold">{t.contact.divGeneralShort}</div>
-                        <div className="text-[10px] text-slate-400 mt-0.5">{t.contact.divGeneralSub}</div>
-                      </button>
-
-                      <button
-                        type="button"
-                        role="radio"
-                        aria-checked={formData.division === 'polaris'}
-                        onClick={() =>
-                          setFormData((p) => ({ ...p, division: 'polaris' }))
-                        }
-                        className={`p-3 rounded-xl text-left border text-xs font-semibold transition-all ${
-                          formData.division === 'polaris'
-                            ? 'bg-cyan-500/20 border-cyan-400 text-cyan-200'
-                            : 'bg-[#040812] border-white/10 text-slate-300 hover:border-white/25'
-                        }`}
-                      >
-                        <div className="font-bold text-cyan-300">{t.contact.divPolarisShort}</div>
-                        <div className="text-[10px] text-slate-400 mt-0.5">{t.contact.divPolarisSub}</div>
-                      </button>
-
-                      <button
-                        type="button"
-                        role="radio"
-                        aria-checked={formData.division === 'trust-one'}
-                        onClick={() =>
-                          setFormData((p) => ({ ...p, division: 'trust-one' }))
-                        }
-                        className={`p-3 rounded-xl text-left border text-xs font-semibold transition-all ${
-                          formData.division === 'trust-one'
-                            ? 'bg-amber-500/20 border-amber-400 text-amber-200'
-                            : 'bg-[#040812] border-white/10 text-slate-300 hover:border-white/25'
-                        }`}
-                      >
-                        <div className="font-bold text-amber-300">{t.contact.divTrustOneShort}</div>
-                        <div className="text-[10px] text-slate-400 mt-0.5">{t.contact.divTrustOneSub}</div>
-                      </button>
-                    </div>
+                {/* Division Selector */}
+                <div>
+                  <label className="block text-xs font-semibold text-[#140B29] mb-2">
+                    {t.contact.divisionLabel}
+                  </label>
+                  <div
+                    className="grid grid-cols-1 sm:grid-cols-3 gap-2.5"
+                    role="radiogroup"
+                    aria-label={t.contact.divisionLabel}
+                  >
+                    {[
+                      {
+                        id: 'general',
+                        title: t.contact.divGeneralShort,
+                        sub: t.contact.divGeneralSub,
+                      },
+                      {
+                        id: 'polaris',
+                        title: t.contact.divPolarisShort,
+                        sub: t.contact.divPolarisSub,
+                      },
+                      {
+                        id: 'trust-one',
+                        title: t.contact.divTrustOneShort,
+                        sub: t.contact.divTrustOneSub,
+                      },
+                    ].map((opt) => {
+                      const active = formData.division === opt.id;
+                      return (
+                        <button
+                          key={opt.id}
+                          type="button"
+                          role="radio"
+                          aria-checked={active}
+                          onClick={() => setFormData((prev) => ({ ...prev, division: opt.id }))}
+                          className={`text-left p-3 rounded-xl border transition-all ${
+                            active
+                              ? 'border-[#140B29] bg-[#F7FAF8] ring-1 ring-[#140B29]'
+                              : 'border-[#140B29]/12 hover:border-[#140B29]/30'
+                          }`}
+                        >
+                          <div className="text-xs font-bold text-[#140B29]">{opt.title}</div>
+                          <div className="text-[11px] text-[#6B637A] mt-0.5">{opt.sub}</div>
+                        </button>
+                      );
+                    })}
                   </div>
+                </div>
 
-                  {/* Name */}
+                {/* Name */}
+                <div>
+                  <label htmlFor="contact-name" className="block text-xs font-semibold text-[#140B29] mb-1.5">
+                    {t.contact.nameLabel} <span className="text-[#E88D17]">*</span>
+                  </label>
+                  <input
+                    id="contact-name"
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder={t.contact.namePlaceholder}
+                    required
+                    className="w-full px-3.5 py-2.5 rounded-lg border border-[#140B29]/15 bg-[#F7FAF8] text-sm text-[#140B29] placeholder:text-[#6B637A]/70 focus:outline-none focus:bg-white focus:border-[#4A2B88]"
+                  />
+                </div>
+
+                {/* Email & Phone */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="inquiry-name" className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                      {t.contact.nameLabel} <span className="text-amber-400">*</span>
+                    <label htmlFor="contact-email" className="block text-xs font-semibold text-[#140B29] mb-1.5">
+                      {t.contact.emailLabel} <span className="text-[#E88D17]">*</span>
                     </label>
                     <input
-                      id="inquiry-name"
-                      type="text"
-                      name="name"
-                      required
-                      value={formData.name}
+                      id="contact-email"
+                      type="email"
+                      name="email"
+                      value={formData.email}
                       onChange={handleChange}
-                      placeholder={t.contact.namePlaceholder}
-                      className="w-full px-4 py-3 rounded-xl bg-[#040812] border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-hidden focus:border-amber-400 transition-colors"
+                      placeholder={t.contact.emailPlaceholder}
+                      required
+                      className="w-full px-3.5 py-2.5 rounded-lg border border-[#140B29]/15 bg-[#F7FAF8] text-sm text-[#140B29] placeholder:text-[#6B637A]/70 focus:outline-none focus:bg-white focus:border-[#4A2B88]"
                     />
                   </div>
-
-                  {/* Email & Phone */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="inquiry-email" className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                        {t.contact.emailLabel} <span className="text-amber-400">*</span>
-                      </label>
-                      <input
-                        id="inquiry-email"
-                        type="email"
-                        name="email"
-                        required
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder={t.contact.emailPlaceholder}
-                        className="w-full px-4 py-3 rounded-xl bg-[#040812] border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-hidden focus:border-amber-400 transition-colors"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="inquiry-phone" className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                        {t.contact.phoneLabel}
-                      </label>
-                      <input
-                        id="inquiry-phone"
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        placeholder={t.contact.phonePlaceholder}
-                        className="w-full px-4 py-3 rounded-xl bg-[#040812] border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-hidden focus:border-amber-400 transition-colors"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Message */}
                   <div>
-                    <label htmlFor="inquiry-message" className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                      {t.contact.messageLabel} <span className="text-amber-400">*</span>
+                    <label htmlFor="contact-phone" className="block text-xs font-semibold text-[#140B29] mb-1.5">
+                      {t.contact.phoneLabel}
                     </label>
-                    <textarea
-                      id="inquiry-message"
-                      name="message"
-                      rows={4}
-                      required
-                      value={formData.message}
+                    <input
+                      id="contact-phone"
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
                       onChange={handleChange}
-                      placeholder={t.contact.messagePlaceholder}
-                      className="w-full px-4 py-3 rounded-xl bg-[#040812] border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-hidden focus:border-amber-400 transition-colors resize-none"
+                      placeholder={t.contact.phonePlaceholder}
+                      className="w-full px-3.5 py-2.5 rounded-lg border border-[#140B29]/15 bg-[#F7FAF8] text-sm text-[#140B29] placeholder:text-[#6B637A]/70 focus:outline-none focus:bg-white focus:border-[#4A2B88]"
                     />
                   </div>
+                </div>
 
-                  {errorMessage && (
-                    <div className="p-3 rounded-lg bg-red-950/60 border border-red-500/40 text-xs text-red-300 flex items-center gap-2">
-                      <AlertCircle className="w-4 h-4 flex-shrink-0" />
-                      <span>{errorMessage}</span>
-                    </div>
-                  )}
+                {/* Message */}
+                <div>
+                  <label htmlFor="contact-message" className="block text-xs font-semibold text-[#140B29] mb-1.5">
+                    {t.contact.messageLabel} <span className="text-[#E88D17]">*</span>
+                  </label>
+                  <textarea
+                    id="contact-message"
+                    name="message"
+                    rows={4}
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder={t.contact.messagePlaceholder}
+                    required
+                    className="w-full px-3.5 py-2.5 rounded-lg border border-[#140B29]/15 bg-[#F7FAF8] text-sm text-[#140B29] placeholder:text-[#6B637A]/70 focus:outline-none focus:bg-white focus:border-[#4A2B88] resize-y"
+                  />
+                </div>
 
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-wider bg-gradient-to-r from-[#D4AF37] via-[#F3C65F] to-[#D4AF37] text-[#050B16] hover:brightness-110 active:scale-98 shadow-xl shadow-amber-500/20 disabled:opacity-60 transition-all duration-200"
-                  >
-                    {isSubmitting ? (
-                      <span>{t.contact.submitting}</span>
-                    ) : (
-                      <>
-                        <Send className="w-4 h-4" />
-                        <span>{t.contact.submitButton}</span>
-                      </>
-                    )}
-                  </button>
-
-                  <div className="flex items-center justify-center gap-1.5 text-[11px] text-slate-400 pt-1">
-                    <Info className="w-3.5 h-3.5 text-amber-400" />
-                    <span>{t.contact.web3Notice}</span>
+                {errorMessage && (
+                  <div className="flex items-start gap-2.5 p-3 rounded-lg bg-red-50 border border-red-200 text-xs text-red-700">
+                    <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                    <span>{errorMessage}</span>
                   </div>
-                </form>
-              )}
-            </div>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="btn-interactive w-full py-3 px-5 rounded-lg bg-[#4A2B88] hover:bg-[#381F6A] text-white text-sm font-semibold flex items-center justify-center gap-2 disabled:opacity-60"
+                >
+                  <Send className="w-4 h-4" />
+                  <span>{isSubmitting ? t.contact.submitting : t.contact.submitButton}</span>
+                </button>
+
+                <div className="flex items-center gap-2 text-[11px] text-[#6B637A]">
+                  <Info className="w-3.5 h-3.5 flex-shrink-0" />
+                  <span>{t.contact.web3Notice}</span>
+                </div>
+              </form>
+            )}
           </div>
         </div>
       </div>

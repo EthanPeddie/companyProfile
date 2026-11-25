@@ -5,47 +5,47 @@ import { ShieldCheck, Home } from 'lucide-react';
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-[#071326] text-slate-100 p-6 text-center">
-      <div className="relative inline-flex rounded-xl overflow-hidden border border-amber-500/35 p-0 shadow-[0_0_20px_rgba(212,175,55,0.2)] mb-6">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-[#F4FAF7] text-[#1B0D36] p-6 text-center">
+      <div className="mb-6">
         <Image
-          src="/images/thet-and-thu-logo.webp"
+          src="/images/thet-and-thu-official-logo.webp"
           alt="THET & THU CO., LTD."
-          width={210}
-          height={140}
-          className="h-16 w-auto block object-cover mx-auto"
+          width={240}
+          height={52}
+          className="h-12 w-auto block object-contain mx-auto rounded-xl"
           unoptimized
         />
       </div>
 
-      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500/10 text-amber-300 border border-amber-500/30 mb-4">
-        <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
+      <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#DAEFE6] text-[#291550] border border-[#4A2B88]/20 mb-4">
+        <ShieldCheck className="w-3.5 h-3.5 text-[#4A2B88]" />
         <span>THET &amp; THU CO., LTD.</span>
       </div>
 
-      <h1 className="text-5xl sm:text-7xl font-extrabold text-[#F3C65F] font-heading">
+      <h1 className="text-6xl sm:text-8xl font-black text-[#FFA62B] font-heading tracking-tight">
         404
       </h1>
-      <h2 className="mt-3 text-xl sm:text-2xl font-bold text-white">
+      <h2 className="mt-2 text-xl sm:text-2xl font-bold text-[#1B0D36]">
         Page Not Found / စာမျက်နှာ ရှာမတွေ့ပါ
       </h2>
-      <p className="mt-2 text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
+      <p className="mt-2 text-sm text-[#44365C] max-w-md mx-auto leading-relaxed">
         The requested corporate document or sub-division page does not exist or has been relocated.
       </p>
-      <p className="mt-1 text-xs text-slate-400 max-w-md mx-auto leading-relaxed">
+      <p className="mt-1 text-xs text-[#5C4F75] max-w-md mx-auto leading-relaxed">
         သင်ရှာဖွေနေသော စာမျက်နှာသည် တည်ရှိခြင်း မရှိပါ သို့မဟုတ် ရွှေ့ပြောင်းသွားခြင်း ဖြစ်နိုင်ပါသည်။
       </p>
 
       <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-[#D4AF37] text-[#071326] hover:bg-[#F3C65F] transition-colors shadow-lg shadow-amber-500/20"
+          className="btn-interactive inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold bg-[#FFA62B] text-[#1B0D36] hover:bg-[#E88D17] shadow-lg shadow-[#FFA62B]/20"
         >
           <Home className="w-4 h-4" />
           <span>Return to Homepage / ပင်မစာမျက်နှာသို့ ပြန်သွားရန်</span>
         </Link>
       </div>
 
-      <div className="mt-12 text-xs text-slate-500">
+      <div className="mt-12 text-xs text-[#5C4F75]">
         © 2026 THET &amp; THU CO., LTD. • All Rights Reserved.
       </div>
     </div>

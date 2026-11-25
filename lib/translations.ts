@@ -89,6 +89,23 @@ export interface TranslationDictionary {
     pillar3Desc: string;
     pillar4Title: string;
     pillar4Desc: string;
+    leadershipBadge: string;
+    leadershipTitle: string;
+    leadershipSubtitle: string;
+    ceoTitle: string;
+    ceoRole: string;
+    ceoCompany: string;
+    ceoDesc: string;
+    directorTitle: string;
+    directorRole: string;
+    directorCompany: string;
+    directorDesc: string;
+    activityBadge: string;
+    activityTitle: string;
+    activitySubtitle: string;
+    activityPoint1: string;
+    activityPoint2: string;
+    activityPoint3: string;
   };
   polaris: {
     badge: string;
@@ -267,15 +284,15 @@ export const translations: Record<Language, TranslationDictionary> = {
       trustOneDropdownDesc: "Verified Myanmar domestic land, luxury condominiums, and private estates.",
     },
     hero: {
-      estBadge: "ESTABLISHED 2014 • OVER A DECADE OF CORPORATE INTEGRITY",
+      estBadge: "THET & THU HOLDING • EST. 2014",
       headlinePart1: "Building A Better",
       headlinePart2: "Tomorrow Together",
-      tagline: "Uniting Enterprise Software Architecture & Prime Domestic Real Estate",
+      tagline: "Trust & Partnership • Innovation & Growth • Success Together",
       subheadline:
-        "THET & THU CO., LTD. is an established Myanmar corporate enterprise. We unite specialized operating divisions under unified management—championing bespoke enterprise technology through Polaris Tech Solution and professional domestic property brokerage via Trust One Properties.",
-      exploreHolding: "Corporate Overview",
-      explorePolaris: "Polaris Tech Solution",
-      exploreTrustOne: "Trust One Properties",
+        "THET & THU CO., LTD. — Driving excellence through Polaris Tech Solution (Bespoke Enterprise Software) and Trust One Properties (Premier Domestic Real Estate).",
+      exploreHolding: "Explore Holding",
+      explorePolaris: "Polaris Tech (Software)",
+      exploreTrustOne: "Trust One (Real Estate)",
       statYears: "10+",
       statYearsLabel: "Years Corporate Track Record",
       statDivisions: "2",
@@ -285,10 +302,10 @@ export const translations: Record<Language, TranslationDictionary> = {
       statCompliance: "100%",
       statComplianceLabel: "Domestic Real Estate Compliance",
       quickCardPolarisTitle: "Polaris Tech Solution",
-      quickCardPolarisDesc: "Custom-engineered enterprise software, ERP/POS platforms, and mobile workflows with zero generic compromises.",
+      quickCardPolarisDesc: "Custom-engineered enterprise software, ERP/POS platforms, and mobile workflows tailored to exact operations.",
       quickCardPolarisBadge: "IT & Software Division",
       quickCardTrustTitle: "Trust One Properties",
-      quickCardTrustDesc: "Licensed brokerage, title verification, and investment advisory strictly focused on prime domestic Myanmar real estate.",
+      quickCardTrustDesc: "Verified title due diligence and advisory strictly focused on prime domestic Myanmar real estate.",
       quickCardTrustBadge: "Real Estate Division",
       explorePolarisBtn: "Explore Custom Software Capabilities",
       exploreTrustBtn: "Explore Domestic Real Estate Services",
@@ -312,17 +329,17 @@ export const translations: Record<Language, TranslationDictionary> = {
       heroTrustFeat4Desc: "Grant & Form 105 verification",
     },
     about: {
-      badge: "PARENT COMPANY PROFILE",
-      title: "A Decade of Purpose, Governance & Sustainable Growth",
+      badge: "CORE ADVANTAGES",
+      title: "Focused Capabilities & Professional Governance",
       subtitle:
-        "Headquartered in Yangon, THET & THU CO., LTD. anchors high-impact business operations with financial solidity, rigorous compliance, and long-term vision.",
+        "Bringing together modern software engineering and verified domestic property advisory with speed, integrity, and precision.",
       overviewP1:
-        "Founded over ten years ago, THET & THU CO., LTD. was established on the fundamental belief that sustainable corporate longevity stems from uncompromising integrity, ethical business practices, and tailored execution.",
+        "THET & THU CO., LTD. operates two focused commercial divisions: Polaris Tech Solution for bespoke software systems, and Trust One Properties for verified domestic real estate.",
       overviewP2:
-        "As an established multi-division corporate enterprise, we provide strategic leadership, shared corporate governance, and operational resilience across our business divisions. By bridging modern digital engineering (Polaris Tech Solution) with physical land and property development (Trust One Properties), we create mutually reinforcing synergy that powers Myanmar's economic future.",
-      genesisTitle: "Corporate Genesis & Operating Synergy",
-      parentHolding: "Parent Company",
-      parentSub: "Myanmar Companies Law Registration • Executive Governance",
+        "We prioritize direct, transparent execution without generic SaaS compromises or speculative property risks.",
+      genesisTitle: "Operating Synergy & Direct Capabilities",
+      parentHolding: "THET & THU CO., LTD.",
+      parentSub: "Enterprise Technology & Domestic Property Parent Organization",
       divASub: "Bespoke enterprise software, multi-branch POS & mobile workflows.",
       divBSub: "Licensed domestic real estate brokerage & title due diligence.",
       integrityBadge: "10+ Years Corporate Integrity",
@@ -343,6 +360,23 @@ export const translations: Record<Language, TranslationDictionary> = {
       pillar3Desc: "Rejecting one-size-fits-all templates. Every software system and property advisory engagement is custom-architected.",
       pillar4Title: "Strict Domestic Regulatory Compliance",
       pillar4Desc: "Every land record, property title, and technological deployment adheres strictly to domestic legal and security standards.",
+      leadershipBadge: "EXECUTIVE LEADERSHIP",
+      leadershipTitle: "Executive Leadership & Governance",
+      leadershipSubtitle: "Guiding institutional growth, operational precision, and enduring client trust through direct executive oversight.",
+      ceoTitle: "Chief Executive Officer (CEO)",
+      ceoRole: "Chief Executive Officer",
+      ceoCompany: "Thet and Thu Co., Ltd.",
+      ceoDesc: "Leading strategic multi-division governance, cross-entity alignment, and institutional compliance across our enterprise ecosystem.",
+      directorTitle: "Director",
+      directorRole: "Director",
+      directorCompany: "Polaris Tech Solutions",
+      directorDesc: "Spearheading enterprise software architecture, technical innovation, and digital system implementations for leading businesses in Myanmar.",
+      activityBadge: "ACTIVE ENGAGEMENT",
+      activityTitle: "Executive Client Alignment & Live Solution Demos",
+      activitySubtitle: "Hands-on consultation sessions, bespoke architecture reviews, and direct alignment meetings with business partners.",
+      activityPoint1: "Live demonstration of bespoke software systems tailored to client SOPs",
+      activityPoint2: "Direct executive consultation and transparent project scope evaluation",
+      activityPoint3: "Enduring commercial partnership built on accountability and verifiable results",
     },
     polaris: {
       badge: "DIVISION A • IT & SOFTWARE ENGINEERING",
@@ -533,9 +567,9 @@ export const translations: Record<Language, TranslationDictionary> = {
       divTrustOneSub: "Domestic Real Estate",
     },
     footer: {
-      parentTagline: "Building A Better Tomorrow Together",
+      parentTagline: "Enterprise Software & Verified Domestic Real Estate",
       holdingDesc:
-        "THET & THU CO., LTD. is an established Myanmar company with over a decade of operational excellence, bridging bespoke software engineering and domestic real estate advisory.",
+        "Parent holding company uniting Polaris Tech Solution (custom enterprise software) and Trust One Properties (verified domestic real estate).",
       divisionsHeading: "Business Divisions",
       linksHeading: "Corporate Links",
       contactHeading: "Locations & Presence",
@@ -565,15 +599,15 @@ export const translations: Record<Language, TranslationDictionary> = {
       trustOneDropdownDesc: "စာရွက်စာတမ်းခိုင်မာသော ပြည်တွင်း မြေကွက်၊ ကွန်ဒိုနှင့် အိမ်ရာများ",
     },
     hero: {
-      estBadge: "၂၀၁၄ ခုနှစ်မှစတင်တည်ထောင်ခဲ့သည် • ဆယ်စုနှစ်ကျော် တည်တံ့ခိုင်မြဲသော စံချိန်စံညွှန်း",
-      headlinePart1: "ပိုမိုကောင်းမွန်သော",
-      headlinePart2: "အနာဂတ်ကို အတူတကွ",
-      tagline: "စီးပွားရေးလုပ်ငန်းသုံး ဆော့ဖ်ဝဲလ်စနစ်များနှင့် ပြည်တွင်းအိမ်ခြံမြေ ဝန်ဆောင်မှုများကို တစ်နေရာတည်းတွင်",
+      estBadge: "သက်နှင့်သူ ကုမ္ပဏီလီမိတက် • EST. 2014",
+      headlinePart1: "ပိုမိုကောင်းမွန်သော အနာဂတ်ဆီသို့",
+      headlinePart2: "အတူတကွ တည်ဆောက်ခြင်း",
+      tagline: "Trust & Partnership • Innovation & Growth • Success Together",
       subheadline:
-        "သက်နှင့်သူ ကုမ္ပဏီလီမိတက် (THET & THU CO., LTD.) သည် မြန်မာနိုင်ငံ၏ အောင်မြင်သော စီးပွားရေးလုပ်ငန်းကုမ္ပဏီကြီးဖြစ်ပြီး Polaris Tech Solution မှတစ်ဆင့် လုပ်ငန်းသီးသန့် စိတ်ကြိုက်ဆော့ဖ်ဝဲလ်စနစ်များနှင့် Trust One Properties မှတစ်ဆင့် တိကျမှန်ကန်သော ပြည်တွင်းအိမ်ခြံမြေ ဝန်ဆောင်မှုများကို အကောင်းဆုံး ပေါင်းစပ်ဆောင်ရွက်ပေးလျက်ရှိပါသည်။",
-      exploreHolding: "ကုမ္ပဏီအချက်အလက်",
-      explorePolaris: "Polaris Tech ဆော့ဖ်ဝဲလ်",
-      exploreTrustOne: "Trust One အိမ်ခြံမြေ",
+        "သက်နှင့်သူ ကုမ္ပဏီလီမိတက် — Polaris Tech Solution မှတစ်ဆင့် စိတ်ကြိုက်ဆော့ဖ်ဝဲလ်စနစ်များနှင့် Trust One Properties မှတစ်ဆင့် တိကျခိုင်မာသော ပြည်တွင်းအိမ်ခြံမြေ ဝန်ဆောင်မှုများကို ဦးဆောင်ပံ့ပိုးလျက်ရှိပါသည်။",
+      exploreHolding: "ကုမ္ပဏီအကြောင်း လေ့လာရန်",
+      explorePolaris: "Polaris Tech (ဆော့ဖ်ဝဲလ်)",
+      exploreTrustOne: "Trust One (အိမ်ခြံမြေ)",
       statYears: "၁၀+",
       statYearsLabel: "နှစ်ကျော် လုပ်ငန်းအတွေ့အကြုံ",
       statDivisions: "၂",
@@ -610,17 +644,17 @@ export const translations: Record<Language, TranslationDictionary> = {
       heroTrustFeat4Desc: "ဂရန်နှင့် ပုံစံ ၁၀၅ တိကျစွာ စစ်ဆေးပေးခြင်း",
     },
     about: {
-      badge: "ပင်မမိခင်ကုမ္ပဏီ အချက်အလက်",
-      title: "ဆယ်စုနှစ်တစ်ခုကျော် တည်တံ့ခိုင်မြဲသော ဂုဏ်သိက္ခာနှင့် စဉ်ဆက်မပြတ် တိုးတက်မှု",
+      badge: "အဓိက အားသာချက်များ",
+      title: "သင့်လုပ်ငန်းအတွက် စိတ်ချရသော နည်းပညာနှင့် အိမ်ခြံမြေ မိတ်ဖက်",
       subtitle:
-        "ရန်ကုန်မြို့တွင် ရုံးချုပ်တည်ရှိသော သက်နှင့်သူ ကုမ္ပဏီလီမိတက်သည် ခိုင်မာသော အုပ်ချုပ်မှု၊ တိကျသော ဥပဒေလိုက်နာမှုနှင့် ရေရှည်မျှော်မှန်းချက်များဖြင့် လုပ်ငန်းများကို ဦးဆောင်လျက်ရှိပါသည်။",
+        "Polaris Tech ၏ စိတ်ကြိုက်ဆော့ဖ်ဝဲလ်များနှင့် Trust One ၏ တိကျမှန်ကန်သော ပြည်တွင်းအိမ်ခြံမြေ ဝန်ဆောင်မှုများ။",
       overviewP1:
-        "လွန်ခဲ့သော ၁၀ နှစ်ကျော်က စတင်တည်ထောင်ခဲ့သော သက်နှင့်သူ ကုမ္ပဏီလီမိတက် (THET & THU CO., LTD.) သည် လုပ်ငန်းရှင်များနှင့် လူထု၏ ယုံကြည်စိတ်ချရမှု၊ တိကျမှန်ကန်သော လုပ်ငန်းဆောင်ရွက်မှုနှင့် ဖောက်သည်ဦးစားပေး စံနှုန်းများအပေါ် အခြေခံ၍ တည်ဆောက်ထားခြင်း ဖြစ်ပါသည်။",
+        "သက်နှင့်သူ ကုမ္ပဏီလီမိတက်သည် လုပ်ငန်းရှင်များအတွက် စိတ်ကြိုက်ဆော့ဖ်ဝဲလ်စနစ်များနှင့် တရားဝင်စာရွက်စာတမ်းခိုင်မာသော ပြည်တွင်းအိမ်ခြံမြေ ဝန်ဆောင်မှုများကို အဓိကထား ဆောင်ရွက်ပေးလျက်ရှိပါသည်။",
       overviewP2:
-        "ကျွန်ုပ်တို့သည် မိခင်ကုမ္ပဏီကြီးအဖြစ် လုပ်ငန်းခွဲများအား မဟာဗျူဟာမြောက် ဦးဆောင်မှုနှင့် ဘဏ္ဍာရေးခိုင်မာမှုကို ပံ့ပိုးပေးပါသည်။ ခေတ်မီ ဒစ်ဂျစ်တယ်ဆော့ဖ်ဝဲလ်အင်ဂျင်နီယာစနစ် (Polaris Tech Solution) နှင့် မြန်မာပြည်တွင်း မြေနှင့်အိမ်ခြံမြေ ဖွံ့ဖြိုးတိုးတက်ရေးဝန်ဆောင်မှု (Trust One Properties) တို့ကို ပေါင်းစပ်ကာ မြန်မာ့စီးပွားရေးကဏ္ဍ အဆင့်မြှင့်တင်ရေးအတွက် အားထုတ်လျက်ရှိပါသည်။",
-      genesisTitle: "ကုမ္ပဏီသမိုင်းကြောင်းနှင့် လုပ်ငန်းများ ပေါင်းစပ်လည်ပတ်မှု",
+        "လုပ်ငန်းလည်ပတ်မှု ပိုမိုလွယ်ကူမြန်ဆန်စေရန်နှင့် တန်ဖိုးမြင့်အိမ်ခြံမြေများကို စိတ်ချစွာ ပိုင်ဆိုင်နိုင်စေရန် အစမှအဆုံး တာဝန်ယူဆောင်ရွက်ပေးပါသည်။",
+      genesisTitle: "အဓိက အားသာချက်များနှင့် ပေါင်းစပ်ဝန်ဆောင်မှု",
       parentHolding: "သက်နှင့်သူ ကုမ္ပဏီလီမိတက်",
-      parentSub: "မြန်မာနိုင်ငံ ကုမ္ပဏီများဥပဒေအရ မှတ်ပုံတင်ထားရှိခြင်း • စီမံအုပ်ချုပ်မှု",
+      parentSub: "နည်းပညာဆော့ဖ်ဝဲလ် နှင့် ပြည်တွင်းအိမ်ခြံမြေ မိခင်အဖွဲ့အစည်း",
       divASub: "စိတ်ကြိုက်လုပ်ငန်းသုံး ဆော့ဖ်ဝဲလ်စနစ်များ၊ ဆိုင်ခွဲသုံး POS နှင့် မိုဘိုင်းအက်ပ်များ။",
       divBSub: "ပြည်တွင်းအိမ်ခြံမြေ ဝယ်ယူရောင်းချခြင်းနှင့် ပိုင်ဆိုင်မှုစာရွက်စာတမ်း စိစစ်ခြင်း။",
       integrityBadge: "၁၀ နှစ်ကျော် တည်တံ့ခိုင်မြဲသော ဂုဏ်သက္ကာ",
@@ -641,6 +675,23 @@ export const translations: Record<Language, TranslationDictionary> = {
       pillar3Desc: "ပုံသေ template များကို မသုံးဘဲ ဖောက်သည်တစ်ဦးချင်းစီ၏ လိုအပ်ချက်နှင့် ကိုက်ညီသော စနစ်များကိုသာ ဖန်တီးပေးခြင်း။",
       pillar4Title: "ပြည်တွင်းဥပဒေများကို တိကျစွာ လိုက်နာမှု",
       pillar4Desc: "အိမ်ခြံမြေ စာရွက်စာတမ်းစစ်ဆေးမှုနှင့် ဒေတာလုံခြုံရေးဆိုင်ရာ ပြည်တွင်းဥပဒေစည်းမျဉ်းများကို ၁၀၀% လိုက်နာဆောင်ရွက်ခြင်း။",
+      leadershipBadge: "ကုမ္ပဏီ ဦးဆောင်မှု",
+      leadershipTitle: "လုပ်ငန်းခွင် ဦးဆောင်စီမံခန့်ခွဲမှုအဖွဲ့",
+      leadershipSubtitle: "ဖောက်သည်များ စိတ်အေးချမ်းသာစွာ ယုံကြည်အားထားနိုင်ရန် ခေါင်းဆောင်မှုအဖွဲ့မှ တိုက်ရိုက် ဦးဆောင်ကွပ်ကဲပါသည်။",
+      ceoTitle: "Chief Executive Officer (CEO)",
+      ceoRole: "အမှုဆောင်အရာရှိချုပ်",
+      ceoCompany: "Thet and Thu Co., Ltd.",
+      ceoDesc: "ဟိုးဒင်းကုမ္ပဏီကြီး၏ ရေရှည်ဗျူဟာမြောက် စီမံခန့်ခွဲမှု၊ စီးပွားရေးမိတ်ဖက်များနှင့် ပေါင်းစပ်ဆောင်ရွက်မှုနှင့် လုပ်ငန်းခွဲများအကြား စံချိန်စံညွှန်းထိန်းသိမ်းမှုကို တိုက်ရိုက် ဦးဆောင်လမ်းညွှန်ပါသည်။",
+      directorTitle: "Director",
+      directorRole: "ဒါရိုက်တာ",
+      directorCompany: "Polaris Tech Solutions",
+      directorDesc: "မြန်မာ့စီးပွားရေးလုပ်ငန်းများအတွက် ခေတ်မီဆော့ဖ်ဝဲလ်စနစ်များ တည်ဆောက်ခြင်း၊ နည်းပညာဆန်းသစ်တီထွင်မှုနှင့် စနစ်တည်ငြိမ်ခိုင်မာရေးကို လက်တွေ့ဦးဆောင် အကောင်အထည်ဖော်ပါသည်။",
+      activityBadge: "လက်တွေ့ လုပ်ငန်းခွင် လှုပ်ရှားမှု",
+      activityTitle: "ဖောက်သည်များနှင့် တိုက်ရိုက်ဆွေးနွေးတိုင်ပင်ခြင်းနှင့် စနစ်သရုပ်ပြသခြင်း",
+      activitySubtitle: "လုပ်ငန်းရှင်များ၏ အခက်အခဲများကို နားထောင်ပြီး အံဝင်ခွင်ကျဖြစ်မည့် စနစ်များနှင့် ဖြေရှင်းချက်များကို တိုက်ရိုက် တွေ့ဆုံဆွေးနွေး အဖြေရှာပေးပါသည်။",
+      activityPoint1: "လုပ်ငန်းလိုအပ်ချက်နှင့် အံဝင်ခွင်ကျဖြစ်မည့် စနစ်လက်တွေ့ သရုပ်ပြသခြင်း",
+      activityPoint2: "ခေါင်းဆောင်မှုအဖွဲ့မှ တိုက်ရိုက်ဆွေးနွေးပြီး ပွင့်လင်းမြင်သာစွာ အကြံပြုခြင်း",
+      activityPoint3: "ရေရှည်ယုံကြည်စိတ်ချရသော မိတ်ဖက်အဖြစ် အတူလက်တွဲဆောင်ရွက်ခြင်း",
     },
     polaris: {
       badge: "လုပ်ငန်းခွဲ (က) • နည်းပညာနှင့် ဆော့ဖ်ဝဲလ်အင်ဂျင်နီယာ",
@@ -831,9 +882,9 @@ export const translations: Record<Language, TranslationDictionary> = {
       divTrustOneSub: "ပြည်တွင်း အိမ်ခြံမြေ",
     },
     footer: {
-      parentTagline: "ပိုမိုကောင်းမွန်သော အနာဂတ်ကို အတူတကွ တည်ဆောက်ကြပါစို့",
+      parentTagline: "လုပ်ငန်းသုံး နည်းပညာနှင့် စိတ်ချရသော အိမ်ခြံမြေ ဝန်ဆောင်မှု",
       holdingDesc:
-        "သက်နှင့်သူ ကုမ္ပဏီလီမိတက်သည် ဆယ်စုနှစ်ကျော် လုပ်ငန်းအတွေ့အကြုံရှိသော ကုမ္ပဏီလီမိတက်ဖြစ်ပြီး စိတ်ကြိုက်ဆော့ဖ်ဝဲလ်စနစ်များနှင့် ပြည်တွင်းအိမ်ခြံမြေ ဝန်ဆောင်မှုများကို အောင်မြင်စွာ ပေါင်းစပ်ဆောင်ရွက်ပေးလျက်ရှိပါသည်။",
+        "Polaris Tech Solution (လုပ်ငန်းသုံး ဆော့ဖ်ဝဲလ်) နှင့် Trust One Properties (ပြည်တွင်း အိမ်ခြံမြေ) တို့၏ ပင်မမိခင်ကုမ္ပဏီ။",
       divisionsHeading: "စီးပွားရေးလုပ်ငန်းခွဲများ",
       linksHeading: "ကုမ္ပဏီလင့်ခ်များ",
       contactHeading: "ရုံးခန်းတည်နေရာများ",

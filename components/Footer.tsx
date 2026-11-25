@@ -4,15 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
-import {
-  ShieldCheck,
-  MapPin,
-  Phone,
-  Mail,
-  ArrowUp,
-  Code2,
-  Building2,
-} from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 
 export default function Footer() {
   const { language, setLanguage, t } = useLanguage();
@@ -24,175 +16,135 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#03060E] border-t border-white/[0.08] text-slate-300 pt-16 pb-12">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 pb-12 border-b border-white/[0.08]">
-          {/* Column 1: Corporate Dossier (5 cols) */}
-          <div className="lg:col-span-4 space-y-4">
-            <div className="inline-flex rounded-xl overflow-hidden border border-amber-500/35 p-0 shadow-[0_0_15px_rgba(212,175,55,0.15)]">
-              <Image
-                src="/images/thet-and-thu-logo.webp"
-                alt="THET & THU CO., LTD."
-                width={180}
-                height={120}
-                className="h-12 w-auto block object-cover"
-                unoptimized
-              />
+    <footer className="bg-[#E8F2EE] text-[#291550] pt-16 pb-10 border-t border-[#4A2B88]/12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#4A2B88]/12">
+          {/* Column 1: Corporate Identity (5 cols) */}
+          <div className="lg:col-span-5 space-y-4">
+            <div className="inline-flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-[#4A2B88] flex items-center justify-center flex-shrink-0">
+                <Image
+                  src="/images/thet-and-thu-emblem.webp"
+                  alt="THET & THU Emblem"
+                  width={28}
+                  height={28}
+                  className="w-6 h-6 object-contain"
+                  unoptimized
+                />
+              </div>
+              <div className="flex flex-col leading-none">
+                <span className="font-bold text-sm tracking-wide text-[#291550] font-heading">
+                  THET &amp; THU CO., LTD.
+                </span>
+                <span className="text-[11px] font-semibold text-[#4A2B88] mt-1">
+                  EST. 2014 • YANGON, MYANMAR
+                </span>
+              </div>
             </div>
 
-            <p className="text-xs font-semibold uppercase tracking-wider text-amber-300">
+            <p className="text-xs font-semibold text-[#9A540E]">
               &ldquo;{t.footer.parentTagline}&rdquo;
             </p>
 
-            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#433B54] leading-relaxed max-w-md">
               {t.footer.holdingDesc}
             </p>
 
             <div className="pt-2 flex items-center gap-2">
-              <span className="text-xs text-slate-400">
-                {language === 'MM' ? 'ဘာသာစကား ရွေးချယ်ရန်:' : 'Select Language:'}
-              </span>
-              <div className="inline-flex rounded-lg bg-[#071326] p-0.5 border border-white/10">
-                <button
-                  type="button"
-                  onClick={() => setLanguage('EN')}
-                  className={`px-2.5 py-1 rounded-md text-xs font-semibold transition-colors ${
-                    language === 'EN'
-                      ? 'bg-[#D4AF37] text-[#03060E] font-bold'
-                      : 'text-slate-400 hover:text-white'
-                  }`}
-                >
-                  EN
-                </button>
+              <div className="inline-flex rounded-lg bg-white p-0.5 border border-[#4A2B88]/15">
                 <button
                   type="button"
                   onClick={() => setLanguage('MM')}
-                  className={`px-2.5 py-1 rounded-md text-xs font-semibold transition-colors ${
+                  className={`px-2.5 py-1 rounded-md text-xs font-semibold transition-all ${
                     language === 'MM'
-                      ? 'bg-[#D4AF37] text-[#03060E] font-bold'
-                      : 'text-slate-400 hover:text-white'
+                      ? 'bg-[#4A2B88] text-white'
+                      : 'text-[#433B54] hover:text-[#291550]'
                   }`}
                 >
                   မြန်မာ
                 </button>
+                <button
+                  type="button"
+                  onClick={() => setLanguage('EN')}
+                  className={`px-2.5 py-1 rounded-md text-xs font-semibold transition-all ${
+                    language === 'EN'
+                      ? 'bg-[#4A2B88] text-white'
+                      : 'text-[#433B54] hover:text-[#291550]'
+                  }`}
+                >
+                  EN
+                </button>
               </div>
             </div>
           </div>
 
-          {/* Column 2: Subsidiaries Directory (3 cols) */}
+          {/* Column 2: Divisions (3 cols) */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-[#291550]">
               {t.footer.divisionsHeading}
             </h4>
-            <div className="space-y-3 pt-1">
-              <Link
-                href="/polaris"
-                className="block p-3.5 rounded-xl bg-[#071326] border border-cyan-500/20 hover:border-cyan-400 transition-colors group"
-              >
-                <div className="flex items-center gap-2 text-xs font-bold text-cyan-300 group-hover:text-cyan-200">
-                  <Code2 className="w-3.5 h-3.5 text-cyan-400" />
-                  <span>{t.nav.polarisDropdownTitle}</span>
-                </div>
-                <div className="text-[11px] text-slate-400 mt-1 line-clamp-2">
-                  {t.nav.polarisDropdownDesc}
-                </div>
-              </Link>
-
-              <Link
-                href="/trust-one"
-                className="block p-3.5 rounded-xl bg-[#071326] border border-amber-500/20 hover:border-amber-400 transition-colors group"
-              >
-                <div className="flex items-center gap-2 text-xs font-bold text-amber-300 group-hover:text-amber-200">
-                  <Building2 className="w-3.5 h-3.5 text-amber-400" />
-                  <span>{t.nav.trustOneDropdownTitle}</span>
-                </div>
-                <div className="text-[11px] text-slate-400 mt-1 line-clamp-2">
-                  {t.nav.trustOneDropdownDesc}
-                </div>
-              </Link>
-            </div>
+            <ul className="space-y-2.5 text-xs sm:text-sm text-[#433B54]">
+              <li>
+                <Link href="/polaris" className="hover:text-[#4A2B88] transition-colors">
+                  Polaris Tech Solution
+                </Link>
+              </li>
+              <li>
+                <Link href="/trust-one" className="hover:text-[#4A2B88] transition-colors">
+                  Trust One Properties
+                </Link>
+              </li>
+              <li>
+                <Link href="/#about" className="hover:text-[#4A2B88] transition-colors">
+                  {t.nav.about}
+                </Link>
+              </li>
+              <li>
+                <Link href="/#offices" className="hover:text-[#4A2B88] transition-colors">
+                  {t.nav.offices}
+                </Link>
+              </li>
+            </ul>
           </div>
 
-          {/* Column 3: Physical Corporate Hubs (5 cols) */}
-          <div className="lg:col-span-5 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">
+          {/* Column 3: Direct Contact (4 cols) */}
+          <div className="lg:col-span-4 space-y-3">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-[#291550]">
               {t.footer.contactHeading}
             </h4>
-
-            <div className="space-y-3 text-xs pt-1">
-              <div className="p-3 rounded-xl bg-[#071326] border border-white/5 space-y-1.5">
-                <div className="font-bold text-amber-300 flex flex-wrap items-center justify-between gap-1.5">
-                  <span className="flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-amber-400" />
-                    <span>{t.offices.headOfficeTitle}</span>
-                  </span>
-                  <span className="font-mono text-[11px] text-amber-400 font-semibold space-x-1">
-                    <a href="tel:+9595056524" className="hover:underline">09 505 6524</a>
-                    <span className="text-white/20">/</span>
-                    <a href="tel:+959443212306" className="hover:underline">09 443 212 306</a>
-                  </span>
-                </div>
-                <div className="text-slate-300 leading-relaxed text-[11px]">
-                  {t.offices.headOfficeAddress}
-                </div>
-              </div>
-
-              <div className="p-3 rounded-xl bg-[#071326] border border-white/5 space-y-1.5">
-                <div className="font-bold text-cyan-300 flex flex-wrap items-center justify-between gap-1.5">
-                  <span className="flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-cyan-400" />
-                    <span>{t.offices.branchOfficeTitle}</span>
-                  </span>
-                  <span className="font-mono text-[11px] space-x-1.5 text-slate-300 font-medium">
-                    <a href="tel:+959780654277" className="text-cyan-400 hover:underline">Polaris: 09 780 654 277</a>
-                    <span className="text-white/20">|</span>
-                    <a href="tel:+959795056524" className="text-amber-400 hover:underline">Trust One: 09 795 056 524</a>
-                  </span>
-                </div>
-                <div className="text-slate-300 leading-relaxed text-[11px]">
-                  {t.offices.branchOfficeAddress}
-                </div>
-              </div>
-
-              <div className="pt-1 flex flex-wrap items-center gap-4 text-xs text-slate-400">
-                <a
-                  href="mailto:info@thetandthu.com"
-                  className="hover:text-amber-400 flex items-center gap-1.5"
-                >
-                  <Mail className="w-3.5 h-3.5 text-amber-400" />
-                  <span>info@thetandthu.com</span>
+            <div className="space-y-2 text-xs sm:text-sm text-[#433B54]">
+              <div>
+                <a href="mailto:info@thetandthu.com" className="hover:text-[#4A2B88] transition-colors">
+                  info@thetandthu.com
                 </a>
-                <div className="flex items-center gap-2">
-                  <Phone className="w-3.5 h-3.5 text-amber-400" />
-                  <a href="tel:+9595056524" className="hover:text-amber-300 transition-colors">
-                    09 505 6524
-                  </a>
-                  <span className="text-white/20">/</span>
-                  <a href="tel:+959443212306" className="hover:text-amber-300 transition-colors">
-                    09 443 212 306
-                  </a>
-                </div>
               </div>
+              <div className="font-mono font-semibold text-[#291550]">
+                <a href="tel:+9595056524" className="hover:text-[#4A2B88] transition-colors">
+                  09 505 6524
+                </a>
+                <span className="mx-2 text-[#4A2B88]/30">/</span>
+                <a href="tel:+959443212306" className="hover:text-[#4A2B88] transition-colors">
+                  09 443 212 306
+                </a>
+              </div>
+              <p className="text-xs text-[#6B637A] leading-relaxed pt-1">
+                No.(3), Room (9D), Grand Kan Yeik Thar Condo, Mingalar Taung Nyunt, Yangon.
+              </p>
             </div>
           </div>
         </div>
 
-        {/* Legal & Regulatory Compliance Notice */}
-        <div className="py-6 border-b border-white/[0.08] text-[11px] text-slate-400 leading-relaxed">
-          <div className="flex items-start gap-2.5">
-            <ShieldCheck className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
+        {/* Bottom Compliance & Copyright */}
+        <div className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-[#6B637A]">
+          <div className="space-y-1 max-w-2xl">
             <p>{t.footer.complianceStatement}</p>
+            <p>{t.footer.copyright}</p>
           </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <div>{t.footer.copyright}</div>
 
           <button
             type="button"
             onClick={scrollToTop}
-            className="inline-flex items-center gap-1.5 text-slate-400 hover:text-amber-400 transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-[#4A2B88] hover:text-white border border-[#4A2B88]/15 text-xs font-semibold text-[#291550] transition-colors"
           >
             <span>{t.footer.backToTop}</span>
             <ArrowUp className="w-3.5 h-3.5" />

@@ -4,55 +4,71 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
-import {
-  Building2,
-  MapPin,
-  ShieldCheck,
-  CheckCircle2,
-  FileText,
-  Home,
-  Layers,
-  Key,
-  Landmark,
-  Scale,
-  Lock,
-  Phone,
-} from 'lucide-react';
+import { Check, Lock, ArrowRight } from 'lucide-react';
 
-export default function TrustOneSection() {
+export default function TrustOneSection({
+  isStandalonePage = false,
+}: {
+  isStandalonePage?: boolean;
+}) {
   const { isMM, t } = useLanguage();
+  const HeadingTag = isStandalonePage ? 'h1' : 'h2';
+
+  const portfolios = [
+    {
+      title: t.trustOne.cat1Title,
+      desc: t.trustOne.cat1Desc,
+      highlights: t.trustOne.cat1Highlights,
+    },
+    {
+      title: t.trustOne.cat2Title,
+      desc: t.trustOne.cat2Desc,
+      highlights: t.trustOne.cat2Highlights,
+    },
+    {
+      title: t.trustOne.cat3Title,
+      desc: t.trustOne.cat3Desc,
+      highlights: t.trustOne.cat3Highlights,
+    },
+    {
+      title: t.trustOne.cat4Title,
+      desc: t.trustOne.cat4Desc,
+      highlights: t.trustOne.cat4Highlights,
+    },
+  ];
+
+  const advisories = [
+    { title: t.trustOne.adv1Title, desc: t.trustOne.adv1Desc },
+    { title: t.trustOne.adv2Title, desc: t.trustOne.adv2Desc },
+    { title: t.trustOne.adv3Title, desc: t.trustOne.adv3Desc },
+    { title: t.trustOne.adv4Title, desc: t.trustOne.adv4Desc },
+  ];
 
   return (
     <section
       id="trust-one"
-      className="relative py-20 lg:py-28 bg-[#050B16] border-b border-amber-500/20 scroll-mt-20 overflow-hidden"
+      className="relative py-20 lg:py-28 bg-[#F7FAF8] border-b border-[#140B29]/10 scroll-mt-16"
     >
-      {/* Subtle Gold Ambient Warmth */}
-      <div className="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-amber-500/5 blur-[120px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
-        {/* Division Header & Verified Identity */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-amber-500/20">
-          <div className="flex items-center gap-5 sm:gap-6">
-            <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden bg-[#071326] border-2 border-amber-500/40 p-2 shadow-xl shadow-amber-950/60 flex-shrink-0 group">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Division Header */}
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 pb-10 border-b border-[#140B29]/10">
+          <div className="flex items-start sm:items-center gap-5">
+            <div className="w-12 h-12 rounded-xl bg-[#4A2B88] flex items-center justify-center flex-shrink-0">
               <Image
-                src="/images/trust-one-logo.webp"
+                src="/images/trust-one-emblem.webp"
                 alt="Trust One Properties"
-                width={120}
-                height={120}
-                className="w-full h-full object-contain group-hover:scale-105 transition-transform"
+                width={36}
+                height={36}
+                className="w-8 h-8 object-contain"
                 unoptimized
               />
             </div>
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-950/80 text-amber-300 border border-amber-500/30">
-                <Landmark className="w-3.5 h-3.5 text-amber-400" />
-                <span>{t.trustOne.badge}</span>
-              </div>
-              <h2 className="mt-2 text-2xl sm:text-4xl font-extrabold text-white font-heading tracking-wide">
+              <p className="text-xs font-semibold text-[#9A540E]">{t.trustOne.badge}</p>
+              <HeadingTag className="mt-1 text-2xl sm:text-4xl font-extrabold text-[#291550] font-heading tracking-tight">
                 Trust One Properties
-              </h2>
-              <p className="text-xs sm:text-sm text-amber-300 font-medium mt-1 leading-relaxed">
+              </HeadingTag>
+              <p className="text-xs sm:text-sm text-[#433B54] mt-1">
                 &ldquo;{t.trustOne.tagline}&rdquo;
               </p>
             </div>
@@ -60,329 +76,114 @@ export default function TrustOneSection() {
 
           <Link
             href="/#contact"
-            className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-[#D4AF37] text-[#050B16] hover:bg-[#F3C65F] transition-colors shadow-lg shadow-amber-500/20 whitespace-nowrap"
+            className="btn-interactive inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-[#4A2B88] text-white hover:bg-[#381F6A] whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4A2B88]"
           >
-            {t.trustOne.ctaButton}
+            <span>{t.trustOne.ctaButton}</span>
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
-        {/* STRICT COMPLIANCE CALLOUT BANNER */}
-        <div className="mt-10 rounded-2xl glass-panel-gold p-6 sm:p-8">
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-5">
-            <div className="p-3.5 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-300 flex-shrink-0">
-              <Lock className="w-6 h-6 text-amber-400" />
-            </div>
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xl text-[11px] font-bold uppercase tracking-wider bg-amber-500/20 text-amber-300 border border-amber-500/30 mb-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
-                <span>{t.trustOne.complianceBadge}</span>
-              </div>
-              <h3
-                className={`text-white ${
-                  isMM
-                    ? 'text-base sm:text-xl font-semibold leading-relaxed tracking-normal font-sans'
-                    : 'text-lg sm:text-xl font-bold font-heading'
-                }`}
-              >
-                {t.trustOne.title}
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-loose">
-                {t.trustOne.complianceNotice}
-              </p>
-            </div>
+        {/* Domestic Compliance Notice (Left-Accented Architectural Callout) */}
+        <div className="mt-12 rounded-r-xl bg-white border border-[#140B29]/10 border-l-4 border-l-[#E88D17] p-6 sm:p-8">
+          <div className="flex items-center gap-2 text-xs font-semibold text-[#9A540E] mb-2">
+            <Lock className="w-3.5 h-3.5" />
+            <span>{t.trustOne.complianceBadge}</span>
           </div>
+          <h3
+            className={`text-[#140B29] ${
+              isMM ? 'text-base sm:text-xl font-bold leading-relaxed' : 'text-lg sm:text-xl font-bold font-heading'
+            }`}
+          >
+            {t.trustOne.title}
+          </h3>
+          <p className="mt-2 text-xs sm:text-sm text-[#433B54] leading-relaxed max-w-4xl">
+            {t.trustOne.complianceNotice}
+          </p>
         </div>
 
         {/* 4 Domestic Property Portfolios */}
-        <div className="mt-16 lg:mt-20">
-          <div className="max-w-2xl mb-8">
+        <div className="mt-16">
+          <div className="max-w-2xl mb-10">
             <h3
-              className={`text-white ${
-                isMM
-                  ? 'text-xl sm:text-2xl font-semibold leading-relaxed tracking-normal font-sans'
-                  : 'text-xl sm:text-3xl font-extrabold font-heading tracking-wide'
+              className={`text-[#140B29] ${
+                isMM ? 'text-xl sm:text-2xl font-bold' : 'text-2xl sm:text-3xl font-bold font-heading'
               }`}
             >
               {t.trustOne.categoriesTitle}
             </h3>
-            <p className="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">
-              {t.trustOne.categoriesSubtitle}
-            </p>
+            <p className="mt-2 text-xs sm:text-sm text-[#433B54]">{t.trustOne.categoriesSubtitle}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {/* Category 1 */}
-            <div className="rounded-2xl bg-[#071326] border border-amber-500/25 p-6 sm:p-8 hover:border-amber-400/50 transition-all duration-200 flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center mb-5">
-                  <MapPin className="w-6 h-6" />
+            {portfolios.map((cat, idx) => (
+              <div
+                key={idx}
+                className="rounded-2xl bg-white border border-[#140B29]/10 p-6 sm:p-8 flex flex-col justify-between transition-colors duration-200 hover:border-[#E88D17]/60"
+              >
+                <div>
+                  <h4
+                    className={`text-[#140B29] ${
+                      isMM ? 'text-lg font-bold' : 'text-xl font-bold font-heading'
+                    }`}
+                  >
+                    {cat.title}
+                  </h4>
+                  <p className="mt-2.5 text-xs sm:text-sm text-[#433B54] leading-relaxed">
+                    {cat.desc}
+                  </p>
                 </div>
-                <h4
-                  className={`text-white mb-2 ${
-                    isMM
-                      ? 'text-base sm:text-lg font-semibold leading-relaxed tracking-normal font-sans'
-                      : 'text-lg sm:text-xl font-bold font-heading'
-                  }`}
-                >
-                  {t.trustOne.cat1Title}
-                </h4>
-                <p className="text-xs sm:text-sm text-slate-300 leading-loose mb-6">
-                  {t.trustOne.cat1Desc}
-                </p>
 
-                <ul className="space-y-2.5 pt-4 border-t border-white/[0.08]">
-                  {t.trustOne.cat1Highlights.map((feat, idx) => (
-                    <li
-                      key={idx}
-                      className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed"
-                    >
-                      <CheckCircle2 className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
+                <ul className="mt-6 pt-5 border-t border-[#140B29]/8 space-y-2.5">
+                  {cat.highlights.map((feat, fIdx) => (
+                    <li key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#140B29]">
+                      <Check className="w-4 h-4 text-[#E88D17] flex-shrink-0 mt-0.5" />
                       <span>{feat}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-            </div>
-
-            {/* Category 2 */}
-            <div className="rounded-2xl bg-[#071326] border border-amber-500/25 p-6 sm:p-8 hover:border-amber-400/50 transition-all duration-200 flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center mb-5">
-                  <Building2 className="w-6 h-6" />
-                </div>
-                <h4
-                  className={`text-white mb-2 ${
-                    isMM
-                      ? 'text-base sm:text-lg font-semibold leading-relaxed tracking-normal font-sans'
-                      : 'text-lg sm:text-xl font-bold font-heading'
-                  }`}
-                >
-                  {t.trustOne.cat2Title}
-                </h4>
-                <p className="text-xs sm:text-sm text-slate-300 leading-loose mb-6">
-                  {t.trustOne.cat2Desc}
-                </p>
-
-                <ul className="space-y-2.5 pt-4 border-t border-white/[0.08]">
-                  {t.trustOne.cat2Highlights.map((feat, idx) => (
-                    <li
-                      key={idx}
-                      className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed"
-                    >
-                      <CheckCircle2 className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
-                      <span>{feat}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            {/* Category 3 */}
-            <div className="rounded-2xl bg-[#071326] border border-amber-500/25 p-6 sm:p-8 hover:border-amber-400/50 transition-all duration-200 flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center mb-5">
-                  <Home className="w-6 h-6" />
-                </div>
-                <h4
-                  className={`text-white mb-2 ${
-                    isMM
-                      ? 'text-base sm:text-lg font-semibold leading-relaxed tracking-normal font-sans'
-                      : 'text-lg sm:text-xl font-bold font-heading'
-                  }`}
-                >
-                  {t.trustOne.cat3Title}
-                </h4>
-                <p className="text-xs sm:text-sm text-slate-300 leading-loose mb-6">
-                  {t.trustOne.cat3Desc}
-                </p>
-
-                <ul className="space-y-2.5 pt-4 border-t border-white/[0.08]">
-                  {t.trustOne.cat3Highlights.map((feat, idx) => (
-                    <li
-                      key={idx}
-                      className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed"
-                    >
-                      <CheckCircle2 className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
-                      <span>{feat}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            {/* Category 4 */}
-            <div className="rounded-2xl bg-[#071326] border border-amber-500/25 p-6 sm:p-8 hover:border-amber-400/50 transition-all duration-200 flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center mb-5">
-                  <Layers className="w-6 h-6" />
-                </div>
-                <h4
-                  className={`text-white mb-2 ${
-                    isMM
-                      ? 'text-base sm:text-lg font-semibold leading-relaxed tracking-normal font-sans'
-                      : 'text-lg sm:text-xl font-bold font-heading'
-                  }`}
-                >
-                  {t.trustOne.cat4Title}
-                </h4>
-                <p className="text-xs sm:text-sm text-slate-300 leading-loose mb-6">
-                  {t.trustOne.cat4Desc}
-                </p>
-
-                <ul className="space-y-2.5 pt-4 border-t border-white/[0.08]">
-                  {t.trustOne.cat4Highlights.map((feat, idx) => (
-                    <li
-                      key={idx}
-                      className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed"
-                    >
-                      <CheckCircle2 className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
-                      <span>{feat}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* Advisory Capabilities & Due Diligence */}
-        <div className="mt-16 lg:mt-24">
-          <div className="max-w-2xl mb-8">
+        {/* Advisory & Due Diligence Standards */}
+        <div className="mt-20 pt-14 border-t border-[#140B29]/10">
+          <div className="max-w-2xl mb-10">
             <h3
-              className={`text-white ${
-                isMM
-                  ? 'text-xl sm:text-2xl font-semibold leading-relaxed tracking-normal font-sans'
-                  : 'text-xl sm:text-3xl font-extrabold font-heading tracking-wide'
+              className={`text-[#140B29] ${
+                isMM ? 'text-xl sm:text-2xl font-bold' : 'text-2xl sm:text-3xl font-bold font-heading'
               }`}
             >
               {t.trustOne.advisoryTitle}
             </h3>
-            <p className="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">
-              {t.trustOne.advisorySubtitle}
-            </p>
+            <p className="mt-2 text-xs sm:text-sm text-[#433B54]">{t.trustOne.advisorySubtitle}</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            <div className="p-6 rounded-xl bg-[#071326] border border-amber-500/20">
-              <div className="w-9 h-9 rounded-lg bg-amber-950/80 border border-amber-500/30 text-amber-400 flex items-center justify-center mb-4">
-                <FileText className="w-4 h-4" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {advisories.map((adv, idx) => (
+              <div key={idx} className="border-t-2 border-[#140B29]/15 pt-5">
+                <h4 className="text-base font-bold text-[#140B29]">{adv.title}</h4>
+                <p className="mt-2 text-xs sm:text-sm text-[#433B54] leading-relaxed">{adv.desc}</p>
               </div>
-              <h4
-                className={`text-white mb-1.5 ${
-                  isMM
-                    ? 'text-xs sm:text-sm font-semibold leading-relaxed tracking-normal font-sans'
-                    : 'text-sm font-bold font-heading'
-                }`}
-              >
-                {t.trustOne.adv1Title}
-              </h4>
-              <p className="text-xs text-slate-400 leading-loose">
-                {t.trustOne.adv1Desc}
-              </p>
-            </div>
-
-            <div className="p-6 rounded-xl bg-[#071326] border border-amber-500/20">
-              <div className="w-9 h-9 rounded-lg bg-amber-950/80 border border-amber-500/30 text-amber-400 flex items-center justify-center mb-4">
-                <Scale className="w-4 h-4" />
-              </div>
-              <h4
-                className={`text-white mb-1.5 ${
-                  isMM
-                    ? 'text-xs sm:text-sm font-semibold leading-relaxed tracking-normal font-sans'
-                    : 'text-sm font-bold font-heading'
-                }`}
-              >
-                {t.trustOne.adv2Title}
-              </h4>
-              <p className="text-xs text-slate-400 leading-loose">
-                {t.trustOne.adv2Desc}
-              </p>
-            </div>
-
-            <div className="p-6 rounded-xl bg-[#071326] border border-amber-500/20">
-              <div className="w-9 h-9 rounded-lg bg-amber-950/80 border border-amber-500/30 text-amber-400 flex items-center justify-center mb-4">
-                <ShieldCheck className="w-4 h-4" />
-              </div>
-              <h4
-                className={`text-white mb-1.5 ${
-                  isMM
-                    ? 'text-xs sm:text-sm font-semibold leading-relaxed tracking-normal font-sans'
-                    : 'text-sm font-bold font-heading'
-                }`}
-              >
-                {t.trustOne.adv3Title}
-              </h4>
-              <p className="text-xs text-slate-400 leading-loose">
-                {t.trustOne.adv3Desc}
-              </p>
-            </div>
-
-            <div className="p-6 rounded-xl bg-[#071326] border border-amber-500/20">
-              <div className="w-9 h-9 rounded-lg bg-amber-950/80 border border-amber-500/30 text-amber-400 flex items-center justify-center mb-4">
-                <Key className="w-4 h-4" />
-              </div>
-              <h4
-                className={`text-white mb-1.5 ${
-                  isMM
-                    ? 'text-xs sm:text-sm font-semibold leading-relaxed tracking-normal font-sans'
-                    : 'text-sm font-bold font-heading'
-                }`}
-              >
-                {t.trustOne.adv4Title}
-              </h4>
-              <p className="text-xs text-slate-400 leading-loose">
-                {t.trustOne.adv4Desc}
-              </p>
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* Featured Regional Desk Highlight */}
-        <div className="mt-16 lg:mt-24 rounded-2xl glass-panel-gold p-6 sm:p-10">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-            <div>
-              <div className="text-xs font-bold uppercase tracking-wider text-amber-400">
-                {isMM ? 'အဓိက အိမ်ခြံမြေဌာန' : 'Strategic Real Estate Desk'}
-              </div>
-              <h4
-                className={`text-white mt-1 ${
-                  isMM
-                    ? 'text-base sm:text-xl font-semibold leading-relaxed tracking-normal font-sans'
-                    : 'text-lg sm:text-2xl font-bold font-heading'
-                }`}
-              >
-                {t.trustOne.showcaseTitle}
-              </h4>
-              <p className="text-xs sm:text-sm text-slate-300 mt-2 max-w-2xl leading-relaxed">
-                {t.trustOne.showcaseSubtitle}
-              </p>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-3 flex-shrink-0">
-              <a
-                href="tel:+9595056524"
-                className="inline-flex items-center gap-2 px-4 py-3 rounded-xl text-xs sm:text-sm font-bold bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border border-amber-500/30 transition-colors shadow-lg shadow-amber-500/10 whitespace-nowrap"
-                title="Call Trust One Desk"
-              >
-                <Phone className="w-4 h-4 text-amber-400" />
-                <span>09 505 6524</span>
-              </a>
-              <a
-                href="tel:+959795056524"
-                className="inline-flex items-center gap-2 px-4 py-3 rounded-xl text-xs sm:text-sm font-bold bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border border-amber-500/30 transition-colors shadow-lg shadow-amber-500/10 whitespace-nowrap"
-                title="Call Trust One Mobile Desk"
-              >
-                <Phone className="w-4 h-4 text-amber-400" />
-                <span>09 795 056 524</span>
-              </a>
-              <Link
-                href="/#contact"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-xl text-xs sm:text-sm font-bold bg-[#D4AF37] text-[#050B16] hover:bg-[#F3C65F] transition-colors shadow-lg shadow-amber-500/20 whitespace-nowrap"
-              >
-                <span>{t.trustOne.ctaButton}</span>
-              </Link>
-            </div>
+        {/* Private Consultation Strip */}
+        <div className="mt-16 rounded-2xl bg-[#FFF8EC] border border-[#FFA62B]/40 text-[#291550] p-8 sm:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="max-w-2xl">
+            <h4 className="text-xl sm:text-2xl font-bold text-[#291550]">{t.trustOne.showcaseTitle}</h4>
+            <p className="mt-2 text-xs sm:text-sm text-[#433B54] leading-relaxed">
+              {t.trustOne.showcaseSubtitle}
+            </p>
           </div>
+          <Link
+            href="/#contact"
+            className="btn-interactive inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#FFA62B] text-[#291550] text-xs sm:text-sm font-semibold hover:bg-[#FFB144] whitespace-nowrap"
+          >
+            <span>{t.trustOne.ctaButton}</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </section>

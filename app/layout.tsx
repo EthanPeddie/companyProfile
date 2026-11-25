@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 export const viewport: Viewport = {
-  themeColor: '#050B16',
+  themeColor: '#DAEFE6',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
@@ -136,7 +136,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="my" className="scroll-smooth lang-my">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -154,7 +154,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(corporateJsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#071326] text-slate-100 antialiased selection:bg-[#D4AF37]/30 selection:text-white">
+      <body className="min-h-full flex flex-col bg-[#F3F8F5] text-[#1B0D36] antialiased selection:bg-[#FFA62B]/30 selection:text-[#1B0D36]">
         {children}
       </body>
     </html>

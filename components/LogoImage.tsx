@@ -5,96 +5,64 @@ import Image from 'next/image';
 
 interface LogoImageProps {
   type: 'holding' | 'polaris' | 'trust-one';
-  variant?: 'full' | 'mark' | 'badge';
   className?: string;
   size?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
 export default function LogoImage({
   type,
-  variant = 'full',
   className = '',
   size = 'md',
 }: LogoImageProps) {
   const [imgError, setImgError] = useState(false);
 
-  // Asset paths
+  // Asset paths and color configs aligned with 60% Mint, 30% Purple, 10% Mango
   const config = {
     holding: {
       name: 'THET & THU CO., LTD.',
       sub: 'Company Limited',
-      src: '/images/thet-and-thu-logo.webp',
+      src: '/images/thet-and-thu-logo.svg',
       svg: '/images/thet-and-thu-logo.svg',
-      glow: 'shadow-[0_0_20px_rgba(212,175,55,0.2)]',
-      border: 'border-amber-500/30',
-      badgeBg: 'bg-[#0B192C]/90',
-      accentColor: '#D4AF37',
+      accentColor: '#FFA62B',
     },
     polaris: {
       name: 'POLARIS TECH SOLUTION',
       sub: 'IT & Software Division',
-      src: '/images/polaris-logo.webp',
+      src: '/images/polaris-logo.svg',
       svg: '/images/polaris-logo.svg',
-      glow: 'shadow-[0_0_20px_rgba(0,210,255,0.25)]',
-      border: 'border-cyan-500/30',
-      badgeBg: 'bg-[#071326]/90',
-      accentColor: '#00D2FF',
+      accentColor: '#4A2B88',
     },
     'trust-one': {
       name: 'TRUST ONE PROPERTIES',
       sub: 'Real Estate Division',
-      src: '/images/trust-one-logo.webp',
+      src: '/images/trust-one-logo.svg',
       svg: '/images/trust-one-logo.svg',
-      glow: 'shadow-[0_0_20px_rgba(212,175,55,0.2)]',
-      border: 'border-amber-500/30',
-      badgeBg: 'bg-[#071326]/90',
-      accentColor: '#D4AF37',
+      accentColor: '#FFA62B',
     },
   }[type];
 
   const sizeClasses = {
-    sm: 'h-10 w-auto',
-    md: 'h-14 w-auto',
-    lg: 'h-20 w-auto',
-    xl: 'h-28 w-auto',
+    sm: 'h-8 w-auto',
+    md: 'h-10 w-auto',
+    lg: 'h-14 w-auto',
+    xl: 'h-20 w-auto',
   }[size];
 
-  // If mark/icon requested (e.g. for badges, circle avatar, or compact header)
-  if (variant === 'mark') {
-    return (
-      <div
-        className={`relative inline-flex items-center justify-center rounded-xl overflow-hidden border ${config.border} ${config.badgeBg} ${config.glow} p-1 transition-all duration-300 hover:scale-105 ${className}`}
-      >
-        <Image
-          src={imgError ? config.svg : config.src}
-          alt={config.name}
-          width={80}
-          height={80}
-          className="h-10 w-10 object-contain rounded-lg"
-          onError={() => setImgError(true)}
-          unoptimized
-        />
-      </div>
-    );
-  }
-
-  // Full presentation with contrast protection
+  // Full presentation within Midnight Purple capsule for native high-contrast
   return (
     <div
-      className={`relative inline-flex items-center rounded-xl p-1.5 transition-all duration-300 ${className}`}
+      className={`relative inline-flex items-center px-3.5 py-2 rounded-xl bg-[#4A2B88] border border-[#4A2B88]/30 shadow-xs transition-transform duration-200 hover:scale-[1.02] ${className}`}
     >
-      <div className="relative overflow-hidden rounded-lg bg-[#071326]/60 backdrop-blur-xs border border-white/10 p-1">
-        <Image
-          src={imgError ? config.svg : config.src}
-          alt={config.name}
-          width={360}
-          height={100}
-          className={`${sizeClasses} object-contain max-w-[280px] sm:max-w-[340px] transition-transform duration-300 hover:brightness-110`}
-          onError={() => setImgError(true)}
-          unoptimized
-          priority
-        />
-      </div>
+      <Image
+        src={imgError ? config.src : config.svg}
+        alt={config.name}
+        width={360}
+        height={90}
+        className={`${sizeClasses} object-contain max-w-[240px] sm:max-w-[300px]`}
+        onError={() => setImgError(true)}
+        unoptimized
+        priority
+      />
     </div>
   );
 }

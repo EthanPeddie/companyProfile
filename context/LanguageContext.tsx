@@ -12,7 +12,7 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-let memoryLanguage: Language = 'EN';
+let memoryLanguage: Language = 'MM';
 const listeners = new Set<() => void>();
 
 function subscribe(callback: () => void) {
@@ -38,7 +38,7 @@ function getSnapshot(): Language {
       const saved = localStorage.getItem('tt_preferred_language') as Language | null;
       if (saved === 'EN' || saved === 'MM') {
         memoryLanguage = saved;
-        return saved;
+        return memoryLanguage;
       }
     } catch {
       // storage disabled or sandboxed
@@ -48,7 +48,7 @@ function getSnapshot(): Language {
 }
 
 function getServerSnapshot(): Language {
-  return 'EN';
+  return 'MM';
 }
 
 function setLanguageStore(lang: Language) {

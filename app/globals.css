@@ -1,41 +1,78 @@
 @import "tailwindcss";
 
 @theme {
-  --color-obsidian: #040812;
-  --color-navy-950: #050b16;
-  --color-navy-900: #071326;
-  --color-navy-850: #0b192c;
-  --color-navy-800: #0f223d;
-  --color-navy-750: #142a4a;
-  --color-navy-700: #19355b;
+  /* 60% Mint (Main Canvas & Fresh Surfaces) */
+  --color-mint-50: #f4faf7;
+  --color-mint-100: #eaf5f0;
+  --color-mint-200: #daefe6; /* Exact sampled Mint from card */
+  --color-mint-300: #c2e4d5;
+  --color-mint-400: #9cd4be;
+  --color-mint-500: #6abda0;
+  --color-mint-600: #469a7f;
+  --color-mint-700: #337a64;
+  --color-mint-800: #255c4c;
+  --color-mint-900: #1b4337;
 
-  --color-gold-200: #faebba;
-  --color-gold-300: #f8df95;
-  --color-gold-400: #f3c65f;
-  --color-gold-500: #d4af37;
-  --color-gold-600: #b38e24;
-  --color-gold-700: #8c6e18;
+  /* 30% Purple (Secondary / Primary Brand Authority / Structure) */
+  --color-purple-50: #f6f3fb;
+  --color-purple-100: #eee7f7;
+  --color-purple-200: #ded0ef;
+  --color-purple-300: #c5ade3;
+  --color-purple-400: #a27ed1;
+  --color-purple-500: #7b4ebc;
+  --color-purple-600: #6034a3;
+  --color-purple-700: #4a2b88; /* Exact sampled Purple from card */
+  --color-purple-800: #381f6a;
+  --color-purple-900: #291550;
+  --color-purple-950: #1b0d36;
 
-  --color-cyan-300: #7dd3fc;
-  --color-cyan-400: #38bdf8;
-  --color-cyan-500: #00d2ff;
-  --color-cyan-600: #0284c7;
-  --color-cyan-700: #0369a1;
+  /* 10% Mango (Accent / High Affordance CTA / Badges) */
+  --color-mango-50: #fff9ed;
+  --color-mango-100: #fff0d4;
+  --color-mango-200: #ffdea8;
+  --color-mango-300: #ffc670;
+  --color-mango-400: #ffb144;
+  --color-mango-500: #ffa62b; /* Exact sampled Mango from card #FFA62B */
+  --color-mango-600: #e88d17;
+  --color-mango-700: #c26e0b;
+  --color-mango-800: #9a540e;
+
+  /* Backward-compatible legacy aliases re-mapped to 60-30-10 palette */
+  --color-obsidian: #1b0d36;
+  --color-navy-950: #1b0d36;
+  --color-navy-900: #291550;
+  --color-navy-850: #381f6a;
+  --color-navy-800: #4a2b88;
+  --color-navy-750: #55339c;
+  --color-navy-700: #6034a3;
+
+  --color-gold-200: #ffdea8;
+  --color-gold-300: #ffc670;
+  --color-gold-400: #ffb144;
+  --color-gold-500: #ffa62b; /* Mapped to Mango Accent */
+  --color-gold-600: #e88d17;
+  --color-gold-700: #c26e0b;
+
+  --color-cyan-300: #daefe6;
+  --color-cyan-400: #9cd4be;
+  --color-cyan-500: #4a2b88;
+  --color-cyan-600: #381f6a;
+  --color-cyan-700: #291550;
 
   --font-heading: "Cinzel", Georgia, serif;
-  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: "Plus Jakarta Sans", "Noto Sans Myanmar", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-myanmar: "Noto Sans Myanmar", "Pyidaungsu", "Padauk", "Myanmar3", system-ui, sans-serif;
 }
 
 :root {
-  --background: #050b16;
-  --foreground: #f1f5f9;
+  --background: #f4faf7;
+  --foreground: #1b0d36;
 }
 
 body {
   font-family: var(--font-sans);
-  background-color: #050b16;
-  color: #f1f5f9;
+  background-color: #f4faf7;
+  color: #1b0d36;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -47,56 +84,102 @@ body {
   letter-spacing: 0.03em;
 }
 
-/* Atmospheric Grids */
-.bg-corporate-grid {
-  background-size: 40px 40px;
+/* High Clarity Grids (60% Mint Ambient) */
+.bg-corporate-grid,
+.bg-mint-grid {
+  background-size: 36px 36px;
   background-image: 
-    linear-gradient(to right, rgba(212, 175, 55, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(212, 175, 55, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(74, 43, 136, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(74, 43, 136, 0.04) 1px, transparent 1px);
 }
 
-.bg-cyan-grid {
+.bg-cyan-grid,
+.bg-purple-grid {
   background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(0, 210, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 210, 255, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(218, 239, 230, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(218, 239, 230, 0.15) 1px, transparent 1px);
 }
 
-/* Glass Panels */
+/* High Clarity Panels */
 .glass-panel {
-  background: rgba(11, 25, 44, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid #daefe6;
+  box-shadow: 0 4px 20px -2px rgba(74, 43, 136, 0.05);
 }
 
-.glass-panel-gold {
-  background: linear-gradient(180deg, rgba(15, 30, 52, 0.8) 0%, rgba(7, 19, 38, 0.9) 100%);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(212, 175, 55, 0.25);
-  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.08);
+.glass-panel-mint {
+  background: #daefe6;
+  border: 1px solid rgba(74, 43, 136, 0.12);
+  box-shadow: 0 4px 18px -2px rgba(74, 43, 136, 0.04);
+}
+
+.glass-panel-purple {
+  background: linear-gradient(145deg, #4a2b88 0%, #291550 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 16px 36px -8px rgba(74, 43, 136, 0.3);
+}
+
+.glass-panel-gold,
+.glass-panel-mango {
+  background: #ffffff;
+  border: 1.5px solid #ffa62b;
+  box-shadow: 0 8px 24px -4px rgba(255, 166, 43, 0.18);
 }
 
 .glass-panel-cyan {
-  background: linear-gradient(180deg, rgba(11, 30, 56, 0.8) 0%, rgba(4, 12, 24, 0.95) 100%);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 210, 255, 0.25);
-  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 210, 255, 0.08);
+  background: #ffffff;
+  border: 1px solid #daefe6;
+  box-shadow: 0 8px 24px -4px rgba(74, 43, 136, 0.06);
 }
 
 /* Gradients */
-.text-gold-gradient {
-  background: linear-gradient(135deg, #faebba 0%, #d4af37 50%, #947024 100%);
+.text-gold-gradient,
+.text-mango-gradient {
+  background: linear-gradient(135deg, #ffb144 0%, #ffa62b 50%, #e88d17 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.text-cyan-gradient {
-  background: linear-gradient(135deg, #7dd3fc 0%, #00d2ff 50%, #0284c7 100%);
+.text-cyan-gradient,
+.text-purple-gradient {
+  background: linear-gradient(135deg, #4a2b88 0%, #381f6a 60%, #1b0d36 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* Emil Kowalski Motion Micro-Interactions */
+.btn-interactive {
+  transition: transform 160ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 160ms ease, background-color 160ms ease, color 160ms ease;
+}
+.btn-interactive:hover {
+  transform: translateY(-1.5px);
+}
+.btn-interactive:active {
+  transform: scale(0.98);
+}
+
+.card-interactive {
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 200ms ease, border-color 200ms ease;
+}
+.card-interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -6px rgba(74, 43, 136, 0.1);
+  border-color: rgba(74, 43, 136, 0.28);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* ============================================================= */
@@ -113,7 +196,6 @@ html.lang-my,
 }
 
 /* 2. Absolute Letter-Spacing Annihilation on all elements in Burmese mode */
-/* Letter-spacing breaks combining diacritics and ligatures in Burmese */
 html[lang="my"] *,
 html.lang-my *,
 .font-myanmar * {
@@ -121,7 +203,7 @@ html.lang-my *,
   font-feature-settings: "liga" 1, "dlig" 1 !important;
 }
 
-/* 3. Burmese Headings: Enforce Noto Sans Myanmar & Semibold 600 */
+/* 3. Burmese Headings: Enforce Noto Sans Myanmar & Semibold 600 with clean line height */
 html[lang="my"] h1,
 html[lang="my"] h2,
 html[lang="my"] h3,
@@ -146,9 +228,10 @@ html.lang-my .font-heading {
   font-family: var(--font-myanmar) !important;
   font-weight: 600 !important;
   letter-spacing: 0 !important;
+  line-height: 1.55 !important;
 }
 
-/* 4. Burmese Paragraphs & Lists: Font & Letter spacing reset only */
+/* 4. Burmese Paragraphs & Lists: Font, line-height & Letter spacing */
 html[lang="my"] p,
 html.lang-my p,
 .font-myanmar p,
@@ -157,6 +240,7 @@ html.lang-my li,
 .font-myanmar li {
   font-family: var(--font-myanmar) !important;
   letter-spacing: 0 !important;
+  line-height: 1.75 !important;
 }
 
 /* Ensure Dropdowns wrap text naturally and never overflow */
@@ -173,23 +257,24 @@ html.lang-my button,
   line-height: 1.6 !important;
 }
 
-/* Luxury Scrollbar */
+/* High Clarity Scrollbar */
 ::-webkit-scrollbar {
   width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #040812;
+  background: #f4faf7;
 }
 ::-webkit-scrollbar-thumb {
-  background: #142a4a;
-  border-radius: 3px;
+  background: #daefe6;
+  border-radius: 4px;
+  border: 1px solid rgba(74, 43, 136, 0.1);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #d4af37;
+  background: #ffa62b;
 }
 
 *:focus-visible {
-  outline: 2px solid #d4af37;
+  outline: 2px solid #ffa62b;
   outline-offset: 2px;
 }
 
@@ -201,7 +286,7 @@ html.lang-my button,
   *::before,
   *::after {
     background: transparent !important;
-    color: #111827 !important;
+    color: #1b0d36 !important;
     box-shadow: none !important;
     text-shadow: none !important;
   }
@@ -209,7 +294,7 @@ html.lang-my button,
   html,
   body {
     background: #ffffff !important;
-    color: #111827 !important;
+    color: #1b0d36 !important;
     font-size: 11pt !important;
     line-height: 1.5 !important;
   }
@@ -226,13 +311,14 @@ html.lang-my button,
 
   /* Disable decorative backgrounds, gradients, and grids */
   .bg-corporate-grid,
+  .bg-mint-grid,
   .glass-panel-cyan,
   .glass-panel-gold,
   .text-gold-gradient {
     background-image: none !important;
     background: transparent !important;
-    -webkit-text-fill-color: #111827 !important;
-    color: #111827 !important;
+    -webkit-text-fill-color: #1b0d36 !important;
+    color: #1b0d36 !important;
   }
 
   /* Ensure cards and panels look clean on white paper */
@@ -243,19 +329,19 @@ html.lang-my button,
   div[class*="rounded-"] {
     background: #ffffff !important;
     border: 1px solid #d1d5db !important;
-    color: #111827 !important;
+    color: #1b0d36 !important;
     break-inside: avoid;
     page-break-inside: avoid;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color: #111827 !important;
+    color: #1b0d36 !important;
     page-break-after: avoid;
     break-after: avoid;
   }
 
   p, span, li, a {
-    color: #1f2937 !important;
+    color: #291550 !important;
   }
 
   img {

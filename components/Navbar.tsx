@@ -7,13 +7,10 @@ import { useLanguage } from '@/context/LanguageContext';
 import {
   Menu,
   X,
-  Phone,
-  Mail,
-  MapPin,
   ChevronDown,
   Building2,
   Code2,
-  Shield,
+  ArrowUpRight,
 } from 'lucide-react';
 
 export default function Navbar() {
@@ -24,9 +21,9 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 24);
+      setScrolled(window.scrollY > 16);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -42,440 +39,250 @@ export default function Navbar() {
   }, [mobileMenuOpen]);
 
   return (
-    <header className="sticky top-0 z-50 w-full transition-all duration-300">
-      {/* Top Executive Ticker Bar */}
-      <div className="hidden lg:block bg-[#040812] border-b border-white/[0.06] py-1.5 text-xs">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center text-slate-300 font-medium">
-          <div className="flex items-center space-x-6">
-            <span className="inline-flex items-center gap-1.5 text-amber-300/90 text-[11px] uppercase font-semibold whitespace-nowrap">
-              <Shield className="w-3.5 h-3.5 text-amber-400" />
-              <span>THET &amp; THU CO., LTD. • Est. 2014</span>
-            </span>
-            <span className="text-white/20 hidden xl:inline">/</span>
-            <span className="hidden xl:inline-flex items-center gap-1.5 text-slate-400 text-xs whitespace-nowrap">
-              <MapPin className="w-3.5 h-3.5 text-amber-400/80" />
-              <span>Yangon City Head Office &amp; Thanlyin Star City Desk</span>
-            </span>
-          </div>
-
-          <div className="flex items-center space-x-5 text-xs whitespace-nowrap">
-            <a
-              href="mailto:info@thetandthu.com"
-              className="inline-flex items-center gap-1.5 text-slate-400 hover:text-amber-300 transition-colors"
-            >
-              <Mail className="w-3.5 h-3.5 text-amber-400/70" />
-              <span>info@thetandthu.com</span>
-            </a>
-            <span className="text-white/20">/</span>
-            <div className="inline-flex items-center gap-1.5 text-slate-400">
-              <Phone className="w-3.5 h-3.5 text-amber-400/70" />
-              <a
-                href="tel:+9595056524"
-                className="hover:text-amber-300 transition-colors"
-                title="Call Thet & Thu Corporate Desk"
-              >
-                09 505 6524
-              </a>
-              <span className="text-white/20">/</span>
-              <a
-                href="tel:+959443212306"
-                className="hover:text-amber-300 transition-colors"
-                title="Call Thet & Thu Corporate Desk"
-              >
-                09 443 212 306
-              </a>
-            </div>
-
-            {/* Language Toggle */}
-            <div className="inline-flex items-center rounded-lg bg-[#0B192C] p-0.5 border border-white/10 text-xs ml-2">
-              <button
-                type="button"
-                onClick={() => setLanguage('EN')}
-                className={`px-2.5 py-0.5 rounded-md text-[11px] font-semibold transition-all ${
-                  language === 'EN'
-                    ? 'bg-[#D4AF37] text-[#050B16] font-bold shadow-xs'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                EN
-              </button>
-              <button
-                type="button"
-                onClick={() => setLanguage('MM')}
-                className={`px-2.5 py-0.5 rounded-md text-[11px] font-semibold transition-all ${
-                  language === 'MM'
-                    ? 'bg-[#D4AF37] text-[#050B16] font-bold shadow-xs'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                မြန်မာ
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-      {/* Main Corporate Glass Header */}
-      <nav
-        className={`w-full transition-all duration-300 ${
+    <>
+      <header
+        className={`sticky top-0 z-50 w-full h-16 transition-all duration-200 ${
           scrolled
-            ? 'bg-[#050B16]/95 backdrop-blur-md shadow-2xl border-b border-amber-500/20 py-2.5'
-            : 'bg-[#050B16]/85 backdrop-blur-md border-b border-white/[0.08] py-3.5'
+            ? 'bg-white/95 backdrop-blur-md border-b border-[#140B29]/10 shadow-[0_1px_12px_rgba(20,11,41,0.04)]'
+            : 'bg-[#F7FAF8]/90 backdrop-blur-md border-b border-[#140B29]/6'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Corporate Logo & Mark */}
+      <div className="max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+        {/* Brand Mark */}
+        <Link
+          href="/"
+          className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4A2B88] rounded-lg"
+          onClick={() => setMobileMenuOpen(false)}
+        >
+          <div className="w-9 h-9 rounded-lg bg-[#4A2B88] flex items-center justify-center flex-shrink-0 transition-transform duration-200 group-hover:scale-[1.03]">
+            <Image
+              src="/images/thet-and-thu-emblem.webp"
+              alt="THET & THU CO., LTD."
+              width={28}
+              height={28}
+              className="w-6 h-6 object-contain"
+              priority
+              unoptimized
+            />
+          </div>
+          <div className="flex flex-col leading-none">
+            <span className="font-bold text-sm tracking-wide text-[#291550] font-heading">
+              THET &amp; THU
+            </span>
+            <span className="text-[10px] font-medium text-[#6B637A] mt-0.5">
+              {isMM ? 'ကုမ္ပဏီလီမိတက်' : 'CO., LTD. • EST. 2014'}
+            </span>
+          </div>
+        </Link>
+
+        {/* Desktop Single-Row Navigation */}
+        <nav className="hidden lg:flex items-center gap-1">
           <Link
-            href="/"
-            className="flex items-center gap-3 group focus:outline-hidden flex-shrink-0"
+            href="/#about"
+            className="px-3.5 py-2 rounded-lg text-[13px] font-medium text-[#433B54] hover:text-[#140B29] hover:bg-[#140B29]/5 transition-colors"
           >
-            <div className="relative inline-flex rounded-xl overflow-hidden border border-amber-500/35 p-0 shadow-[0_0_15px_rgba(212,175,55,0.15)] transition-all duration-300 group-hover:border-amber-400/60 group-hover:shadow-[0_0_20px_rgba(212,175,55,0.25)]">
-              <Image
-                src="/images/thet-and-thu-logo.webp"
-                alt="THET & THU CO., LTD."
-                width={150}
-                height={100}
-                className="h-9 sm:h-11 w-auto block object-cover transition-transform duration-300 group-hover:scale-105"
-                unoptimized
-                priority
-              />
-            </div>
+            {t.nav.about}
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center space-x-1 xl:space-x-2">
-            <Link
-              href="/#about"
-              className={`px-2.5 xl:px-3 py-2 rounded-lg font-medium text-slate-300 hover:text-amber-300 hover:bg-white/[0.04] transition-colors whitespace-nowrap ${
-                isMM ? 'text-xs xl:text-sm tracking-normal' : 'text-sm'
-              }`}
+          {/* Divisions Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setDivisionsDropdown(true)}
+            onMouseLeave={() => setDivisionsDropdown(false)}
+          >
+            <button
+              type="button"
+              onClick={() => setDivisionsDropdown(true)}
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-[13px] font-medium text-[#433B54] hover:text-[#140B29] hover:bg-[#140B29]/5 transition-colors focus:outline-none"
+              aria-expanded={divisionsDropdown}
             >
-              {t.nav.about}
-            </Link>
-
-            {/* Divisions Dropdown */}
-            <div
-              className="relative group/dropdown z-50"
-              onMouseEnter={() => setDivisionsDropdown(true)}
-              onMouseLeave={() => setDivisionsDropdown(false)}
-            >
-              <button
-                type="button"
-                className={`inline-flex items-center gap-1.5 px-2.5 xl:px-3 py-2 rounded-lg font-medium transition-colors whitespace-nowrap ${
-                  divisionsDropdown
-                    ? 'bg-white/[0.08] text-amber-300'
-                    : 'text-slate-300 hover:text-amber-300 hover:bg-white/[0.04]'
-                } ${isMM ? 'text-xs xl:text-sm tracking-normal' : 'text-sm'}`}
-                onClick={() => setDivisionsDropdown((prev) => !prev)}
-                aria-expanded={divisionsDropdown}
-                aria-haspopup="true"
-              >
-                <span>{t.nav.divisions}</span>
-                <ChevronDown
-                  className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                    divisionsDropdown ? 'rotate-180 text-amber-400' : 'text-slate-400 group-hover/dropdown:text-amber-300'
-                  }`}
-                />
-              </button>
-
-              <div
-                className={`absolute top-full left-0 pt-1.5 z-50 transition-all duration-200 ${
-                  divisionsDropdown
-                    ? 'opacity-100 visible pointer-events-auto translate-y-0'
-                    : 'opacity-0 invisible pointer-events-none -translate-y-1 lg:group-hover/dropdown:opacity-100 lg:group-hover/dropdown:visible lg:group-hover/dropdown:pointer-events-auto lg:group-hover/dropdown:translate-y-0 group-focus-within/dropdown:opacity-100 group-focus-within/dropdown:visible group-focus-within/dropdown:pointer-events-auto group-focus-within/dropdown:translate-y-0'
+              <span>{t.nav.divisions}</span>
+              <ChevronDown
+                className={`w-3.5 h-3.5 text-[#6B637A] transition-transform duration-200 ${
+                  divisionsDropdown ? 'rotate-180' : ''
                 }`}
-              >
-                <div
-                  className={`dropdown-card w-[420px] sm:w-[480px] lg:w-[500px] rounded-2xl bg-[#081220] border border-amber-500/35 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.95)] p-4 space-y-2.5 transition-all ${
-                    isMM ? 'tracking-normal' : ''
-                  }`}
-                >
-                  <div className="flex items-center justify-between px-2 py-1 text-[11px] font-semibold text-slate-400 uppercase tracking-wider border-b border-white/[0.08] mb-1 pb-2">
-                    <span>{isMM ? 'ကုမ္ပဏီကြီး၏ အဓိကလုပ်ငန်းခွဲများ' : 'Operating Business Divisions'}</span>
-                    <span className="text-[10px] text-amber-400/90 font-mono tracking-normal">THET &amp; THU</span>
-                  </div>
+              />
+            </button>
 
-                  {/* Division 1: Polaris Tech */}
+            {divisionsDropdown && (
+              <div className="absolute left-0 top-full pt-2 w-80 z-50">
+                <div className="rounded-xl bg-white border border-[#140B29]/10 shadow-xl p-2 space-y-1">
                   <Link
                     href="/polaris"
                     onClick={() => setDivisionsDropdown(false)}
-                    className="dropdown-item flex items-start gap-3.5 p-3.5 rounded-xl hover:bg-cyan-950/40 border border-cyan-500/10 hover:border-cyan-500/40 transition-all group/item"
+                    className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#F7FAF8] transition-colors group"
                   >
-                    <div className="p-2.5 rounded-xl bg-cyan-950/80 border border-cyan-500/30 text-cyan-400 group-hover/item:scale-105 group-hover/item:border-cyan-400 group-hover/item:bg-cyan-900/50 transition-all flex-shrink-0 mt-0.5">
-                      <Code2 className="w-5 h-5" />
+                    <div className="w-9 h-9 rounded-lg bg-[#4A2B88] text-white flex items-center justify-center flex-shrink-0">
+                      <Code2 className="w-4 h-4 text-[#FFA62B]" />
                     </div>
-                    <div className="flex-1 min-w-0 pr-1">
-                      <div className="flex items-center justify-between gap-3 mb-1">
-                        <span className="text-sm sm:text-[15px] font-bold text-white group-hover/item:text-cyan-300 transition-colors truncate">
-                          {t.nav.polarisDropdownTitle}
-                        </span>
-                        <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-md bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 flex-shrink-0 tracking-normal">
-                          {t.nav.polarisDropdownBadge}
-                        </span>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between text-xs font-bold text-[#140B29] group-hover:text-[#4A2B88]">
+                        <span>Polaris Tech Solution</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                       </div>
-                      <p
-                        className={`whitespace-normal text-xs text-slate-300/80 leading-relaxed group-hover/item:text-slate-100 transition-colors break-words [overflow-wrap:anywhere] ${
-                          isMM ? 'font-sans text-[12px] leading-relaxed' : ''
-                        }`}
-                      >
-                        {t.nav.polarisDropdownDesc}
+                      <p className="text-[11px] text-[#6B637A] mt-0.5 line-clamp-2">
+                        {isMM
+                          ? 'လုပ်ငန်းသုံး ERP, POS နှင့် Custom Software စနစ်များ'
+                          : 'Bespoke Enterprise ERP, POS & Mobile Systems'}
                       </p>
                     </div>
                   </Link>
 
-                  {/* Division 2: Trust One */}
                   <Link
                     href="/trust-one"
                     onClick={() => setDivisionsDropdown(false)}
-                    className="dropdown-item flex items-start gap-3.5 p-3.5 rounded-xl hover:bg-amber-950/40 border border-amber-500/10 hover:border-amber-500/40 transition-all group/item"
+                    className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#F7FAF8] transition-colors group"
                   >
-                    <div className="p-2.5 rounded-xl bg-amber-950/80 border border-amber-500/30 text-amber-400 group-hover/item:scale-105 group-hover/item:border-amber-400 group-hover/item:bg-amber-900/50 transition-all flex-shrink-0 mt-0.5">
-                      <Building2 className="w-5 h-5" />
+                    <div className="w-9 h-9 rounded-lg bg-[#FFF4E0] text-[#9A540E] flex items-center justify-center flex-shrink-0">
+                      <Building2 className="w-4 h-4 text-[#E88D17]" />
                     </div>
-                    <div className="flex-1 min-w-0 pr-1">
-                      <div className="flex items-center justify-between gap-3 mb-1">
-                        <span className="text-sm sm:text-[15px] font-bold text-white group-hover/item:text-amber-300 transition-colors truncate">
-                          {t.nav.trustOneDropdownTitle}
-                        </span>
-                        <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-md bg-amber-500/20 text-amber-300 border border-amber-500/30 flex-shrink-0 tracking-normal">
-                          {t.nav.trustOneDropdownBadge}
-                        </span>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between text-xs font-bold text-[#140B29] group-hover:text-[#9A540E]">
+                        <span>Trust One Properties</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                       </div>
-                      <p
-                        className={`whitespace-normal text-xs text-slate-300/80 leading-relaxed group-hover/item:text-slate-100 transition-colors break-words [overflow-wrap:anywhere] ${
-                          isMM ? 'font-sans text-[12px] leading-relaxed' : ''
-                        }`}
-                      >
-                        {t.nav.trustOneDropdownDesc}
+                      <p className="text-[11px] text-[#6B637A] mt-0.5 line-clamp-2">
+                        {isMM
+                          ? 'မြန်မာပြည်တွင်း အိမ်ခြံမြေနှင့် ကွန်ဒို ဝန်ဆောင်မှု'
+                          : 'Verified Domestic Myanmar Real Estate Advisory'}
                       </p>
                     </div>
                   </Link>
                 </div>
               </div>
-            </div>
+            )}
+          </div>
 
-            <Link
-              href="/#values"
-              className={`px-2.5 xl:px-3 py-2 rounded-lg font-medium text-slate-300 hover:text-amber-300 hover:bg-white/[0.04] transition-colors whitespace-nowrap ${
-                isMM ? 'text-xs xl:text-sm tracking-normal' : 'text-sm'
+          <Link
+            href="/polaris"
+            className="px-3.5 py-2 rounded-lg text-[13px] font-medium text-[#433B54] hover:text-[#140B29] hover:bg-[#140B29]/5 transition-colors"
+          >
+            {t.nav.polaris}
+          </Link>
+          <Link
+            href="/trust-one"
+            className="px-3.5 py-2 rounded-lg text-[13px] font-medium text-[#433B54] hover:text-[#140B29] hover:bg-[#140B29]/5 transition-colors"
+          >
+            {t.nav.trustOne}
+          </Link>
+          <Link
+            href="/#offices"
+            className="px-3.5 py-2 rounded-lg text-[13px] font-medium text-[#433B54] hover:text-[#140B29] hover:bg-[#140B29]/5 transition-colors"
+          >
+            {t.nav.offices}
+          </Link>
+        </nav>
+
+        {/* Right Controls: Language Switch + Single Primary CTA */}
+        <div className="hidden lg:flex items-center gap-3">
+          <div
+            className="inline-flex items-center rounded-lg bg-[#EDF4F0] p-0.5 border border-[#140B29]/8"
+            role="group"
+            aria-label="Language switcher"
+          >
+            <button
+              type="button"
+              onClick={() => setLanguage('MM')}
+              className={`px-2.5 py-1.5 rounded-md text-[11px] font-semibold leading-none transition-all duration-150 ${
+                language === 'MM'
+                  ? 'bg-white text-[#140B29] shadow-xs'
+                  : 'text-[#6B637A] hover:text-[#140B29]'
               }`}
             >
-              {t.nav.whyUs}
-            </Link>
+              မြန်မာ
+            </button>
+            <button
+              type="button"
+              onClick={() => setLanguage('EN')}
+              className={`px-2.5 py-1.5 rounded-md text-[11px] font-semibold leading-none transition-all duration-150 ${
+                language === 'EN'
+                  ? 'bg-white text-[#140B29] shadow-xs'
+                  : 'text-[#6B637A] hover:text-[#140B29]'
+              }`}
+            >
+              EN
+            </button>
+          </div>
 
+          <Link
+            href="/#contact"
+            className="btn-interactive inline-flex items-center justify-center px-4 py-2 rounded-lg text-xs font-semibold bg-[#4A2B88] text-white hover:bg-[#381F6A] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4A2B88]"
+          >
+            {t.nav.contact}
+          </Link>
+        </div>
+
+        {/* Mobile Controls */}
+        <div className="flex lg:hidden items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setLanguage(language === 'MM' ? 'EN' : 'MM')}
+            className="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-[#EDF4F0] text-[#140B29] border border-[#140B29]/10"
+            aria-label="Toggle language"
+          >
+            {language === 'MM' ? 'EN' : 'မြန်မာ'}
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen((v) => !v)}
+            className="p-2 rounded-lg text-[#140B29] hover:bg-[#140B29]/5 transition-colors"
+            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileMenuOpen}
+          >
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
+      </div>
+    </header>
+
+      {/* Mobile Drawer (rendered outside <header> so backdrop-blur doesn't clip fixed positioning) */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden fixed inset-x-0 top-16 bottom-0 bg-white z-50 overflow-y-auto border-t border-[#140B29]/10 px-5 py-6">
+          <nav className="space-y-1">
+            <Link
+              href="/#about"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-3 py-3 rounded-lg text-sm font-semibold text-[#140B29] hover:bg-[#F7FAF8]"
+            >
+              {t.nav.about}
+            </Link>
+            <Link
+              href="/polaris"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between px-3 py-3 rounded-lg text-sm font-semibold text-[#140B29] hover:bg-[#F7FAF8]"
+            >
+              <span>Polaris Tech Solution</span>
+              <ArrowUpRight className="w-4 h-4 text-[#6B637A]" />
+            </Link>
+            <Link
+              href="/trust-one"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between px-3 py-3 rounded-lg text-sm font-semibold text-[#140B29] hover:bg-[#F7FAF8]"
+            >
+              <span>Trust One Properties</span>
+              <ArrowUpRight className="w-4 h-4 text-[#6B637A]" />
+            </Link>
             <Link
               href="/#offices"
-              className={`px-2.5 xl:px-3 py-2 rounded-lg font-medium text-slate-300 hover:text-amber-300 hover:bg-white/[0.04] transition-colors whitespace-nowrap ${
-                isMM ? 'text-xs xl:text-sm tracking-normal' : 'text-sm'
-              }`}
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-3 py-3 rounded-lg text-sm font-semibold text-[#140B29] hover:bg-[#F7FAF8]"
             >
               {t.nav.offices}
             </Link>
+          </nav>
 
+          <div className="mt-6 pt-6 border-t border-[#140B29]/10">
             <Link
               href="/#contact"
-              className={`px-2.5 xl:px-3 py-2 rounded-lg font-medium text-slate-300 hover:text-amber-300 hover:bg-white/[0.04] transition-colors whitespace-nowrap ${
-                isMM ? 'text-xs xl:text-sm tracking-normal' : 'text-sm'
-              }`}
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full py-3 rounded-lg bg-[#4A2B88] text-white text-sm font-semibold flex items-center justify-center"
             >
               {t.nav.contact}
             </Link>
           </div>
-
-          {/* Quick Division Direct Indicators & Primary CTA */}
-          <div className="hidden lg:flex items-center space-x-2 xl:space-x-3 flex-shrink-0">
-            <Link
-              href="/#polaris"
-              className="hidden xl:inline-flex items-center gap-1.5 px-2.5 xl:px-3 py-1.5 rounded-full text-xs font-semibold bg-cyan-950/50 text-cyan-300 border border-cyan-500/30 hover:border-cyan-400 hover:bg-cyan-900/40 transition-colors whitespace-nowrap"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-              <span>Polaris Tech</span>
-            </Link>
-
-            <Link
-              href="/#trust-one"
-              className="hidden xl:inline-flex items-center gap-1.5 px-2.5 xl:px-3 py-1.5 rounded-full text-xs font-semibold bg-amber-950/50 text-amber-300 border border-amber-500/30 hover:border-amber-400 hover:bg-amber-900/40 transition-colors whitespace-nowrap"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-              <span>Trust One</span>
-            </Link>
-
-            <Link
-              href="/#contact"
-              className={`inline-flex items-center justify-center px-3.5 xl:px-4 py-2 rounded-xl text-xs font-bold uppercase transition-all shadow-lg shadow-amber-500/15 whitespace-nowrap ${
-                isMM
-                  ? 'bg-gradient-to-r from-[#D4AF37] via-[#F3C65F] to-[#D4AF37] text-[#050B16] hover:brightness-110 active:scale-98 tracking-normal font-sans'
-                  : 'bg-gradient-to-r from-[#D4AF37] via-[#F3C65F] to-[#D4AF37] text-[#050B16] hover:brightness-110 active:scale-98 tracking-wider'
-              }`}
-            >
-              {t.nav.inquireNow}
-            </Link>
-          </div>
-
-          {/* Mobile Navigation Trigger */}
-          <div className="flex lg:hidden items-center space-x-2">
-            <div className="inline-flex items-center rounded-xl bg-[#0B192C] p-1 border border-white/10 text-xs">
-              <button
-                type="button"
-                onClick={() => setLanguage('EN')}
-                className={`min-w-[40px] min-h-[38px] px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center ${
-                  language === 'EN'
-                    ? 'bg-[#D4AF37] text-[#050B16] shadow-xs'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-                aria-label="Switch language to English"
-              >
-                EN
-              </button>
-              <button
-                type="button"
-                onClick={() => setLanguage('MM')}
-                className={`min-w-[44px] min-h-[38px] px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center ${
-                  language === 'MM'
-                    ? 'bg-[#D4AF37] text-[#050B16] shadow-xs'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-                aria-label="Switch language to Myanmar"
-              >
-                မြန်မာ
-              </button>
-            </div>
-
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="min-h-[42px] min-w-[42px] flex items-center justify-center p-2 rounded-xl text-slate-300 hover:text-white hover:bg-white/10 focus:outline-hidden"
-              aria-label="Toggle mobile menu"
-            >
-              {mobileMenuOpen ? (
-                <X className="w-6 h-6 text-amber-400" />
-              ) : (
-                <Menu className="w-6 h-6 text-slate-200" />
-              )}
-            </button>
-          </div>
         </div>
-
-        {/* Mobile Navigation Drawer */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-amber-500/20 bg-[#050B16] px-5 pt-3 pb-6 space-y-3">
-            <div className="grid grid-cols-2 gap-2.5 pb-3 border-b border-white/10">
-              <Link
-                href="/polaris"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 p-2.5 rounded-lg bg-cyan-950/40 border border-cyan-500/30 text-xs font-semibold text-cyan-300"
-              >
-                <Code2 className="w-4 h-4 text-cyan-400" />
-                <span>{t.nav.polaris}</span>
-              </Link>
-              <Link
-                href="/trust-one"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 p-2.5 rounded-lg bg-amber-950/40 border border-amber-500/30 text-xs font-semibold text-amber-300"
-              >
-                <Building2 className="w-4 h-4 text-amber-400" />
-                <span>{t.nav.trustOne}</span>
-              </Link>
-            </div>
-
-            <div className="space-y-1">
-              <Link
-                href="/#about"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2 rounded-lg text-sm font-medium text-slate-200 hover:bg-white/5"
-              >
-                {t.nav.about}
-              </Link>
-              <Link
-                href="/polaris"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2 rounded-lg text-sm font-medium text-cyan-400 hover:bg-cyan-950/30"
-              >
-                {t.nav.polaris}
-              </Link>
-              <Link
-                href="/trust-one"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2 rounded-lg text-sm font-medium text-amber-400 hover:bg-amber-950/30"
-              >
-                {t.nav.trustOne}
-              </Link>
-              <Link
-                href="/#values"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2 rounded-lg text-sm font-medium text-slate-200 hover:bg-white/5"
-              >
-                {t.nav.whyUs}
-              </Link>
-              <Link
-                href="/#offices"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2 rounded-lg text-sm font-medium text-slate-200 hover:bg-white/5"
-              >
-                {t.nav.offices}
-              </Link>
-              <Link
-                href="/#contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2 rounded-lg text-sm font-medium text-slate-200 hover:bg-white/5"
-              >
-                {t.nav.contact}
-              </Link>
-            </div>
-
-            <div className="pt-2">
-              <Link
-                href="/#contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#D4AF37] to-[#F3C65F] text-[#050B16]"
-              >
-                <span>{t.nav.inquireNow}</span>
-              </Link>
-            </div>
-
-            {/* Quick Mobile Hotline Tickers */}
-            <div className="pt-3 border-t border-white/10 space-y-1.5 text-xs">
-              <div className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
-                {isMM ? 'တိုက်ရိုက် ဖုန်းခေါ်ဆိုရန်' : 'Direct Call Lines'}
-              </div>
-              <div className="grid grid-cols-1 gap-1.5">
-                <a
-                  href="tel:+9595056524"
-                  className="flex items-center justify-between p-2 rounded-lg bg-white/5 border border-white/10 text-slate-200 hover:text-amber-300"
-                >
-                  <span className="flex items-center gap-2">
-                    <Phone className="w-3.5 h-3.5 text-amber-400" />
-                    <span>Thet &amp; Thu Co., Ltd.</span>
-                  </span>
-                  <span className="font-mono text-amber-400 font-semibold">09 505 6524</span>
-                </a>
-                <a
-                  href="tel:+959780654277"
-                  className="flex items-center justify-between p-2 rounded-lg bg-cyan-950/30 border border-cyan-500/20 text-slate-200 hover:text-cyan-300"
-                >
-                  <span className="flex items-center gap-2">
-                    <Phone className="w-3.5 h-3.5 text-cyan-400" />
-                    <span>Polaris Tech Solution</span>
-                  </span>
-                  <span className="font-mono text-cyan-400 font-semibold">09 780 654 277</span>
-                </a>
-                <a
-                  href="tel:+959795056524"
-                  className="flex items-center justify-between p-2 rounded-lg bg-amber-950/30 border border-amber-500/20 text-slate-200 hover:text-amber-300"
-                >
-                  <span className="flex items-center gap-2">
-                    <Phone className="w-3.5 h-3.5 text-amber-400" />
-                    <span>Trust One Properties</span>
-                  </span>
-                  <span className="font-mono text-amber-400 font-semibold">09 795 056 524</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        )}
-      </nav>
-    </header>
+      )}
+    </>
   );
 }

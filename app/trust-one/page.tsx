@@ -16,12 +16,12 @@ export const metadata: Metadata = {
 export default function TrustOnePage() {
   return (
     <LanguageProvider>
-      <div className="min-h-screen flex flex-col bg-[#071326] text-slate-100">
+      <div className="min-h-screen flex flex-col bg-[#F4FAF7] text-[#1B0D36]">
         <Navbar />
         <SubpageHeader division="trust-one" />
 
         <main className="flex-1">
-          <TrustOneSection />
+          <TrustOneSection isStandalonePage />
           <ContactSection />
         </main>
 

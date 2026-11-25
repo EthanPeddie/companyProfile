@@ -13,74 +13,69 @@ export default function ErrorBoundary({
   reset: () => void;
 }) {
   useEffect(() => {
-    // Log the error to console / error reporting service
     console.error('Next.js Client Runtime Exception caught by ErrorBoundary:', error);
   }, [error]);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-[#050B16] text-slate-100 p-6 text-center">
-      <div className="relative inline-flex rounded-xl overflow-hidden border border-amber-500/35 p-0 shadow-[0_0_20px_rgba(212,175,55,0.2)] mb-6">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-[#F4FAF7] text-[#1B0D36] p-6 text-center">
+      <div className="mb-6">
         <Image
-          src="/images/thet-and-thu-logo.webp"
+          src="/images/thet-and-thu-official-logo.webp"
           alt="THET & THU CO., LTD."
-          width={210}
-          height={140}
-          className="h-16 w-auto block object-cover mx-auto"
+          width={240}
+          height={52}
+          className="h-12 w-auto block object-contain mx-auto rounded-xl"
           unoptimized
         />
       </div>
 
-      <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-red-500/10 text-red-300 border border-red-500/30 mb-4">
-        <AlertTriangle className="w-4 h-4 text-red-400" />
+      <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-rose-50 text-rose-700 border border-rose-200 mb-4">
+        <AlertTriangle className="w-4 h-4 text-rose-600" />
         <span>System Operational Notice / စနစ်ချို့ယွင်းချက် သတိပေးချက်</span>
       </div>
 
-      <h1 className="text-2xl sm:text-3xl font-bold text-white font-heading">
+      <h1 className="text-2xl sm:text-3xl font-bold text-[#1B0D36] font-heading">
         An Unexpected Error Occurred
       </h1>
-      <p className="mt-1.5 text-base sm:text-lg text-amber-300 font-medium">
+      <p className="mt-1.5 text-base sm:text-lg text-[#FFA62B] font-semibold">
         မမျှော်လင့်ထားသော စနစ်ချို့ယွင်းချက် ဖြစ်ပေါ်နေပါသည်
       </p>
 
-      <p className="mt-3 text-sm text-slate-300 max-w-lg mx-auto leading-relaxed">
+      <p className="mt-3 text-sm text-[#44365C] max-w-lg mx-auto leading-relaxed">
         Our technical monitoring has recorded this event. You can attempt to refresh the application state or return to the corporate homepage.
       </p>
-      <p className="mt-1 text-xs text-slate-400 max-w-lg mx-auto leading-relaxed">
+      <p className="mt-1 text-xs text-[#5C4F75] max-w-lg mx-auto leading-relaxed">
         ကျေးဇူးပြု၍ စာမျက်နှာကို ပြန်လည်စတင်ပါ သို့မဟုတ် ကုမ္ပဏီ ပင်မစာမျက်နှာသို့ ပြန်သွားနိုင်ပါသည်။
       </p>
+
+      {error.digest && (
+        <div className="mt-4 px-3 py-1.5 rounded-md bg-white border border-[#DAEFE6] text-xs font-mono text-[#5C4F75]">
+          Incident ID: {error.digest}
+        </div>
+      )}
 
       <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
         <button
           type="button"
           onClick={() => reset()}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-[#D4AF37] text-[#050B16] hover:bg-[#F3C65F] transition-colors shadow-lg shadow-amber-500/20"
+          className="btn-interactive inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold bg-[#FFA62B] text-[#1B0D36] hover:bg-[#E88D17] shadow-lg shadow-[#FFA62B]/20"
         >
           <RefreshCw className="w-4 h-4" />
-          <span>Try Again / ပြန်လည်စတင်ရန်</span>
+          <span>Retry Operation / ပြန်လည်ကြိုးစားရန်</span>
         </button>
 
         <Link
           href="/"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white/10 hover:bg-white/15 text-white transition-colors"
+          className="btn-interactive inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold bg-white text-[#291550] border border-[#DAEFE6] hover:bg-[#DAEFE6]"
         >
           <Home className="w-4 h-4" />
           <span>Return to Homepage / ပင်မစာမျက်နှာ</span>
         </Link>
       </div>
 
-      {/* Emergency Hotline Contact */}
-      <div className="mt-10 pt-6 border-t border-white/10 text-xs text-slate-400 flex flex-wrap items-center justify-center gap-4">
-        <span className="flex items-center gap-1.5 text-slate-300">
-          <Phone className="w-3.5 h-3.5 text-amber-400" />
-          <span>Emergency Hotline:</span>
-        </span>
-        <a href="tel:+9595056524" className="text-amber-300 font-mono font-semibold hover:underline">
-          09 505 6524
-        </a>
-        <span className="text-white/20">/</span>
-        <a href="tel:+959443212306" className="text-amber-300 font-mono font-semibold hover:underline">
-          09 443 212 306
-        </a>
+      <div className="mt-8 pt-6 border-t border-[#DAEFE6] flex items-center justify-center gap-2 text-xs text-[#5C4F75]">
+        <Phone className="w-3.5 h-3.5 text-[#FFA62B]" />
+        <span>Urgent IT Support Desk: +95 9 505 6524</span>
       </div>
     </div>
   );
