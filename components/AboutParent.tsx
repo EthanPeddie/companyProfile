@@ -311,7 +311,7 @@ export default function AboutParent() {
               },
               {
                 src: '/images/csr-flood-relief-1.jpg',
-                pos: 'object-top',
+                pos: 'object-[50%_32%]',
                 caption: isMM
                   ? 'ရေဘေးသင့်ဒေသများသို့ ကယ်ဆယ်ရေးပစ္စည်းများ ပို့ဆောင်ခြင်း'
                   : isZH
