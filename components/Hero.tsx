@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
+import { SpotlightCard } from '@/components/MotionPrimitives';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 
 export default function Hero() {
@@ -12,10 +13,19 @@ export default function Hero() {
 
   return (
     <section className="relative bg-[#F4F7FC] border-b border-[#0A2463]/10 pt-12 pb-16 lg:pt-16 lg:pb-24 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Subtle Ambient Architectural Orbs */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[radial-gradient(circle,rgba(10,36,99,0.08),transparent_70%)] animate-ambient-float"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-28 -left-20 w-80 h-80 rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.12),transparent_70%)] animate-ambient-float-delayed"
+      />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Editorial Holding Statement */}
         <div className="max-w-4xl">
-          <p className="text-xs font-semibold tracking-wide text-[#0A2463] mb-3">
+          <p className="animate-hero-1 text-xs font-semibold tracking-wide text-[#0A2463] mb-3">
             {isMM
               ? 'သက်နှင့်သူ ကုမ္ပဏီလီမိတက် — ရန်ကုန်မြို့ (Est. 2014)'
               : isZH
@@ -24,7 +34,7 @@ export default function Hero() {
           </p>
 
           <h1
-            className={`text-[#001749] [text-wrap:balance] ${
+            className={`animate-hero-2 text-[#001749] [text-wrap:balance] ${
               isMM
                 ? 'text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.35]'
                 : 'text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold font-heading tracking-tight leading-[1.12]'
@@ -38,7 +48,7 @@ export default function Hero() {
           </h1>
 
           <p
-            className={`mt-5 text-[#42526E] max-w-2xl [text-wrap:pretty] ${
+            className={`animate-hero-3 mt-5 text-[#42526E] max-w-2xl [text-wrap:pretty] ${
               isMM ? 'text-sm sm:text-base leading-relaxed' : 'text-base sm:text-lg leading-relaxed'
             }`}
           >
@@ -50,10 +60,10 @@ export default function Hero() {
           </p>
 
           {/* Primary Actions */}
-          <div className="mt-8 flex flex-wrap items-center gap-3.5">
+          <div className="animate-hero-4 mt-8 flex flex-wrap items-center gap-3.5">
             <Link
               href="/#about"
-              className="btn-interactive inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#0A2463] text-white text-xs sm:text-sm font-semibold hover:bg-[#001749] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0A2463]"
+              className="btn-interactive btn-sheen inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#0A2463] text-white text-xs sm:text-sm font-semibold hover:bg-[#001749] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0A2463]"
             >
               <span>
                 {isMM
@@ -77,12 +87,16 @@ export default function Hero() {
         {/* Clean Dual-Division Visual Gateway */}
         <div
           id="divisions-showcase"
-          className="mt-12 lg:mt-16 pt-10 border-t border-[#0A2463]/12 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 scroll-mt-20"
+          className="animate-hero-4 mt-12 lg:mt-16 pt-10 border-t border-[#0A2463]/12 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 scroll-mt-20"
         >
           {/* Division 1: Polaris Tech Solution */}
+          <SpotlightCard
+            glowColor="rgba(10, 36, 99, 0.09)"
+            className="card-interactive rounded-2xl bg-white border border-[#0A2463]/12 transition-all duration-300 hover:border-[#0A2463]/50 hover:shadow-[0_18px_40px_-12px_rgba(10,36,99,0.18)]"
+          >
           <Link
             href="/polaris"
-            className="group relative rounded-2xl bg-white border border-[#0A2463]/12 overflow-hidden flex flex-col justify-between transition-all duration-200 hover:border-[#0A2463]/50 hover:shadow-[0_12px_32px_-8px_rgba(10,36,99,0.12)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0A2463]"
+            className="group relative flex flex-col justify-between h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0A2463]"
           >
             <div className="relative h-56 sm:h-64 w-full bg-[#EDF2FA] bg-shimmer overflow-hidden">
               <Image
@@ -133,19 +147,24 @@ export default function Hero() {
               </div>
             </div>
           </Link>
+          </SpotlightCard>
 
           {/* Division 2: Trust One Properties */}
+          <SpotlightCard
+            glowColor="rgba(212, 175, 55, 0.14)"
+            className="card-interactive rounded-2xl bg-white border border-[#0A2463]/12 transition-all duration-300 hover:border-[#D4AF37] hover:shadow-[0_18px_40px_-12px_rgba(212,175,55,0.22)]"
+          >
           <Link
             href="/trust-one"
-            className="group relative rounded-2xl bg-white border border-[#0A2463]/12 overflow-hidden flex flex-col justify-between transition-all duration-200 hover:border-[#D4AF37] hover:shadow-[0_12px_32px_-8px_rgba(10,36,99,0.12)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]"
+            className="group relative flex flex-col justify-between h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]"
           >
-            <div className="relative h-56 sm:h-64 w-full bg-[#FFF8EB] overflow-hidden">
+            <div className="relative h-56 sm:h-64 w-full bg-[#001749] overflow-hidden">
               <Image
-                src="/images/corporate-activity.jpg"
+                src="/images/trust-one-stage.jpg"
                 alt="Trust One Properties — Domestic Myanmar Real Estate"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+                className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
                 priority
                 unoptimized
               />
@@ -188,6 +207,7 @@ export default function Hero() {
               </div>
             </div>
           </Link>
+          </SpotlightCard>
         </div>
       </div>
     </section>

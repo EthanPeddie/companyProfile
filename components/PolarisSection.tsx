@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
+import { ScrollReveal } from '@/components/MotionPrimitives';
 import { Check, ArrowRight } from 'lucide-react';
 
 export default function PolarisSection({
@@ -152,8 +153,9 @@ export default function PolarisSection({
 
             {/* Right 7 cols: Active Service Preview & Deliverables */}
             <div
+              key={activeServiceIdx}
               role="tabpanel"
-              className="lg:col-span-7 rounded-2xl bg-white border border-[#0A2463]/15 overflow-hidden shadow-xs"
+              className="lg:col-span-7 rounded-2xl bg-white border border-[#0A2463]/15 overflow-hidden shadow-xs animate-panel-enter"
             >
               <div className="relative h-60 sm:h-72 w-full bg-[#EDF2FA] bg-shimmer border-b border-[#0A2463]/10">
                 <Image
@@ -203,8 +205,8 @@ export default function PolarisSection({
         </div>
 
         {/* Technical Advisory & Lead Consultant */}
-        <div className="mt-20 pt-14 border-t border-[#0A2463]/12">
-          <div className="rounded-2xl bg-white border border-[#0A2463]/12 p-6 sm:p-8 flex flex-col md:flex-row items-center md:items-start gap-6 sm:gap-8 shadow-xs">
+        <ScrollReveal className="mt-20 pt-14 border-t border-[#0A2463]/12">
+          <div className="card-interactive rounded-2xl bg-white border border-[#0A2463]/12 p-6 sm:p-8 flex flex-col md:flex-row items-center md:items-start gap-6 sm:gap-8 shadow-xs">
             <div className="relative w-32 h-40 sm:w-40 sm:h-48 rounded-xl overflow-hidden bg-[#E6ECF7] bg-shimmer border border-[#0A2463]/15 flex-shrink-0">
               <Image
                 src="/images/polaris-consultant.jpg"
@@ -250,7 +252,7 @@ export default function PolarisSection({
                     e.preventDefault();
                     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="btn-interactive inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-[#0A2463] text-white hover:bg-[#001749]"
+                  className="btn-interactive btn-sheen inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-[#0A2463] text-white hover:bg-[#001749]"
                 >
                   <span>
                     {isMM
@@ -264,7 +266,7 @@ export default function PolarisSection({
               </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Industries & Delivery Process */}
         <div className="mt-20 pt-14 border-t border-[#0A2463]/12 grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -291,20 +293,23 @@ export default function PolarisSection({
             <h3 className="text-lg sm:text-xl font-bold text-[#001749]">{t.polaris.processTitle}</h3>
             <p className="mt-1.5 text-xs sm:text-sm text-[#42526E]">{t.polaris.processSubtitle}</p>
 
-            <div className="mt-6 divide-y divide-[#0A2463]/10 border-t border-[#0A2463]/10">
+            <div className="mt-6 relative pl-6 border-l-2 border-[#0A2463]/15 space-y-5">
               {[
                 { num: '01', title: t.polaris.step1Title, desc: t.polaris.step1Desc },
                 { num: '02', title: t.polaris.step2Title, desc: t.polaris.step2Desc },
                 { num: '03', title: t.polaris.step3Title, desc: t.polaris.step3Desc },
                 { num: '04', title: t.polaris.step4Title, desc: t.polaris.step4Desc },
-              ].map((step) => (
-                <div key={step.num} className="py-4 flex items-start gap-4">
-                  <span className="text-xs font-mono font-bold text-[#0A2463] pt-0.5">{step.num}</span>
-                  <div>
-                    <div className="text-sm font-bold text-[#001749]">{step.title}</div>
-                    <p className="mt-1 text-xs text-[#42526E] leading-relaxed">{step.desc}</p>
+              ].map((step, idx) => (
+                <ScrollReveal key={step.num} delayMs={idx * 90} className="relative">
+                  <span className="absolute -left-[31px] top-1 w-3.5 h-3.5 rounded-full bg-white border-2 border-[#0A2463] shadow-xs" />
+                  <div className="flex items-start gap-3">
+                    <span className="text-xs font-mono font-bold text-[#9A6B12] pt-0.5">{step.num}</span>
+                    <div>
+                      <div className="text-sm font-bold text-[#001749]">{step.title}</div>
+                      <p className="mt-1 text-xs text-[#42526E] leading-relaxed">{step.desc}</p>
+                    </div>
                   </div>
-                </div>
+                </ScrollReveal>
               ))}
             </div>
           </div>

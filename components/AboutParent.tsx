@@ -4,10 +4,12 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
+import { ScrollReveal, CountUp } from '@/components/MotionPrimitives';
 import { ArrowUpRight, Check } from 'lucide-react';
 
 export default function AboutParent() {
-  const { isMM, t } = useLanguage();
+  const { language, isMM, t } = useLanguage();
+  const isZH = language === 'ZH';
 
   return (
     <section id="about" className="relative py-20 lg:py-28 bg-white border-b border-[#0A2463]/10 scroll-mt-16">
@@ -34,6 +36,34 @@ export default function AboutParent() {
             {t.about.subtitle}
           </p>
         </div>
+
+        {/* Animated Key Metrics Strip */}
+        <ScrollReveal className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 p-5 sm:p-6 rounded-2xl bg-[#F4F7FC] border border-[#0A2463]/10">
+          <div className="border-l-2 border-[#D4AF37] pl-4">
+            <div className="text-2xl sm:text-3xl font-extrabold text-[#001749] font-heading tabular-nums">
+              <CountUp end={10} suffix="+" />
+            </div>
+            <div className="text-xs text-[#42526E] mt-1">{t.hero.statYearsLabel}</div>
+          </div>
+          <div className="border-l-2 border-[#0A2463] pl-4">
+            <div className="text-2xl sm:text-3xl font-extrabold text-[#001749] font-heading tabular-nums">
+              <CountUp end={2} />
+            </div>
+            <div className="text-xs text-[#42526E] mt-1">{t.hero.statDivisionsLabel}</div>
+          </div>
+          <div className="border-l-2 border-[#D4AF37] pl-4">
+            <div className="text-2xl sm:text-3xl font-extrabold text-[#001749] font-heading tabular-nums">
+              <CountUp end={100} suffix="%" />
+            </div>
+            <div className="text-xs text-[#42526E] mt-1">{t.hero.statReliabilityLabel}</div>
+          </div>
+          <div className="border-l-2 border-[#0A2463] pl-4">
+            <div className="text-2xl sm:text-3xl font-extrabold text-[#001749] font-heading tabular-nums">
+              <CountUp end={100} suffix="%" />
+            </div>
+            <div className="text-xs text-[#42526E] mt-1">{t.hero.statComplianceLabel}</div>
+          </div>
+        </ScrollReveal>
 
         {/* Narrative & Holding Structure */}
         <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
@@ -138,7 +168,8 @@ export default function AboutParent() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="flex flex-col sm:flex-row gap-6 p-6 rounded-2xl bg-[#F4F7FC] border border-[#0A2463]/10">
+            <ScrollReveal delayMs={0}>
+              <div className="card-interactive flex flex-col sm:flex-row gap-6 p-6 rounded-2xl bg-[#F4F7FC] border border-[#0A2463]/10 h-full">
               <div className="relative w-28 h-28 sm:w-32 sm:h-36 rounded-xl overflow-hidden bg-[#E6ECF7] flex-shrink-0">
                 <Image
                   src="/images/leadership-ceo.jpg"
@@ -155,9 +186,11 @@ export default function AboutParent() {
                 <div className="text-xs font-medium text-[#52607A] mt-0.5">{t.about.ceoCompany}</div>
                 <p className="mt-3 text-xs sm:text-sm text-[#42526E] leading-relaxed">{t.about.ceoDesc}</p>
               </div>
-            </div>
+              </div>
+            </ScrollReveal>
 
-            <div className="flex flex-col sm:flex-row gap-6 p-6 rounded-2xl bg-[#F4F7FC] border border-[#0A2463]/10">
+            <ScrollReveal delayMs={100}>
+              <div className="card-interactive flex flex-col sm:flex-row gap-6 p-6 rounded-2xl bg-[#F4F7FC] border border-[#0A2463]/10 h-full">
               <div className="relative w-28 h-28 sm:w-32 sm:h-36 rounded-xl overflow-hidden bg-[#E6ECF7] flex-shrink-0">
                 <Image
                   src="/images/leadership-director.jpg"
@@ -174,7 +207,8 @@ export default function AboutParent() {
                 <div className="text-xs font-medium text-[#52607A] mt-0.5">{t.about.directorCompany}</div>
                 <p className="mt-3 text-xs sm:text-sm text-[#42526E] leading-relaxed">{t.about.directorDesc}</p>
               </div>
-            </div>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
 
@@ -233,10 +267,84 @@ export default function AboutParent() {
               { title: t.about.pillar3Title, desc: t.about.pillar3Desc },
               { title: t.about.pillar4Title, desc: t.about.pillar4Desc },
             ].map((pillar, idx) => (
-              <div key={idx} className="border-t-2 border-[#0A2463]/20 pt-5">
+              <ScrollReveal key={idx} delayMs={idx * 80} className="border-t-2 border-[#0A2463]/20 pt-5 hover:border-[#D4AF37] transition-colors duration-300">
                 <h4 className="text-base font-bold text-[#001749]">{pillar.title}</h4>
                 <p className="mt-2 text-xs sm:text-sm text-[#42526E] leading-relaxed">{pillar.desc}</p>
-              </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+
+        {/* Community Impact & Corporate Social Responsibility (CSR) */}
+        <div className="mt-20 pt-16 border-t border-[#0A2463]/10">
+          <div className="max-w-2xl mb-10">
+            <p className="text-xs font-semibold text-[#9A6B12] mb-2">
+              {isMM
+                ? 'လူမှုအကျိုးပြု လုပ်ငန်းများ (CSR)'
+                : isZH
+                ? '企业社会责任 (CSR)'
+                : 'COMMUNITY IMPACT & CSR'}
+            </p>
+            <h3
+              className={`text-[#001749] ${
+                isMM ? 'text-xl sm:text-2xl font-bold' : 'text-2xl sm:text-3xl font-bold font-heading'
+              }`}
+            >
+              {isMM
+                ? 'လူမှုအသိုင်းအဝိုင်းနှင့် အရေးပေါ်ကယ်ဆယ်ရေး ပံ့ပိုးကူညီမှုများ'
+                : isZH
+                ? '公益关怀与社区紧急救援行动'
+                : 'Giving Back to Communities Across Myanmar'}
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                src: '/images/csr-community.jpg',
+                pos: 'object-top',
+                caption: isMM
+                  ? 'လူငယ်နှင့် ကလေးသူငယ်များအား ပံ့ပိုးကူညီခြင်း'
+                  : isZH
+                  ? '关爱青少年与社区公益慰问'
+                  : 'Youth & Community Support Outreach',
+              },
+              {
+                src: '/images/csr-flood-relief-1.jpg',
+                pos: 'object-top',
+                caption: isMM
+                  ? 'ရေဘေးသင့်ဒေသများသို့ ကယ်ဆယ်ရေးပစ္စည်းများ ပို့ဆောင်ခြင်း'
+                  : isZH
+                  ? '深入洪灾一线运送救援物资'
+                  : 'Emergency Flood Relief Supply Mobilization',
+              },
+              {
+                src: '/images/csr-flood-relief-2.jpg',
+                pos: 'object-center',
+                caption: isMM
+                  ? 'ဒေသခံပြည်သူများထံ စားနပ်ရိက္ခာများ တိုက်ရိုက်ဝေငှခြင်း'
+                  : isZH
+                  ? '向受灾民众直接发放生活物资'
+                  : 'Direct Food & Essential Aid Distribution',
+              },
+            ].map((item, idx) => (
+              <ScrollReveal key={idx} delayMs={idx * 90}>
+                <div className="card-interactive rounded-2xl bg-[#F4F7FC] border border-[#0A2463]/10 overflow-hidden h-full flex flex-col">
+                  <div className="relative h-56 w-full bg-[#E6ECF7] bg-shimmer overflow-hidden">
+                    <Image
+                      src={item.src}
+                      alt={item.caption}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className={`object-cover ${item.pos} transition-transform duration-500 hover:scale-[1.03]`}
+                      unoptimized
+                    />
+                  </div>
+                  <div className="p-4 text-xs sm:text-sm font-semibold text-[#001749]">
+                    {item.caption}
+                  </div>
+                </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>

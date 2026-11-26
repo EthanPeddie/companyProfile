@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
+import { ScrollReveal } from '@/components/MotionPrimitives';
 import { Check, Lock, ArrowRight } from 'lucide-react';
 
 export default function TrustOneSection({
@@ -10,7 +11,8 @@ export default function TrustOneSection({
 }: {
   isStandalonePage?: boolean;
 }) {
-  const { isMM, t } = useLanguage();
+  const { language, isMM, t } = useLanguage();
+  const isZH = language === 'ZH';
   const HeadingTag = isStandalonePage ? 'h1' : 'h2';
 
   const portfolios = [
@@ -119,10 +121,8 @@ export default function TrustOneSection({
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {portfolios.map((cat, idx) => (
-              <div
-                key={idx}
-                className="rounded-2xl bg-[#F4F7FC] border border-[#0A2463]/10 p-6 sm:p-8 flex flex-col justify-between transition-colors duration-200 hover:border-[#D4AF37]"
-              >
+              <ScrollReveal key={idx} delayMs={idx * 80}>
+                <div className="card-interactive h-full rounded-2xl bg-[#F4F7FC] border border-[#0A2463]/10 p-6 sm:p-8 flex flex-col justify-between transition-colors duration-200 hover:border-[#D4AF37]">
                 <div>
                   <h4
                     className={`text-[#001749] ${
@@ -144,7 +144,8 @@ export default function TrustOneSection({
                     </li>
                   ))}
                 </ul>
-              </div>
+                </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -164,10 +165,84 @@ export default function TrustOneSection({
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {advisories.map((adv, idx) => (
-              <div key={idx} className="border-t-2 border-[#0A2463]/20 pt-5">
+              <ScrollReveal key={idx} delayMs={idx * 80} className="border-t-2 border-[#0A2463]/20 pt-5 hover:border-[#D4AF37] transition-colors duration-300">
                 <h4 className="text-base font-bold text-[#001749]">{adv.title}</h4>
                 <p className="mt-2 text-xs sm:text-sm text-[#42526E] leading-relaxed">{adv.desc}</p>
-              </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+
+        {/* Public Seminars & Client Advisory Showcase */}
+        <div className="mt-20 pt-14 border-t border-[#0A2463]/10">
+          <div className="max-w-2xl mb-10">
+            <p className="text-xs font-semibold text-[#9A6B12] mb-2">
+              {isMM
+                ? 'အသိပညာပေး ဟောပြောပွဲများနှင့် ဖောက်သည်ဝန်ဆောင်မှု'
+                : isZH
+                ? '行业讲座与客户咨询实景'
+                : 'PUBLIC SEMINARS & CLIENT ADVISORY'}
+            </p>
+            <h3
+              className={`text-[#001749] ${
+                isMM ? 'text-xl sm:text-2xl font-bold' : 'text-2xl sm:text-3xl font-bold font-heading'
+              }`}
+            >
+              {isMM
+                ? 'အိမ်ခြံမြေ အသိပညာပေး ဟောပြောပွဲများနှင့် တွေ့ဆုံဆွေးနွေးမှုများ'
+                : isZH
+                ? '房地产知识讲座与专业客户交流'
+                : 'Knowledge Sharing & Client Engagement'}
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                src: '/images/trust-one-stage.jpg',
+                pos: 'object-top',
+                title: isMM
+                  ? 'Trust One Properties တရားဝင် မိတ်ဆက်ပွဲ'
+                  : isZH
+                  ? 'Trust One Properties 官方推介会'
+                  : 'Trust One Properties Official Showcase',
+              },
+              {
+                src: '/images/trust-one-seminar-hall.jpg',
+                pos: 'object-center',
+                title: isMM
+                  ? 'ဖောက်သည်များနှင့် လုပ်ငန်းရှင်များ တွေ့ဆုံဆွေးနွေးပွဲ'
+                  : isZH
+                  ? '企业客户与投资者专题交流会'
+                  : 'Corporate & Investor Property Briefing',
+              },
+              {
+                src: '/images/trust-one-seminar-talk.jpg',
+                pos: 'object-top',
+                title: isMM
+                  ? 'အိမ်၊ ခြံ၊ မြေနှင့် အာမခံဆိုင်ရာ ဗဟုသုတ ဟောပြောပွဲ'
+                  : isZH
+                  ? '房地产与保险合规知识专题讲座'
+                  : 'Real Estate & Compliance Knowledge Seminar',
+              },
+            ].map((item, idx) => (
+              <ScrollReveal key={idx} delayMs={idx * 90}>
+                <div className="card-interactive rounded-2xl bg-[#F4F7FC] border border-[#0A2463]/10 overflow-hidden h-full flex flex-col">
+                  <div className="relative h-52 w-full bg-[#E6ECF7] bg-shimmer overflow-hidden">
+                    <Image
+                      src={item.src}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className={`object-cover ${item.pos} transition-transform duration-500 hover:scale-[1.03]`}
+                      unoptimized
+                    />
+                  </div>
+                  <div className="p-4 text-xs sm:text-sm font-semibold text-[#001749]">
+                    {item.title}
+                  </div>
+                </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>

@@ -395,7 +395,7 @@ export default function ContactSection({
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="btn-interactive w-full py-3 px-5 rounded-lg bg-[#0A2463] hover:bg-[#001749] text-white text-sm font-semibold flex items-center justify-center gap-2 disabled:opacity-60"
+                  className="btn-interactive btn-sheen w-full py-3 px-5 rounded-lg bg-[#0A2463] hover:bg-[#001749] text-white text-sm font-semibold flex items-center justify-center gap-2 disabled:opacity-60"
                 >
                   {isSubmitting ? (
                     <Loader2 className="w-4 h-4 animate-spin" />

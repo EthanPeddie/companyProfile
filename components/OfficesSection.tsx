@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
+import { ScrollReveal } from '@/components/MotionPrimitives';
 import { MapPin, Copy, Check, ExternalLink, Phone } from 'lucide-react';
 
 export default function OfficesSection() {
@@ -47,7 +48,8 @@ export default function OfficesSection() {
         {/* Dual Corporate Offices */}
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
           {/* Card 1: Head Office (Yangon City) */}
-          <div className="rounded-2xl bg-white border border-[#0A2463]/10 p-6 sm:p-8 flex flex-col justify-between">
+          <ScrollReveal delayMs={0}>
+            <div className="card-interactive h-full rounded-2xl bg-white border border-[#0A2463]/10 p-6 sm:p-8 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between gap-3 mb-4">
                 <span className="text-xs font-semibold text-[#4A2B88]">
@@ -137,9 +139,11 @@ export default function OfficesSection() {
               </a>
             </div>
           </div>
+          </ScrollReveal>
 
           {/* Card 2: Branch Office (Star City, Thanlyin) */}
-          <div className="rounded-2xl bg-white border border-[#0A2463]/10 p-6 sm:p-8 flex flex-col justify-between">
+          <ScrollReveal delayMs={100}>
+            <div className="card-interactive h-full rounded-2xl bg-white border border-[#0A2463]/10 p-6 sm:p-8 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between gap-3 mb-4">
                 <span className="text-xs font-semibold text-[#9A540E]">
@@ -237,6 +241,7 @@ export default function OfficesSection() {
               </a>
             </div>
           </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
