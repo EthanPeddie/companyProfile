@@ -114,9 +114,28 @@ export default function ContactSection({
           setSubmitted(false);
         }
       } else {
-        await new Promise((resolve) => setTimeout(resolve, 800));
-        setSubmitted(true);
-        setCooldown(60);
+        const res = await fetch('/contact.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const data = await res.json();
+        if (res.ok && data.success) {
+          setSubmitted(true);
+          setCooldown(60);
+        } else {
+          setErrorMessage(
+            data.message ||
+              (isMM
+                ? 'မက်ဆေ့ခ်ျ ပေးပို့မှု မအောင်မြင်ပါ။ ကျေးဇူးပြု၍ ခေတ္တစောင့်ပြီး ထပ်မံကြိုးစားပါ သို့မဟုတ် ဖုန်းဖြင့် တိုက်ရိုက်ဆက်သွယ်ပါ။'
+                : 'Inquiry submission failed. Please try again or contact our hotline directly.')
+          );
+          setSubmitted(false);
+        }
       }
     } catch {
       setErrorMessage(
