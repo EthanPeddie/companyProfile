@@ -69,8 +69,12 @@ export const metadata: Metadata = {
     images: ['/images/thet-and-thu-logo.png'],
   },
   icons: {
-    icon: '/favicon.ico',
-    apple: '/images/thet-and-thu-logo.png',
+    icon: [
+      { url: '/images/logo-thet-thu.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: 'any' },
+    ],
+    shortcut: '/images/logo-thet-thu.svg',
+    apple: '/images/logo-thet-thu.svg',
   },
 };
 
